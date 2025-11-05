@@ -1,10 +1,24 @@
-from flask import Flask, jsonify
-from backend.routes._statics import NOTES_SHARP, NOTES_FLAT
-from backend.routes.scales import Major_Scale, Natural_Minor
-from backend.routes.chords import major_chord, minor_chord
+from flask import Flask, render_template
+
 
 app = Flask(__name__)
 
-@app.route("/api/users", methods=['GET'])
-def home():
-    pass
+@app.route('/')
+def home_page():
+    return render_template('index.html')
+
+@app.route('/theory')
+def theory():
+    return render_template('theory.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/generate')
+def generate():
+    return render_template('generate.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
