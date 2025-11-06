@@ -1,30 +1,21 @@
-import './App.css'
+import Theory from './pages/TheoryPage'; 
+import About from './pages/AboutPage';
+import Generate from './pages/GeneratePage'; 
+import { Routes, Route } from 'react-router-dom'; 
+import Header from './components/Header'
 
-function App() {
+
+
+function App (){ 
   return (
-    <>
-    <header className="header">
-      <div className="header-left">
-        <img src="/logo.png" alt="Logo" className="header-logo"/>
-        <h3>Music Map</h3>
+      <div className="Header">
+        <Header />
+        <Routes>
+          <Route path="/theory" element={<Theory />} /> 
+          <Route path="/about" element={<About />} />
+          <Route path="/generate" element={<Generate />} />
+        </Routes>
       </div>
-      <div className="header-right">
-        <button className="btn" onClick={() => window.location.href = '/theory'}>
-          Theory
-        </button>
-        <button className="btn" onClick={() => window.location.href = '/about'}>
-          About
-        </button>
-        <button className = "btn" onClick={() => window.location.href = '/generate'}>
-          Generate
-        </button>
-      </div>
-    </header>
-    <div className="main-container">
-      <main>
-      </main>
-    </div>
-    </>
   )
 }
 

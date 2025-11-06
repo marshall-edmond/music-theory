@@ -1,5 +1,4 @@
-from backend.routes.scales import Major_Scale, Minor_Scale
-
+from backend.routes.scales import Major_Scale, Natural_Minor
 
 #major consists of root, 3rd and fifth of the roots major sca;e
 def major_chord(root: str)-> list:
@@ -9,9 +8,16 @@ def major_chord(root: str)-> list:
     return major
 
 def minor_chord(root:str) -> list:
-    s = Minor_Scale(root)
+    s = Natural_Minor(root)
     minor = s[:5:2]
     return minor
 
-def Seventh_Chord(root: str) -> list:
-    pass 
+def Major_Seventh_Chord(root: str) -> list:
+    '''generate a major 7th chord based on the root'''
+    pass
+
+def Minor_Seventh_Chord(root:str) -> list:
+    '''generate a minor 7th chord based on the root'''
+    pass
+
+    
