@@ -19,7 +19,11 @@ function App (){
           <Route path="/generate" element={<Generate />} />
         </Routes>
       </div>
-      <Home />
+      <div>
+        <main>
+        <Home />
+        </main>
+      </div>
     </>
       
   )

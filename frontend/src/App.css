@@ -1,4 +1,4 @@
-body {
+.body {
   margin: 0;
   padding:0;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -54,23 +54,10 @@ body {
   left:10px;
 }
 
-h3 {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  left:100px;
-}
-
-.title{
-  font-size:28;
-}
-
-
-.h1 {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  align-items: center;
-}
 
 .btn {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   Color: white;
-  
+  font-weight:300
 }
+
