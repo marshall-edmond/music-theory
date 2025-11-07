@@ -1,12 +1,11 @@
-
+import '/styles/HomePage.css'
 
 function Home(){
     return (
-        <div className="header">
-            <h1>Home</h1>
+        <div className="title">
+            <title>Music Through Artistry</title>
         </div>
     )
 }
-
 
 export default Home;

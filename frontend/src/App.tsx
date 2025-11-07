@@ -1,14 +1,16 @@
+import { Routes, Route } from 'react-router-dom'; 
 import Theory from './pages/TheoryPage'; 
 import About from './pages/AboutPage';
 import Generate from './pages/GeneratePage'; 
-import { Routes, Route } from 'react-router-dom'; 
 import Header from './components/Header'
-import './App.css'
+import './App.css';
+import Home from './pages/HomePage';
 
 
 
 function App (){ 
   return (
+    <>
       <div className="Header">
         <Header />
         <Routes>
@@ -17,6 +19,9 @@ function App (){
           <Route path="/generate" element={<Generate />} />
         </Routes>
       </div>
+      <Home />
+    </>
+      
   )
 }
 
