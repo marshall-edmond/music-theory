@@ -3,6 +3,7 @@ import About from './pages/AboutPage';
 import Generate from './pages/GeneratePage'; 
 import { Routes, Route } from 'react-router-dom'; 
 import Header from './components/Header'
+import './App.css'
 
 
 
