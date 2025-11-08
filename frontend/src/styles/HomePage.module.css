@@ -1,16 +1,11 @@
 
 h1 {
-    font-size: 28;
-    color: grey;
-    display:absolute;
-    align-self:center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    
+    text-align:center;
+    font-size:28px
 }
 
 p {
-    font-size:18;
-    color: black;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+    text-align:center;
+    font-size:18px;
+    color:black;
 }
