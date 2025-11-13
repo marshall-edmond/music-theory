@@ -1,3 +1,11 @@
+.backgroundImage {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:600px;
+    width:100%;
+}
+
 
 h1 {
     text-align:center;
@@ -34,4 +42,8 @@ h2 {
     margin-top:100px;
     font-weight: 100;
 
+}
+
+.container {
+    display: flex;
 }
