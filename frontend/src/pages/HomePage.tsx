@@ -11,6 +11,9 @@ function Home(){
                     <h1> Music Through Artistry</h1>
                 </div>
             </div>
+            <div className= {styles.p}>
+                <p>Learning music theory doesn't have to feel like memorizing rules. Try out our Theory Roadmap which will teach you musical concepts through some of your favorite songs.</p>
+            </div> 
         </div>
         </>
     )
