@@ -1,15 +1,14 @@
 .backgroundImage {
-    display:flex;
-    justify-content:center;
-    align-items:center;
     height:600px;
     width:100%;
+    object-fit:cover;
 }
 
 
 h1 {
     text-align:center;
     font-size:56px;
+    color:white;
     color:white;
     font-family: 'Proxima Nova';
     font-style: oblique;
