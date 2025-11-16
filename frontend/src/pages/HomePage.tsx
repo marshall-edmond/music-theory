@@ -1,31 +1,35 @@
 import styles from '../styles/HomePage.module.css'
 import never from '../assets/never.jpg'
 import { Link } from 'react-router-dom'
+import musicsheet from '../assets/musicsheet.jpg'
 
 
 function Home(){
     return (
         <>
-        <div className= {styles.container}>
-            <img src={never} alt="never enough" className={styles.backgroundImage}/>
-            <div className= {styles.hero}>
-                <div className= {styles.h1}>
-                    <h1> Music Through Artistry</h1>
+            <div className= {styles.container}>
+                <img src={never} alt="never enough" className={styles.backgroundImage}/>
+                <div className= {styles.hero}>
+                    <div className= {styles.h1}>
+                        <h1> Music Through Artistry</h1>
+                    </div>
+                </div>
+                <div className= {styles.p}>
+                    <p>Learning music theory doesn't have to feel like memorizing rules</p>
+                </div>
+                <div className = {styles.p2}>
+                    <p>Try out our Theory Roadmap which will teach you musical concepts through some of your favorite songs</p>
+                </div>
+                <div className="btn">
+                    <Link className={styles.btn} to="/theoryt">Try Now</Link>
+                </div>
+                <div className="btn2">
+                    <Link className={styles.btn2} to="/about">About</Link>
                 </div>
             </div>
-            <div className= {styles.p}>
-                <p>Learning music theory doesn't have to feel like memorizing rules</p>
+            <div className={styles.maincontainer}>
+                <img src={musicsheet} alt="music sheet" className={styles.musicsheet}/>
             </div>
-            <div className = {styles.p2}>
-                <p>Try out our Theory Roadmap which will teach you musical concepts through some of your favorite songs</p>
-            </div>
-            <div className="btn">
-                <Link className={styles.btn} to="/theoryt">Try Now</Link>
-            </div>
-            <div className="btn2">
-                <Link className={styles.btn2} to="/about">About</Link>
-            </div>
-        </div>
         </>
     )
 }   

@@ -101,3 +101,14 @@ h2 {
     border-radius:5px;
 
 }
+
+.maincontainer {
+    position:relative;
+}
+
+
+.musicsheet {
+    height: 400px;
+    width: 40%;
+    padding-top:50px;
+}
