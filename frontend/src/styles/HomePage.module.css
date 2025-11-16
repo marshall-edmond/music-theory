@@ -30,7 +30,7 @@ p {
     font-style:oblique;
 }
 
-.p2{
+.p2 {
     font-size:30px;
     color:white;
     font-family:'Proxima Nova';
@@ -111,4 +111,23 @@ h2 {
     height: 400px;
     width: 40%;
     padding-top:50px;
+}
+
+
+.maintext{
+    color: black;
+    font-size: 56px;
+    font-family: 'Proxima Nova';
+    position: Absolute;
+    top: 20%;
+    right: 20%; 
+}
+
+.subheading {
+    font-size: 30px;
+    position: absolute;
+    bottom: 20%;
+    color:black;
+    white-space: nowrap;
+
 }

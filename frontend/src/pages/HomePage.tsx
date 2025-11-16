@@ -21,7 +21,7 @@ function Home(){
                     <p>Try out our Theory Roadmap which will teach you musical concepts through some of your favorite songs</p>
                 </div>
                 <div className="btn">
-                    <Link className={styles.btn} to="/theoryt">Try Now</Link>
+                    <Link className={styles.btn} to="/theory">Try Now</Link>
                 </div>
                 <div className="btn2">
                     <Link className={styles.btn2} to="/about">About</Link>
@@ -29,6 +29,12 @@ function Home(){
             </div>
             <div className={styles.maincontainer}>
                 <img src={musicsheet} alt="music sheet" className={styles.musicsheet}/>
+                <div className= {styles.maintext}>
+                    <h1 className= {styles.maintext}> Generate Chords</h1>
+                </div>
+                <div className= {styles.subheading}>
+                    <p className={styles.subheading}> Beginner Musician? Find an artist and generate similarly styled chord progresions</p>
+                </div>
             </div>
         </>
     )
