@@ -1,5 +1,7 @@
 import styles from '../styles/HomePage.module.css'
 import never from '../assets/never.jpg'
+import { Link } from 'react-router-dom'
+
 
 function Home(){
     return (
@@ -12,8 +14,17 @@ function Home(){
                 </div>
             </div>
             <div className= {styles.p}>
-                <p>Learning music theory doesn't have to feel like memorizing rules. Try out our Theory Roadmap which will teach you musical concepts through some of your favorite songs.</p>
-            </div> 
+                <p>Learning music theory doesn't have to feel like memorizing rules</p>
+            </div>
+            <div className = {styles.p2}>
+                <p>Try out our Theory Roadmap which will teach you musical concepts through some of your favorite songs</p>
+            </div>
+            <div className="btn">
+                <Link className={styles.btn} to="/theoryt">Try Now</Link>
+            </div>
+            <div className="btn2">
+                <Link className={styles.btn2} to="/about">About</Link>
+            </div>
         </div>
         </>
     )

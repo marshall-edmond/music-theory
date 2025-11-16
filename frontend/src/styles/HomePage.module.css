@@ -1,5 +1,5 @@
 .backgroundImage {
-    height:600px;
+    height:500px;
     width:100%;
     object-fit:cover;
 }
@@ -12,17 +12,35 @@ h1 {
     font-family: 'Proxima Nova';
     font-style: oblique;
     font-weight:100;
-    margin-top: 100px;
+
+
 }
 
 
 
 p {
-    font-size:45px;
-    color:black;
+    font-size:30px;
+    color:white;
     font-family:'Proxima Nova';
+    text-align:center; 
+    z-index:10;
+    position:absolute;
+    top: 30%;
+    left: 2%;
+    font-style:oblique;
+}
+
+.p2{
+    font-size:30px;
+    color:white;
+    font-family:'Proxima Nova';
+    position:absolute;
+    top:40%;
     text-align:center;
-    
+    white-space: nowrap;
+    left:2%;
+
+
 }
 
 .highlight {
@@ -44,11 +62,42 @@ h2 {
 
 .hero {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 10%;
+    left: 20%;
     transform: translate(-50%, -50%)
 }
 
 .container { 
     position:relative;
+}
+
+
+.btn {
+    border: none;
+    background-color: #4873f4;
+    color: white;
+    position:absolute;
+    bottom: 20%;
+    left: 2%;
+    padding: 10px 32px;
+    font-size:28px;
+    border-radius: 5px;
+    box-shadow: #000000;
+    font-family: 'Proxima Nova';
+
+
+}
+
+
+.btn2 {
+    border:none;
+    background-color: white;
+    padding: 5px 30px;
+    position:absolute;
+    bottom: 20%;
+    left: 15%;
+    color: rgb(4, 4, 59);
+    font-family: 'Proxima Nova';
+    border-radius:5px;
+
 }
