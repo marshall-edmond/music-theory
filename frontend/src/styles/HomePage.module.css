@@ -104,6 +104,7 @@ h2 {
 
 .maincontainer {
     position:relative;
+    background: linear-gradient( to bottom, #04043B, #4873f4)
 }
 
 
@@ -115,19 +116,25 @@ h2 {
 
 
 .maintext{
-    color: black;
+    color: white;
     font-size: 56px;
     font-family: 'Proxima Nova';
-    position: Absolute;
+    position: absolute;
     top: 20%;
     right: 20%; 
+    font-style:oblique;
+    font-weight:100;
 }
 
 .subheading {
-    font-size: 30px;
+    font-size: 26px;
     position: absolute;
-    bottom: 20%;
-    color:black;
-    white-space: nowrap;
+    bottom: 40%;
+    color:white;
+    white-space:nowrap;
+    right: 59%;
+    font-style:oblique;
+    text-align:center;
+
 
 }
