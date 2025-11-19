@@ -1,12 +1,13 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import styles from '../styles/HomePage.module.css';
 
 function Header() {
   return (
     <>
-    <header className="header">
-      <div className="header-left">
-        <img src="/logo.png" alt="Logo" className="header-logo"/>
-        <Link to='/' className="brand-link">
+    <header className={styles.header}>
+      <div className={styles.headerLeft}>
+        <img src="/logo.png" alt="Logo" className={styles.headerLogo}/>
+        <Link to='/' className={styles.brandLink}>
           <h3>Music Map</h3>
         </Link>
       </div>

@@ -1,8 +1,11 @@
+import FakeHeader from '../components/FakeHeader'
+
+
 
 function Theory(){
     return (
         <div>
-            <h1>Theory</h1>
+            <FakeHeader />
         </div>
     )
 }
@@ -10,3 +13,4 @@ function Theory(){
 export default Theory;
 
 
+ 

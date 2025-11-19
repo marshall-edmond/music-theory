@@ -1,3 +1,38 @@
+.html {
+    font-size: 16px;
+}
+
+
+.header {
+    display:flex;
+    background-color:rgb(4,4,59);
+
+
+}
+
+.headerLeft{
+    display:flex;
+    justify-content:center;
+}
+
+
+.headerLogo{
+    width:auto;
+}
+
+.brandLink {
+    font-family: 'Roboto';
+}
+
+.headerRight{
+    display:flex;
+}
+
+.btn{
+    text-decoration: none;
+    font-family: 'Proxima Nova';
+}
+
 .backgroundImage {
     height:500px;
     width:100%;
