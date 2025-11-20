@@ -1,4 +1,4 @@
-import FakeHeader from '../components/FakeHeader'
+import FakeHeader from '../components/fakeheader.tsx';
 
 
 

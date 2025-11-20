@@ -3,7 +3,7 @@ import Theory from './pages/TheoryPage';
 import About from './pages/AboutPage';
 import Generate from './pages/GeneratePage'; 
 import Home from './pages/HomePage';
-
+import './App.css'
 
 
 function App (){ 

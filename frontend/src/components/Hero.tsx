@@ -1,4 +1,4 @@
-import styles from '../styles/HomePage.module.css';
+import styles from '../styles/HomPage.module.css';
 import { Link } from 'react-router-dom';
 import never from '../assets/never.jpg';
 import musicsheet from '../assets/musicsheet.jpg';
