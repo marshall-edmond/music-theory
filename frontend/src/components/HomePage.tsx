@@ -1,4 +1,4 @@
-import styles from '../styles/Hero.module.css';
+import styles from '../styles/HomePage.module.css';
 import { Link } from 'react-router-dom';
 
 
