@@ -1,0 +1,79 @@
+
+/* parent container */
+.mainContainer {
+    display:flex;
+
+    background-image: url('../assets/never.jpg');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 60vh;
+    z-index: 0;
+}
+
+
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    justify-content:space-evenly;
+    padding-left:1rem;
+    font-style: oblique;
+}
+
+.details {
+    display: flex;
+    flex-direction:column;
+    padding-left:1rem;
+    gap: 1rem;
+}
+.h1 {
+    color:white;
+    font-family: 'Proxima Nova';
+    font-size: 2rem;
+    font-style:oblique;
+
+}
+
+.p {
+    font-size: 2rem;
+    color:white; 
+    font-family:'Proxima Nova';
+
+}
+
+.p2 {
+    font-size:1.5rem;
+    color:white;
+    font-family:'Proxima Nova';
+}
+
+.btnContainter {
+    display:flex;
+    flex-direction:row;
+    border-radius: 8px;
+    text-decoration: none;
+    gap:2rem;
+    align-items:center;
+
+}
+
+.btn {
+    background-color:rgb(57, 57, 211);
+    color: white;
+    font-weight: 100;
+    padding: 10px 32px;
+    text-decoration:none;
+
+}
+
+.btn2 {
+    text-decoration: none;
+    color:rgb(4,4,59);
+    background-color:rgb(255, 255, 255);
+    padding: 5px 16px;
+    
+}
