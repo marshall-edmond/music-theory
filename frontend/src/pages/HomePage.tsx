@@ -31,6 +31,10 @@ function HomePage(){
                     </div>
                 </div>
             </div>
+            <div className={styles.mainContainer}>
+            
+                
+            </div>
         </div>
     )
 }   
