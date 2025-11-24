@@ -1,6 +1,6 @@
 
 /* parent container */
-.mainContainer {
+.container {
     display:flex;
 
     background-image: url('../assets/never.jpg');
@@ -54,8 +54,8 @@
 .btnContainter {
     display:flex;
     flex-direction:row;
-    border-radius: 8px;
-    text-decoration: none;
+
+
     gap:2rem;
     align-items:center;
 
@@ -67,6 +67,7 @@
     font-weight: 100;
     padding: 10px 32px;
     text-decoration:none;
+    border-radius:8px;
 
 }
 
@@ -75,5 +76,11 @@
     color:rgb(4,4,59);
     background-color:rgb(255, 255, 255);
     padding: 5px 16px;
+    border-radius: 8px;
     
+}
+
+.mainContainer{
+    display:flex;
+
 }

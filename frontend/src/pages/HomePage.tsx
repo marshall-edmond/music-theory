@@ -8,7 +8,7 @@ function HomePage(){
     return (
         <div>
             <Header />
-            <div className={styles.mainContainer}>
+            <div className={styles.container}>
                 <div className={styles.hero}>
                     <div className={styles.h1}>
                         <h1>Music Through Artistry</h1>
