@@ -21,19 +21,18 @@
     z-index: 1;
     justify-content:space-evenly;
     padding-left:1rem;
-    font-style: oblique;
+
 }
 
 .details {
     display: flex;
     flex-direction:column;
-    padding-left:1rem;
     gap: 1rem;
 }
 .h1 {
     color:white;
     font-family: 'Proxima Nova';
-    font-size: 2rem;
+    font-size: 3.5rem;
     font-style:oblique;
 
 }
@@ -42,6 +41,8 @@
     font-size: 2rem;
     color:white; 
     font-family:'Proxima Nova';
+    line-height:1.5;
+    font-style:oblique;
 
 }
 
@@ -51,9 +52,10 @@
     font-family:'Proxima Nova';
 }
 
-.btnContainter {
+.btnContainer {
     display:flex;
     flex-direction:row;
+    font-style:oblique;
 
 
     gap:2rem;
@@ -82,11 +84,33 @@
 
 .mainContainer{
     display:flex;
+    background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(27, 27, 122)); 
+    height:40vh;
+    width:100%;
+    
+    justify-content:space-between;
+    
+}
+
+
+
+
+.textContainer{
+    display:flex;
     flex-direction: column;
-    background-image: url("../assets/musicsheet.jpg");
-    background-size:cover; 
-    background-position:center;
-    background-repeat:no-repeat;
+    gap:1rem;
+    
+    
+}
+
+.headerContainer{
+    margin-top:1rem;
+    align-self: center;
+
+}
+
+.pContainer{
+    padding-left:2rem;
 
 }
 

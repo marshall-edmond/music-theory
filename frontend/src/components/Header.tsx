@@ -6,7 +6,7 @@ function Header() {
     <>
       <header className={styles.header}>
         <div className={styles.headerLeft}>
-          <img src="/logo.png" alt="Logo" className={styles.headerLogo}/>
+          <img src="../assets/logo.png" alt="Logo" className={styles.headerLogo}/>
           <Link className={styles.brandLink} to='/'>Music Map</Link>
         </div>
 

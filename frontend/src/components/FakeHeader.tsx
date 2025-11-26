@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import styles from '../styles/FakeHeader.module.css';
-import logo from '../../public/logo.png';
+import logo from '../assets/logo.png';
 
 
 function FakeHeader() {

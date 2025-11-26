@@ -1,8 +1,8 @@
-
+import FakeHeader from '../components/fakeheader.tsx'
 function Generate(){
     return (
         <div>
-            <h1>Generate</h1>
+            <FakeHeader />
         </div>
         
     )
