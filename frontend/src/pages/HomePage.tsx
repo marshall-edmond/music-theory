@@ -28,8 +28,9 @@ function HomePage() {
             </div>
 
 
+
             <div className={styles.mainContainer}>
-                <img src={musicsheet} alt="Music Sheet"/>
+                <img src={musicsheet} alt="Music Sheet" className={styles.img}/>
                 <div className={styles.textContainer}>
                     <div className={styles.headerContainer}>
                         <h1 className={styles.h1}>Genre Defining Progressions </h1>
@@ -39,7 +40,12 @@ function HomePage() {
                     </div>
                 </div>
             </div>
+            
+            <div className={styles.howContainer}>
+
+            </div>
         </div>
+
     )
 }   
 

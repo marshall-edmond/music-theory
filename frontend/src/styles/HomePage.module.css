@@ -79,14 +79,22 @@
     background-color:rgb(255, 255, 255);
     padding: 5px 16px;
     border-radius: 8px;
+    padding-right:1rem;
     
+}
+
+.howContainer{
+    display:flex;
+    height: 50vh;              
+
 }
 
 .mainContainer{
     display:flex;
-    background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(27, 27, 122)); 
-    height:40vh;
+    background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(25, 25, 165)); 
+    height:60vh;
     width:100%;
+    padding-top: 3rem;
     
     justify-content:space-between;
     
@@ -110,7 +118,11 @@
 }
 
 .pContainer{
+    padding-top:2rem;
     padding-left:2rem;
 
 }
 
+.img {
+    padding-top: 2rem;
+}

@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import styles from '../styles/Header.module.css';
+import logo from "../assets/logo.png";
 
 function Header() {
   return (
     <>
       <header className={styles.header}>
         <div className={styles.headerLeft}>
-          <img src="../assets/logo.png" alt="Logo" className={styles.headerLogo}/>
+          <img src={logo} alt="Logo" className={styles.headerLogo}/>
           <Link className={styles.brandLink} to='/'>Music Map</Link>
         </div>
 
