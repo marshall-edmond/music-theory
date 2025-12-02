@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import musicsheet from '../assets/musicsheet.jpg';
 
 
+
+
 function HomePage() {
     return (
         <div>
@@ -22,7 +24,7 @@ function HomePage() {
                         </div>
                         <div className={styles.btn2}>
                             <Link className={styles.btn2} to="/about">About</Link>
-                        </div>  
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -41,9 +43,21 @@ function HomePage() {
                 </div>
             </div>
             
-            <div className={styles.howContainer}>
+            <div className={styles.divider}/>
+            <div className={styles.howSection}>
+                <div className={styles.howLeft}>
+                    <h1 className={styles.h1}>Theory Roadmap</h1>
+                    <p className={styles.p}>Bridge the gap between listening and creating. Transform your intuition into Professional-grade mastery--without the textbook boredom</p>
+                </div>
+                <div className={styles.howRight}>
+                </div>
+            </div>
+
+            <div className={styles.footer}>
 
             </div>
+
+        
         </div>
 
     )

@@ -64,7 +64,7 @@
 }
 
 .btn {
-    background-color:rgb(57, 57, 211);
+    background-color:rgb(60, 68, 209);
     color: white;
     font-weight: 100;
     padding: 10px 32px;
@@ -79,19 +79,14 @@
     background-color:rgb(255, 255, 255);
     padding: 5px 16px;
     border-radius: 8px;
-    padding-right:1rem;
     
 }
 
-.howContainer{
-    display:flex;
-    height: 50vh;              
 
-}
 
 .mainContainer{
     display:flex;
-    background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(25, 25, 165)); 
+    background-image:linear-gradient(to left, rgb(0, 0, 0), rgb(4,4,59)); 
     height:60vh;
     width:100%;
     padding-top: 3rem;
@@ -125,4 +120,48 @@
 
 .img {
     padding-top: 2rem;
+}
+
+.divider {
+    height:2vh;
+    width:100%;
+    background-color: rgb(4,4,59); 
+}
+
+.howSection {
+    display: flex;
+    height: 60vh;
+    width: 100%;
+    background-image:linear-gradient(to left, rgb(0, 0, 0), rgb(4,4,59)); 
+    padding-top:2rem;
+}
+
+
+.howLeft {
+    align-items:center;
+    display:flex;
+    flex: 1;
+    flex-direction: column;
+    padding-top:1rem;
+    gap: 5rem;
+    margin-left: 1rem;
+    
+
+}
+
+.howRight {
+    flex: 1;
+    background:url('../assets/guitar.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+   
+
+}
+
+
+.footer {
+    width: 100%;
+    height:20vh;
+    background:linear-gradient(to bottom, rgb(4,4,59), rgb(0,0,0));
 }
