@@ -1,0 +1,16 @@
+/* main window for the entire site */
+.mainContainer {
+    display:flex;
+    width:100%;
+    height:100vh;
+    background-color:white;
+
+}
+
+
+.sidebar {
+    width:12%;
+    height:100%; 
+    background-color: rgb(4,4,59);
+
+}

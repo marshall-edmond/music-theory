@@ -92,6 +92,8 @@
     padding-top: 3rem;
     
     justify-content:space-between;
+
+ 
     
 }
 
@@ -125,7 +127,7 @@
 .divider {
     height:2vh;
     width:100%;
-    background-color: rgb(4,4,59); 
+    background-color: rgb(1, 1, 15); 
 }
 
 .howSection {
@@ -155,6 +157,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    mask-image: linear-gradient(to right, transparent 0%, black 20%);
+    -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
    
 
 }
