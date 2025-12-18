@@ -20,7 +20,7 @@ function HomePage() {
                     </div>
                     <div className={styles.btnContainer}>
                         <div className={styles.btn}>
-                            <Link className={styles.btn} to="/theory">Try Now</Link>
+                            <Link className={styles.btn} to="/theory/notes">Try Now</Link>
                         </div>
                         <div className={styles.btn2}>
                             <Link className={styles.btn2} to="/about">About</Link>

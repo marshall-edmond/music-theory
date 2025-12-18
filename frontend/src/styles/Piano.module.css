@@ -1,0 +1,27 @@
+.pianoContainer {
+    display: flex;
+    height: 10vh;
+
+
+}
+
+.whiteKey {
+    background-color: rgb(194, 185, 185);
+    border: 1px solid white;
+
+}
+
+.keyLabel {
+    font-size : 28px;
+    font-family: 'Proxima Nova';
+    color: black;
+
+}
+
+.blackKey {
+    background-color: black;
+    height:40%;
+    width:1rem;
+
+
+}

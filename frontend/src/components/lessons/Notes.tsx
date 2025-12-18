@@ -1,16 +1,23 @@
-import styles from '.././styles/Theory.module.css';
+import LessonLayout from '.././LessonLayout.tsx';
+import Piano from '../Piano';
+import styles from '../../styles/Piano.module.css'
 
 
-function Notes () {
-    return (
-        <div>
-            
-            
 
+export default function Notes () {
+    const leftContent = (
+        <div className={styles.textContainer}>
+            <h1 className={styles.h1}>Lesson 1: Notes</h1>
         </div>
+    )
+
+    return (
+            <LessonLayout
+                left={leftContent}
+                right={<Piano />}
+            >
+             </LessonLayout>
 
     )
 
 }
-
-export default Notes;
