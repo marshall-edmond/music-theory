@@ -1,3 +1,8 @@
+:root { 
+    --primary: rgb(4,4,59);
+    --secondary: #11112d;
+    font-size: 62.5%;
+}
 * {
     margin: 0;
     padding: 0;

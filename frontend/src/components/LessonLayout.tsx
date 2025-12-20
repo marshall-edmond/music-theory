@@ -1,6 +1,8 @@
 import styles from '../styles/Theory.module.css';
 
 
+
+
 export interface LayoutProps{
 
     left : React.ReactNode; 

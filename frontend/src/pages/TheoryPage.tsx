@@ -1,7 +1,10 @@
 import React from 'react';
 import Header from '../components/Header.tsx';
 import Notes from '../components/lessons/Notes';
+import Footer from '../components/Footer.tsx';
 import { useParams } from 'react-router-dom';
+import styles from '../styles/Theory.module.css';
+
 
 /* Record creates types a key: (string) to a Value: React Functional Component */
 const LessonRegistry : Record<string, React.FC> = {
@@ -22,21 +25,22 @@ function TheoryPage() {
  
 
     return (
-        <div>
+        <div className={styles.pageFrame}>
             <Header />
-            {ActiveComponent ? (
-                <ActiveComponent />
-            ) : (
-                <div className= "p-10 text-white"> Lesson not found!</div>
-            )}
+
+            <div className={styles.lessonSlot}>
+                {ActiveComponent ? (
+                    <ActiveComponent />
+                ) : (
+                    <div className= "p-10 text-white"> Lesson not found!</div>
+                )}
+            </div>
+
+            <Footer />
         </div>
 
 
     )
-
-
-
 }
-
 
 export default TheoryPage;

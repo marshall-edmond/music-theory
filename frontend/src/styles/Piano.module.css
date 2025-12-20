@@ -1,6 +1,6 @@
 .pianoContainer {
     display: flex;
-    height: 10vh;
+    height: 20vh;
 
 
 }
@@ -8,6 +8,7 @@
 .whiteKey {
     background-color: rgb(194, 185, 185);
     border: 1px solid white;
+    width:8rem;
 
 }
 
@@ -21,7 +22,7 @@
 .blackKey {
     background-color: black;
     height:40%;
-    width:1rem;
+    width:4rem;
 
 
 }

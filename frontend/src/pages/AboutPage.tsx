@@ -1,9 +1,9 @@
-
+import Header from '../components/Header.tsx'
 
 function About(){
     return (
         <div>
-            <h1>About</h1>
+            <Header />
         </div>
     )
 }
