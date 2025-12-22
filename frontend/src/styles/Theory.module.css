@@ -60,6 +60,10 @@ h1 {
     align-items:center;
 }
 
+.rightPanel > *{
+    margin: 0;
+}
+
 p {
     font-size: 2rem;
     font-family:serif;
@@ -72,5 +76,40 @@ p {
     background: rgb(6, 7, 30); 
     height: 9vh;
     width: 100%;
+    display:flex;
 
+}
+
+.footerNav {
+    color: white;
+    
+
+}
+
+.pianoIcon { 
+    flex-shrink: 0;
+}
+
+
+.btnContianer {
+    display:flex;
+    justify-content:flex-end;
+
+}
+
+.btn { 
+    color: white;
+    background-color: rgb(81, 85, 188);
+    padding: 5px 16px;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+.deactivated { 
+    color: white;
+    background-color: rgb(116, 116, 121);
+    padding: 5px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    pointer-events:none;
 }
