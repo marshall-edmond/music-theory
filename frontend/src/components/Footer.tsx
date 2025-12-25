@@ -20,7 +20,6 @@ export default function Footer({back, next}: btnProps) {
                     <div className={styles.deactivated}>Back</div>
                 )}
 
-
                 {next ? (
                     <div className={styles.btn}>
                         <Link to={next}>Next</Link>
@@ -29,8 +28,6 @@ export default function Footer({back, next}: btnProps) {
                     <div className={styles.deactivated}>Next</div>
                 )}
             </div>
-            
-        
         </footer>
     )
 

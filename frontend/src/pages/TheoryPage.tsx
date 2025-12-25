@@ -24,9 +24,9 @@ function TheoryPage() {
     const { lessonId } = useParams<{ lessonId: string }>();
     /* useParams takes <key, value> in this case we specify to ensure inputs
 
-    /* 2. Determine the lookup key (defaulting to 'notes' if undefined) */
+    /* 2. Look up key is dynamic route from useParams*/
     const lookupKey = lessonId || 'notes';
-    
+
     const config = LessonRegistry[lookupKey];
 
     const ActiveComponent = config?.component;
