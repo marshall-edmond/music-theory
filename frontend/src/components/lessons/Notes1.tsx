@@ -1,6 +1,6 @@
-import LessonLayout from '.././LessonLayout';
-import Piano from '../Piano.tsx';
-import styles from '../styles/Theory.module.css';
+import LessonLayout from '.././LessonLayout.tsx';
+import Piano from '../Piano';
+import styles from '../../styles/Theory.module.css';
 
 
 export default function Notes1() {
@@ -20,8 +20,8 @@ export default function Notes1() {
 
     return (
         <LessonLayout
-            left = {LeftContent}
-            right = {RightContent}
+            left={LeftContent}
+            right={RightContent}
         />
     )
 } 

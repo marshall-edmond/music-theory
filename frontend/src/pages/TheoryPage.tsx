@@ -4,7 +4,7 @@ import Notes from '../components/lessons/Notes';
 import Footer from '../components/Footer.tsx';
 import { useParams } from 'react-router-dom';
 import styles from '../styles/Theory.module.css';
-import Notes1 from '../components/lessons/Notes';
+import Notes1 from '../components/lessons/Notes1.tsx';
 
 
  /* new type which has a component */
@@ -17,14 +17,14 @@ type LessonConfig = {
 const LessonRegistry : Record<string, LessonConfig> = {
     "notes" : {      
         component: Notes,
-        next: "1", //same subject
+        next: "/theory/1",
         back: undefined,
     },
 
     "1" : {
         component: Notes1,
         next: undefined,
-        back:"notes"
+        back:"/theory/notes"
     }
 };
 
@@ -46,14 +46,13 @@ function TheoryPage() {
 
             <div className={styles.lessonSlot}>
                 {ActiveComponent ? (
-                    /* You might want to pass next/back props here if the component needs them */
                     <ActiveComponent />
                 ) : (
                     <div className="p-10 text-white">Lesson not found!</div>
                 )}
             </div>
             
-            {/* You can now use config.next or config.back for the footer navigation */}
+            {/* footer navigation */}
             <Footer next={config?.next} back={config?.back} />
         </div>
     )
