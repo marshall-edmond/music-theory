@@ -4,6 +4,9 @@ import Notes from '../components/lessons/Notes';
 import Footer from '../components/Footer.tsx';
 import { useParams } from 'react-router-dom';
 import styles from '../styles/Theory.module.css';
+import Notes1 from '../components/lessons/Notes';
+
+
  /* new type which has a component */
 type LessonConfig = { 
     component: React.FC;
@@ -14,8 +17,14 @@ type LessonConfig = {
 const LessonRegistry : Record<string, LessonConfig> = {
     "notes" : {      
         component: Notes,
-        next: "theory/notes", //same subject
-        back: undefined
+        next: "1", //same subject
+        back: undefined,
+    },
+
+    "1" : {
+        component: Notes1,
+        next: undefined,
+        back:"notes"
     }
 };
 

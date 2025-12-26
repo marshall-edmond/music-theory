@@ -31,11 +31,11 @@ export default function Piano({ activeNotes = [], onPlay }: PianoProps) {
                         <div className={styles.keyLabel}>{key.note}</div>
 
                         {key.hasSharp && (
-                            <div 
-                                className={`${styles.blackKey} ${isNoteActive(`${key.note}#`) ? styles.active : ''}`}
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    onPlay && onPlay(`${key.note}#`);
+                    <div 
+                        className={`${styles.blackKey} ${isNoteActive(`${key.note}#`) ? styles.active : ''}`}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onPlay && onPlay(`${key.note}#`);
                                 }}
                             />
                         )}

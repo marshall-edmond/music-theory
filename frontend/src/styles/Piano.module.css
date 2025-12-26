@@ -23,10 +23,10 @@
 
 
 .whiteKey {
-    background-color: rgb(194, 185, 185);
-    border: 1px solid white;
+    background-color: rgb(249, 244, 244);
+    border: 1px solid rgb(25, 24, 24);
     width:8rem;
-    height:20vh;
+    height:23vh;
     border-radius: 8px;
 
 }
@@ -40,9 +40,9 @@
 
 .blackKey {
     background-color: rgba(24, 23, 23, 0.851);
-    height:40%;
-    width:4rem;
-    border-radius:8px;
+    height:50%;
+    width:2rem;
+    border-radius:2px;
 
 
 }
