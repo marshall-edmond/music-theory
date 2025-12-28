@@ -72,7 +72,7 @@ p {
     font-weight:50;
     line-height:1.5;
 
-}
+} 
 
 .footer {
     background: rgb(6, 7, 30); 
@@ -80,6 +80,7 @@ p {
     width: 100%;
     display:flex;
     justify-content:flex-end;
+    position:relative;
 
 }
 
@@ -121,4 +122,12 @@ p {
     font-size:2rem;
 
 
+}
+
+.center {
+    color: white;
+    font-family:sans-serif;
+    justify-content:center;
+    position:relative; 
+    
 }

@@ -12,6 +12,7 @@ type LessonConfig = {
     component: React.FC;
     next?: string; 
     back?: string;
+    number: string;
 }
 
 const LessonRegistry : Record<string, LessonConfig> = {
@@ -19,12 +20,14 @@ const LessonRegistry : Record<string, LessonConfig> = {
         component: Notes,
         next: "/theory/1",
         back: undefined,
+        number: "1",
     },
 
     "1" : {
         component: Notes1,
         next: undefined,
-        back:"/theory/notes"
+        back:"/theory/notes",
+        number:"2",
     }
 };
 
@@ -53,7 +56,7 @@ function TheoryPage() {
             </div>
             
             {/* footer navigation */}
-            <Footer next={config?.next} back={config?.back} />
+            <Footer next={config?.next} back={config?.back} number={config?.number} />
         </div>
     )
 }

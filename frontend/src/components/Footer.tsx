@@ -5,12 +5,16 @@ import { Link } from 'react-router-dom';
 interface btnProps { 
     back?: string,
     next?: string,
+    number: string,
 }
 //function to return footer with back and next handling
-export default function Footer({back, next}: btnProps) {
+export default function Footer({back, next, number}: btnProps) {
 
     return (
         <footer className={styles.footer}>
+            <div className={styles.center}>
+                {number}
+            </div>
             <div className={styles.btnContainer}>
                 {back ? (
                     <div className={styles.btn}>
