@@ -1,4 +1,5 @@
 import styles from '../styles/Piano.module.css';
+import React from 'react';
 
 interface PianoProps {
     activeNotes?: string[];
@@ -23,24 +24,27 @@ export default function Piano({ activeNotes = [], onPlay }: PianoProps) {
         <div className={styles.pianoContainer}>
             <div className={styles.keys}>
                 {OCTAVE.map((key) => (
-                    <div
-                        key={key.note}
-                        className={`${styles.whiteKey} ${isNoteActive(key.note) ? styles.active : ''}`} 
-                        onClick={() => onPlay && onPlay(key.note)}
-                    >
-                        <div className={styles.keyLabel}>{key.note}</div>
+                    /* Map function must directly use key prop as well as only returns one parent */
+                    <React.Fragment key={key.note}>
+
+                        {/* logic for white keys */}
+                        <div
+                            className={`${styles.whiteKey} ${isNoteActive(key.note) ? styles.active : ''}`} 
+                            onClick={() => onPlay && onPlay(key.note)}
+                        >
+                            <div className={styles.keyLabel}>{key.note}</div>
+                        </div>
+
 
                         {key.hasSharp && (
-                    <div 
-                        className={`${styles.blackKey} ${isNoteActive(`${key.note}#`) ? styles.active : ''}`}
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            onPlay && onPlay(`${key.note}#`);
-                                }}
-                            />
+                            <div 
+                                className={`${styles.blackKey} ${isNoteActive(`${key.note}#`) ? styles.active : ''}`}
+                                onClick={() => onPlay && onPlay(`${key.note}#`)
+                            }/>
                         )}
-                    </div>
-                ))} 
+    
+                    </React.Fragment>
+                ))}
             </div>
         </div>
     );

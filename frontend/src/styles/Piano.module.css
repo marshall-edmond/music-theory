@@ -28,14 +28,18 @@
     width:8rem;
     height:30vh;
     border-radius: 8px;
+    
 
 
 }
 
 .keyLabel {
+    position:relative;
+    bottom: -80%;
     font-size : 28px;
     font-family: 'Proxima Nova';
     color: black;
+    left: 30%;
 
 }
 
