@@ -1,5 +1,5 @@
 import styles from '../styles/Piano.module.css';
-import React from 'react';
+
 
 interface PianoProps {
     activeNotes?: string[];
@@ -25,16 +25,16 @@ export default function Piano({ activeNotes = [], onPlay }: PianoProps) {
             <div className={styles.keys}>
                 {OCTAVE.map((key) => (
                     /* Map function must directly use key prop as well as only returns one parent */
-                    <React.Fragment key={key.note}>
-
+                    <div key={key.note}>
                         {/* logic for white keys */}
-                        <div
-                            className={`${styles.whiteKey} ${isNoteActive(key.note) ? styles.active : ''}`} 
-                            onClick={() => onPlay && onPlay(key.note)}
-                        >
-                            <div className={styles.keyLabel}>{key.note}</div>
-                        </div>
-
+                        <div className={styles.keyGroup}>
+                            <div
+                                className={`${styles.whiteKey} ${isNoteActive(key.note) ? styles.active : ''}`} 
+                                onClick={() => onPlay && onPlay(key.note)}
+                            >
+                                <div className={styles.keyLabel}>{key.note}</div>
+                            </div>
+                    
 
                         {key.hasSharp && (
                             <div 
@@ -42,8 +42,8 @@ export default function Piano({ activeNotes = [], onPlay }: PianoProps) {
                                 onClick={() => onPlay && onPlay(`${key.note}#`)
                             }/>
                         )}
-    
-                    </React.Fragment>
+                        </div>
+                    </div>
                 ))}
             </div>
         </div>

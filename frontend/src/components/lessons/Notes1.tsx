@@ -13,7 +13,7 @@ export default function Notes1() {
                 <GiGrandPiano size={32}/>
             </section>
             <p className={styles.p}>
-                Alright, now that we know what notes are lets see how they interact on a piano. The white keys on the piano hold the natural notes (A,B,C,D,E,F,G) and the black keys hold the accidentals.
+                Alright, now that we know what notes are lets see how they interact on a piano. The white keys on the piano hold the natural notes (A,B,C,D,E,F,G) and the black keys hold the accidentals(♭, #).
             </p>
 
             

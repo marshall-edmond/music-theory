@@ -4,6 +4,18 @@
     width: 50dvw;
     background:rgb(19, 16, 16);
     border-radius: 8px;
+    justify-content:center;
+    align-items:center;
+    
+
+    
+
+
+}
+
+
+.keys {
+    display:flex;
     align-items:center;
     justify-content:center;
     
@@ -12,42 +24,45 @@
 }
 
 
-.keys {
-    width: 80%;
-    height:20vh;
-    display:flex;
-
-
+.keyGroup{
+    position:relative;
 }
-
 
 
 .whiteKey {
     background-color: rgb(249, 244, 244);
     border: 1px solid rgb(25, 24, 24);
-    width:8rem;
+    width:6rem;
     height:30vh;
     border-radius: 8px;
+    position:relative;
+
     
 
 
 }
 
 .keyLabel {
-    position:relative;
-    bottom: -80%;
+    position:absolute;
+    bottom: 10px;
     font-size : 28px;
     font-family: 'Proxima Nova';
-    color: black;
-    left: 30%;
-
+    color: #000000;
+    align-items:center;
+    width:100%;
+    align-self:center;
 }
 
 .blackKey {
-    background-color: rgba(0, 0, 0, 0.851);
-    height:60%;
+    background-color: rgb(0, 0, 0);
+    height:70%;
     width:2.5rem;
-    border-radius:2px;
+    border-radius:4px;
+    z-index:2;
+    position:absolute;
+    top:0;
+    left:100%;
+    transform:translateX(-50%);
 
 
 }

@@ -81,6 +81,7 @@ p {
     display:flex;
     justify-content:flex-end;
     position:relative;
+    align-items:center;
 
 }
 
@@ -128,6 +129,8 @@ p {
     color: white;
     font-family:sans-serif;
     justify-content:center;
-    position:relative; 
+    position:absolute;
+    font-size:2rem;
+    left:50%;
     
 }

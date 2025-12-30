@@ -13,7 +13,7 @@ export default function Footer({back, next, number}: btnProps) {
     return (
         <footer className={styles.footer}>
             <div className={styles.center}>
-                {number}
+                {number}/6
             </div>
             <div className={styles.btnContainer}>
                 {back ? (
