@@ -16,8 +16,7 @@
 
 .keys {
     display:flex;
-    align-items:center;
-    justify-content:center;
+
 
     
 
@@ -45,13 +44,14 @@
 }
 
 .keyLabel {
+    display:flex;
     position:absolute;
     bottom: 10px;
     font-size : 28px;
     font-family: 'Proxima Nova';
     color: #000000;
-    align-items:center;
     width:100%;
+    justify-content:center;
 }
 
 .blackKey {
@@ -67,3 +67,4 @@
 
 
 }
+ 
