@@ -31,10 +31,12 @@ const LessonRegistry : Record<string, LessonConfig> = {
         back:"/theory/notes",
         number:"2",
     },
+
     "2" : {
         component: Notes2,
         next: undefined,
-        back: '/theory/1'
+        back: '/theory/1',
+        number:'3',
     },
 };
 

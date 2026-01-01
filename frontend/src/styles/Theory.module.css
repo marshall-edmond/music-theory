@@ -115,7 +115,7 @@ p {
 }
 
 .deactivated { 
-    color: white;
+     color: white;
     background-color: rgba(116, 116, 121, 0);
     padding: 4px 16px;
     border-radius: 8px;
