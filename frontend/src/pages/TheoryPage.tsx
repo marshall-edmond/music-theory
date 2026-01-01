@@ -5,6 +5,8 @@ import Footer from '../components/Footer.tsx';
 import { useParams } from 'react-router-dom';
 import styles from '../styles/Theory.module.css';
 import Notes1 from '../components/lessons/Notes1.tsx';
+import Notes2 from '../components/lessons/Notes2.tsx';
+
 
 
  /* new type which has a component */
@@ -25,10 +27,15 @@ const LessonRegistry : Record<string, LessonConfig> = {
 
     "1" : {
         component: Notes1,
-        next: undefined,
+        next: '/theory/2',
         back:"/theory/notes",
         number:"2",
-    }
+    },
+    "2" : {
+        component: Notes2,
+        next: undefined,
+        back: '/theory/1'
+    },
 };
 
 function TheoryPage() {
