@@ -1,0 +1,6 @@
+.mainContainer {
+    background-color: var(--secondary);
+    height:100dvh;
+    width:100%;
+    overflow:hidden;
+}

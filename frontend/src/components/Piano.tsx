@@ -8,8 +8,8 @@ interface PianoProps {
 
 interface SingleOctaveProps {
     octaveNum: number;
-    activeNotes?: string[],
-    onPlay?: (note:string), => void;
+    activeNotes: string[],
+    onPlay?: (note:string) => void;
 }
 
 const OCTAVE = [
@@ -79,4 +79,4 @@ export default function Piano({ activeNotes = [], onPlay }: PianoProps) {
                 ))}
             </div>
         </div>
-}
+)}
