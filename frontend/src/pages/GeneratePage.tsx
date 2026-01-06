@@ -4,6 +4,8 @@ function Generate(){
     return (
         <div className={styles.mainContainer}>
             <Header />
+            <div className={styles.container}>
+            </div>
         </div>
         
     )
