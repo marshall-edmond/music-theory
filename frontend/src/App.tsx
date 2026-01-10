@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'; 
 import Theory from './pages/TheoryPage'; 
 import About from './pages/AboutPage';
-import Generate from './pages/GeneratePage'; 
+import Signup from './pages/Signup'; 
 import Home from './pages/HomePage';
 import './App.css'
 
@@ -13,7 +13,7 @@ function App (){
           <Route path="/" element={<Home />} />
           <Route path="/theory/:lessonId" element={<Theory />} /> 
           <Route path="/about" element={<About />} />
-          <Route path="/generate" element={<Generate />} />
+          <Route path="/generate" element={<Signup />} />
         </Routes>
     </>
       
