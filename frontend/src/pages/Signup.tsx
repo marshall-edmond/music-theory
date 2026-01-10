@@ -6,6 +6,11 @@ function Signup(){
             <Header />
             <div className={styles.mainContainer}>
                 <div className={styles.container}>
+                    <section className={styles.forms}>
+                        <h1 className={styles.h1}>
+                            Sign Up
+                        </h1>
+                    </section>
                 </div>
             </div>
         </>
