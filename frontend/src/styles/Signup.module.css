@@ -7,6 +7,7 @@
     align-items:center;
     overflow: hidden;
     flex-direction: auto;
+
 }
 
 
@@ -24,11 +25,18 @@
 .forms {
     display:flex;
     flex-direction: column;
-    align-items:center;
+    gap: 2rem;
+    
+}
+
+.form {
+    border-bottom: 3px dotted black;
+    font-size: 2rem;
 }
 
 .h1 {
     color: black;
     font-family: 'Proxima Nova';
     font-size: 5rem;
+    
 }

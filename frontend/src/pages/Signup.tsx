@@ -1,6 +1,22 @@
 import Header  from '../components/Header.tsx'
 import styles from '../styles/Signup.module.css';
+import { useState } from 'react';
+
+
+
+
+
 function Signup(){
+    const [formData, setFormData] = useState({
+        username: '',
+        password: '', 
+        email: '',
+    }
+    )
+
+
+
+
     return (
         <>
             <Header />
@@ -10,6 +26,16 @@ function Signup(){
                         <h1 className={styles.h1}>
                             Sign Up
                         </h1>
+                        <form className={styles.form}>
+                            Username
+                        </form>
+                        <form className={styles.form} >
+                            Passwword
+                        </form>
+                        <form className={styles.form}>
+                            Email
+                        </form>
+
                     </section>
                 </div>
             </div>
