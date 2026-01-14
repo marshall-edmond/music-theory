@@ -17,6 +17,8 @@ class User(Base):
 class Artist(Base):
 
     __tablename__ = "artists"
+
+
     id = Column(String, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
     genre = Column(String)
@@ -28,6 +30,8 @@ class Artist(Base):
 class Song(Base):
 
     __tablename__ = "songs"
+
+    
     id = Column(String, primary_key=True, index=True)
     title = Column(String, unique= True, index=True)
     key = Column(String, unique=False)

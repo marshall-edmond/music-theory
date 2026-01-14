@@ -1,12 +1,16 @@
 
-
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 # 1. Connection URL
 # Format: postgresql://username:password@localhost/dbname
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:password@localhost/musical_map"
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
 # 2. Create the Engine (The Driver)
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
