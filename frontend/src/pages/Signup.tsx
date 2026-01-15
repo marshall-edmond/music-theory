@@ -1,18 +1,13 @@
 import Header  from '../components/Header.tsx'
 import styles from '../styles/Signup.module.css';
-import { useState } from 'react';
 
 
 
 
 
 function Signup(){
-    const [formData, setFormData] = useState({
-        username: '',
-        password: '', 
-        email: '',
-    }
-    )
+    
+
 
 
 

@@ -66,7 +66,7 @@ class UserProgress(Base):
     __tablename__ = "user_progress"
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey=("users.id"))
+    user_id = Column(Integer, ForeignKey("users.id"))
     lesson_id = Column(String)
     completed = Column(Boolean, default=False)
     completed_at = Column(DateTime, nullable=True)
