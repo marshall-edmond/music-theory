@@ -29,8 +29,7 @@ class Artist(Base):
 
 class Song(Base):
 
-    __tablename__ = "songs"
-
+    __tablename__ = "song" 
     
     id = Column(String, primary_key=True, index=True)
     title = Column(String, unique= True, index=True)

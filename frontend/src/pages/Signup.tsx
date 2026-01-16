@@ -25,7 +25,7 @@ function Signup(){
                             Username
                         </form>
                         <form className={styles.form} >
-                            Passwword
+                            Password
                         </form>
                         <form className={styles.form}>
                             Email
