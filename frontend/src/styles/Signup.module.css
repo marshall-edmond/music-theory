@@ -19,19 +19,26 @@
     z-index: 2;
     border: 2px solid rgb(29, 28, 28);
     background-color: white;
-    overflow-y: hidden;
+    position: absolute;
 }
 
 .forms {
     display:flex;
     flex-direction: column;
     gap: 2rem;
+    justify-content:center;
+    align-self:center;
+    position: relative;
     
 }
 
 .form {
-    border-bottom: 3px dotted black;
     font-size: 2rem;
+    border-radius: 8px;
+    background: rgb(195, 195, 195);
+    display:flex;
+    justify-content: center;
+    position:relative; 
 }
 
 .h1 {
@@ -39,4 +46,11 @@
     font-family: 'Proxima Nova';
     font-size: 5rem;
     
+}
+
+.btn {
+    border-radius: 8px;
+    background: blue;
+    color: white;
+    align-content:center;
 }

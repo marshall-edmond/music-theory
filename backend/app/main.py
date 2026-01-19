@@ -6,7 +6,10 @@ from .auth import hash_password, verify_password
 
 models.base.metadata.create_all(bind=engine)
 
+ symbols = ['@',',','.','#','$','%']
+
 def validate(password: str) -> bool:
+    #Passwords must have 8 characters, 1 uppercase, and one symbol. 
     if len(password) < 8:
         return False
     
@@ -15,6 +18,16 @@ def validate(password: str) -> bool:
             return True
         else:
             continue
+        
+    #Password must have atleast 1 symbol
+    for letter in password:
+        if letter in symbols:
+            return True
+        else
+            continue
+    return False
+        
+    
     return False
 
 app = FastAPI();

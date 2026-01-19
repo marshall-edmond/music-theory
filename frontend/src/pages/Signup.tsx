@@ -1,3 +1,4 @@
+
 import Header  from '../components/Header.tsx'
 import styles from '../styles/Signup.module.css';
 
@@ -5,13 +6,10 @@ import styles from '../styles/Signup.module.css';
 
 
 
+
 function Signup(){
+   
     
-
-
-
-
-
     return (
         <>
             <Header />
@@ -21,16 +19,18 @@ function Signup(){
                         <h1 className={styles.h1}>
                             Sign Up
                         </h1>
-                        <form className={styles.form}>
+                        <input type="Username" className={styles.form}>
                             Username
-                        </form>
-                        <form className={styles.form} >
+                        </input>
+                        <input type="Password" className={styles.form}>
                             Password
-                        </form>
-                        <form className={styles.form}>
+                        </input>
+                        <input type="Email" className={styles.form}>
                             Email
-                        </form>
-
+                        </input>
+                        <button className={styles.btn}>
+                            submit
+                        </button>
                     </section>
                 </div>
             </div>
