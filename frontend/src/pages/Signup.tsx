@@ -4,10 +4,11 @@ import styles from '../styles/Signup.module.css';
 
 
 
-
-
-
 function Signup(){
+
+
+
+
    
     
     return (
@@ -17,19 +18,16 @@ function Signup(){
                 <div className={styles.container}>
                     <section className={styles.forms}>
                         <h1 className={styles.h1}>
-                            Sign Up
+                            Sign In
                         </h1>
-                        <input type="Username" className={styles.form}>
-                            Username
-                        </input>
-                        <input type="Password" className={styles.form}>
-                            Password
-                        </input>
-                        <input type="Email" className={styles.form}>
-                            Email
-                        </input>
-                        <button className={styles.btn}>
-                            submit
+                        <label>
+                            <input name="username" placeholder = "Username"/>
+                        </label>
+                        <label>
+                            <input name="password" placeholder = "Password" />
+                        </label>
+                        <button type = "button"className={styles.btn}>
+                            Sign In
                         </button>
                     </section>
                 </div>
