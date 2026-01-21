@@ -13,22 +13,10 @@ def validate(password: str) -> bool:
     if len(password) < 8:
         return False
     
-    for i in password:
-        if i.isupper():
-            return True
-        else:
-            continue
-        
-    #Password must have atleast 1 symbol
-    for letter in password:
-        if letter in symbols:
-            return True
-        else
-            continue
-    return False
-        
+    has_upper = any(char.isupper() for char in password)
+    has_symbol = any(char in symbols for char in password)
     
-    return False
+    return has_upper and has_symbol
 
 app = FastAPI();
 

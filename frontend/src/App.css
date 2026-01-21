@@ -3,6 +3,8 @@
     --secondary: #11112d;
     font-size: 62.5%;
 }
+
+
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +22,7 @@ b {
 }
 
 input {
-    width: 100%;
+    width: 50%;
     padding: 12px;
     margin: 8px 0;
     border: 1px solid #ddd;
