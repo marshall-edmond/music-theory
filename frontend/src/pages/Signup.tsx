@@ -14,7 +14,7 @@ function Signup(){
     const [error, setError ] = useState('')
 
     const navigate = useNavigate()
-
+ ""
 
     //hold state of usernmae and password
     const [username, setUsername] = useState('')
@@ -22,25 +22,34 @@ function Signup(){
 
     async function handleSubmit(){
         //on button click send data to backend to verify user instance exists inside of database..
-
-        setLoading(true)
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
-            method : 'POST',
-            headers : {'Content-type': 'application/json'},
-            body : JSON.stringify({ username, password})
-        }, )
-
-        const result = await response.json()
         
+        try {
+            setLoading(true)
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
+                method : 'POST',
+                headers : {'Content-type': 'application/json'},
+                body : JSON.stringify({ username, password})
+            }, )
 
+            const result = await response.json()
+        
+            // after loading set state to false
+            setLoading(false)
+    
 
-        if (response.ok) {
+            if (response.ok) {
             //useNavigate hook returns a function to navigate(to (url), options?)
             navigate('/')
-        } else {
-           //handle error
-           setError(result.detail)
+            setError('')
+            } else {
+            //handle error
+            setError(result.detail)
+            }
 
+        }  catch (err) {
+                setError('Unable to connect to server. Please try again.')
+        } finally {
+            setLoading(false)
         }
     }
    
