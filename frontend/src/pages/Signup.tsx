@@ -7,6 +7,7 @@ import { useNavigate  } from 'react-router-dom';
 
 
 
+
 function Signup(){
 
     const [loading, setLoading] = useState(false)
@@ -23,7 +24,7 @@ function Signup(){
         //on button click send data to backend to verify user instance exists inside of database..
 
         setLoading(true)
-        const response = await fetch('http://localhost:8000/login', {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
             method : 'POST',
             headers : {'Content-type': 'application/json'},
             body : JSON.stringify({ username, password})
