@@ -22,7 +22,7 @@ b {
 }
 
 input {
-    width: 50%;
+    width: 100%;
     padding: 12px;
     margin: 8px 0;
     border: 1px solid #ddd;
@@ -32,3 +32,4 @@ input {
     outline:none;
     transition: border-color 0.2s;
 }
+

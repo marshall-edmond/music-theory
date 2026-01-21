@@ -3,6 +3,7 @@ import Header  from '../components/Header.tsx'
 import styles from '../styles/Signup.module.css';
 import { useState } from 'react';
 import { useNavigate  } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
 
 
 
@@ -61,6 +62,9 @@ function Signup(){
             <div className={styles.mainContainer}>
                 <div className={styles.container}>
                     <div className={styles.containerLeft}>
+                        <div className={styles.header}>
+                            Welcome back!
+                        </div>
                     </div>
 
                     <div className={styles.containerRight}>
@@ -68,6 +72,14 @@ function Signup(){
                             <h1 className={styles.h1}>
                                 Sign In
                             </h1>
+                            <button className={styles.button}>
+                                <FcGoogle size={26} />
+                                Continue with Google
+                            </button>
+                            <div className={styles.line}/>
+                            <div style={{fontSize : '16px'}}>
+                                Or
+                            </div>
                             <label>
                                 <input name="username" placeholder = "Username" value = {username} onChange={ e =>  setUsername(e.target.value) }/>
                             </label>

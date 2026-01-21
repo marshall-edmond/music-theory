@@ -58,14 +58,14 @@ def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
 
                             
-@app.post('/login')
+@app.post('/login') 
 def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
     user_from_db = db.query(models.User).filter(models.User.username == user.username).first()
 
     if not user_from_db:
-        raise HTTPException(status_code=401, detail="Incorrect username or password")
+        raise HTTPException(status_code=401, detail="Incorrect username or password.")
 
     if not verify_password(user.password, user_from_db.hashed_password):
-        raise HTTPException(status_code=401, detail="Incorrect username or password")
+        raise HTTPException(status_code=401, detail="Incorrect credentials.")
     
     return {"message": "Login successful", "user": user_from_db}
