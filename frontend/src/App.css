@@ -30,5 +30,5 @@ input {
     font-size: 1rem;
     box-sizing: border-box;
     outline:none;
-    transition: border-color 0.2s
+    transition: border-color 0.2s;
 }

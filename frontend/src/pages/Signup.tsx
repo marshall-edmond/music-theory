@@ -13,8 +13,9 @@ function Signup(){
     const [loading, setLoading] = useState(false)
     const [error, setError ] = useState('')
 
+
     const navigate = useNavigate()
- ""
+ 
 
     //hold state of usernmae and password
     const [username, setUsername] = useState('')
@@ -71,7 +72,7 @@ function Signup(){
                                 <input name="username" placeholder = "Username" value = {username} onChange={ e =>  setUsername(e.target.value) }/>
                             </label>
                             <label>
-                                <input name="password" placeholder = "Password" value = {password} onChange ={ e => setPassword(e.target.value) }/>
+                                <input name="password" type ="password" placeholder = "Password" value = {password} onChange ={ e => setPassword(e.target.value) }/>
                             </label>
                             <button type = "button" className={styles.btn} onClick={ () => handleSubmit()}>
                                 Sign In
