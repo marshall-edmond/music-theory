@@ -30,7 +30,7 @@ function Signup(){
             const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
                 method : 'POST',
                 headers : {'Content-type': 'application/json'},
-                body : JSON.stringify({ username, password})
+                body : JSON.stringify({ username, password })
             }, )
 
             const result = await response.json()
