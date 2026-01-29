@@ -14,7 +14,7 @@ function SignupLogin (){
             <Header />
             <div className={styles.mainContainer}>
                 <div className={styles.container}>
-                    {login ? (<Login />
+                    {Login ? (<Login />
                     ) : (<Signup />)
                     }
 

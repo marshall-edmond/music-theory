@@ -23,7 +23,7 @@ function HomePage() {
                             <Link className={styles.btn} to="/theory/notes">Try Now</Link>
                         </div>
                         <div className={styles.btn2}>
-                            <Link className={styles.btn2} to="/about">About</Link>
+                            <Link className={styles.btn2} to="/signup">About</Link>
                         </div> 
                     </div>
                 </div>
