@@ -1,0 +1,15 @@
+.mainContainer {
+    height: 100px;
+    width: 50%;
+    background-color:grey;
+}
+
+
+.activated {
+    background-color:(4,4,59);
+
+}
+
+.deactivated {
+    background-color: grey;
+}
