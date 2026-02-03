@@ -54,3 +54,8 @@
     background-color: blue;
 
 }
+
+.separate{
+    display:flex;
+    justify-content: spcae-evenly;
+}
