@@ -37,7 +37,13 @@ input {
 }
 
 button {
-    border: 1px solid rgb(172, 171, 171);
     width: 90%;
     border-radius: 16px;
+    border: .8px solid rgb(206, 206, 206);
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 200;
+
 }

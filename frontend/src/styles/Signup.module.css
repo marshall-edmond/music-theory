@@ -52,7 +52,8 @@
 }
 
 .tab {
-    background-color:inherit;
+    background-color:rgb(238, 228, 228);
+
 
     
 
@@ -61,7 +62,7 @@
 .tabActivated {
     pointer-events: none;
     background-color: rgb(4,4,59);
-    border-radius: 8px;
+    border-radius: 16px;
     color:white;
 
 }
@@ -72,7 +73,18 @@
 }
 
 .button1 {
-    background-color: grey;
+    background-color: rgb(4,4,59);
     border: 1px solid grey;
     width: 20%;
+    height: 20px;
+    color: white;
+    align-items:center;
+
+}
+
+.Google {
+background-color:white;
+height:30px;
+align-items:center;
+
 }

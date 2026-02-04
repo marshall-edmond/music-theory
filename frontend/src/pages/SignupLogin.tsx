@@ -31,7 +31,7 @@ const [login, setLogin] = useState(false)
                         ) : (
                         <div className={styles.tabContainer}>
                             <button className={styles.tabActivated}>Sign up</button>
-                            <button className={styles.tab} onClick={() => setLogin(false)}>Log in</button>
+                            <button className={styles.tab} onClick={() => setLogin(true)} style={{borderRadius : '16px'}}>Log in</button>
                         </div>
                         )}
                   
