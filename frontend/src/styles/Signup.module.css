@@ -13,11 +13,15 @@
 .container {
     width: 33%;
     height: 80dvh;
+    display:flex;
+    flex-direction:column;
     background-color: white;
     z-index: 2;
     border-radius: 16px;
     justify-content:center;
+    align-items:center;
     gap: 2rem;
+    
 
 }
 
@@ -37,25 +41,38 @@
 }
 
 .tabContainer {
-    height: 20px;
-    width: 70%;
+    height: 30px;
+    width: 90%;
     display:flex;
+    background-color: rgb(230, 228, 228);
+    border-radius:16px;
+    justify-content:space-evenly
+    
 
 }
 
 .tab {
-    background-color: grey;
+    background-color:inherit;
+
     
 
 }
 
 .tabActivated {
     pointer-events: none;
-    background-color: blue;
+    background-color: rgb(4,4,59);
+    border-radius: 8px;
+    color:white;
 
 }
 
 .separate{
     display:flex;
     justify-content: spcae-evenly;
+}
+
+.button1 {
+    background-color: grey;
+    border: 1px solid grey;
+    width: 20%;
 }

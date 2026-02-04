@@ -68,17 +68,19 @@ function Signup(){
             <h2>Password</h2>
             <input type="password"
             value={password}
+            placeholder="........."
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}/>
 
             <h2> Confirm Password </h2>
             <div className={styles.passwordRow}>
                 <input type="password"
                 value={confirm} 
+                placeholder="........"
                 onChange={(e => setConfirm(e.target.value))}/>
                 <FaLock/>
             </div>
 
-            <button className={styles.button} type="submit" disabled={loading}>
+            <button className={styles.button1} type="submit" disabled={loading}>
                 {loading ? 'Creating...' : 'Create Account'}
             </button>
 

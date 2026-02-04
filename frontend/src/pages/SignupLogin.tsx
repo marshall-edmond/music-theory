@@ -25,18 +25,18 @@ const [login, setLogin] = useState(false)
     
                         {login ? (
                         <div className={styles.tabContainer}>
-                            <button className={styles.tab}>Sign up</button>
-                            <button className={styles.tabActivated} onClick={() => setLogin(false)}>Log in</button>
+                            <button className={styles.tab} onClick={() => setLogin(false)}>Sign up</button>
+                            <button className={styles.tabActivated}>Log in</button>
                         </div>
                         ) : (
                         <div className={styles.tabContainer}>
-                            <button className={styles.tabActivated} onClick={() => setLogin(false)}>Sign up</button>
-                            <button className={styles.tab}>Log in</button>
+                            <button className={styles.tabActivated}>Sign up</button>
+                            <button className={styles.tab} onClick={() => setLogin(false)}>Log in</button>
                         </div>
                         )}
                   
 
-                    <button> <FcGoogle size={16}/> Continue with Gmail </button>
+                    <button className={styles.Google}> <FcGoogle size={16}/> Continue with Gmail </button>
 
                     {login ? (<Login />
                     ) : (<Signup />)};
