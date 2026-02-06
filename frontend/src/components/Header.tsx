@@ -13,7 +13,6 @@ function Header() {
 
         <nav className={styles.headerRight}>
             <Link className={styles.btn} to="/theory/notes">Theory</Link>
-            <Link className={styles.btn} to="/search">Search</Link>
             <Link className={styles.btn} to="/signup">Sign up/ Login</Link>
         </nav>
       </header>
