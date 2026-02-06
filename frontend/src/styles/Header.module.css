@@ -54,3 +54,10 @@
 }
 
 
+.search {
+    background-color: white;
+    height: 16px;
+    width: 70%;
+    border-radius: 16px;
+    border: 1px solid rgb(232, 232, 232);
+}
