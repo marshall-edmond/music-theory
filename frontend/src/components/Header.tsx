@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 import styles from '../styles/Header.module.css';
 import logo from "../assets/logo.png";
+import { useState } from 'react';
+
+
 
 function Header() {
+  const [search, setSearch] = useState('')
+
   return (
     <>
       <header className={styles.header}>
@@ -12,6 +17,11 @@ function Header() {
         </div>
 
         <nav className={styles.headerRight}>
+            <input
+            placeholder="search..."
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            />
             <Link className={styles.btn} to="/theory/notes">Theory</Link>
             <Link className={styles.btn} to="/signup">Sign up/ Login</Link>
         </nav>
