@@ -60,13 +60,35 @@
     width: 70%;
     border-radius: 16px;
     border: 1px solid rgb(232, 232, 232);
-    position: absolute;
+    position: relative;
+}
+
+.dropContainer{
+    width: 30rem;
+    height: 30rem;
+    background-color: rgb(225, 225, 225);
+    position:absolute;
+    top:10rem;
+    right:15rem;
+    z-index:100;
+    display:flex;
+    flex-direction:column;
+    overflow-y:auto;
+    gap: 1rem;
+
+}
+
+.topResult {
+    color:black;
+    font-size: 38;
+    height: 4rem;
+    bottom:.5rem;
+
 }
 
 .song {
-    position: relative;
-    
-    
-
-
+    color: black;
+    background-color:white;
+    height:2rem;
+    width:100%;
 }

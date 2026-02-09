@@ -69,3 +69,6 @@ def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Incorrect credentials.")
     
     return {"message": "Login successful", "user": user_from_db}
+
+@app.post('/songsearch')
+def search()

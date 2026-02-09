@@ -18,4 +18,7 @@ class UserResponse(BaseModel):
 class UserLogin(BaseModel):
     username: str
     password: str
-    
+
+#For songs we need title artist and 
+class SongSearch(BaseModel):
+    title: str
