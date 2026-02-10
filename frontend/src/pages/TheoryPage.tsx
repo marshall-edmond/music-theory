@@ -53,9 +53,8 @@ function TheoryPage() {
     const ActiveComponent = config?.component;
 
     return (
-        <div className={styles.pageFrame}>
+        <div>
             <Header />
-
             <div className={styles.lessonSlot}>
                 {ActiveComponent ? (
                     <ActiveComponent />

@@ -19,22 +19,22 @@ function Header() {
   
   //effect hook to close dropdown if its empty...
   useEffect(() => {
+    //if the searchbar is empty don't display dropdown
     if (search.trim() === ''){
-      setDropDown(false)
+      setDropDown(false);
     }
   }, [search])
 
   //handle change of searchbar, if searchbar is empty setDropDown(false)
   const HandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //render the dropdown
+    setDropDown(true);
+    setLoading(true);
+    //call Results function to check api 
+    Results();
     const value = e.target.value;
-
-    if (value.trim() === ''){
-      setDropDown(false)
-    } else {
-      setSearch(e.target.value)
-    }
-
-
+    setSearch(value);
+    
   }
 // fetch top 5 songs from song api
   async function Results () {
@@ -74,7 +74,8 @@ function Header() {
               />
             </div>
             {/*render drop down menu */}
-              {dropdown && !isLoading ? (
+            {dropdown ? (
+            !isLoading ? (
                 <div className={styles.dropContainer}>
                   <div className={styles.topResult}>Search Results</div>
                   <hr className={styles.solid}></hr>
@@ -91,7 +92,11 @@ function Header() {
               ) : (
                 <div className={styles.dropContainer}>
                 </div>
-              )}
+            )
+            )
+             : (
+            null
+            )}
             <Link className={styles.btn} to="/theory/notes">Theory</Link>
             <Link className={styles.btn} to="/signup">Sign up/ Login</Link>
         </nav>
