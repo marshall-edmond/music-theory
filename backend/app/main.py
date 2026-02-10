@@ -71,4 +71,6 @@ def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
     return {"message": "Login successful", "user": user_from_db}
 
 @app.post('/songsearch')
-def search()
+def search(content):
+    
+    

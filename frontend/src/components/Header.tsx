@@ -1,17 +1,41 @@
 import { Link } from 'react-router-dom';
 import styles from '../styles/Header.module.css';
 import logo from "../assets/logo.png";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+//every song must have an image, an artist name, and a song title for dropdown menu
+interface songProps {
+  img: string,
+  artist : string,
+  song_title : string
+}
 
 function Header() {
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
   //displays dropdown menu
-  const [dropdown, setDropDown] = useState(false)
-  const [isLoading, setLoading] = useState(false)
-  const [error, setError] = useState('')
+  const [dropdown, setDropDown] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   
+  //effect hook to close dropdown if its empty...
+  useEffect(() => {
+    if (search.trim() === ''){
+      setDropDown(false)
+    }
+  }, [search])
+
+  //handle change of searchbar, if searchbar is empty setDropDown(false)
+  const HandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    if (value.trim() === ''){
+      setDropDown(false)
+    } else {
+      setSearch(e.target.value)
+    }
 
 
+  }
 // fetch top 5 songs from song api
   async function Results () {
     //take search value and look it up in the api
@@ -21,8 +45,12 @@ function Header() {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/songsearch`,{method: 'POST', headers : {'Content-Type' : 'application/json'}, body : JSON.stringify({search})})
       const result = await response.json()
 
+      if (!response.ok){
+        setError(result.message);
+      }
+
     } catch(err) {
-      setError(`{error}`)
+      setError('Network Error')
     
     }
     finally {
@@ -42,10 +70,7 @@ function Header() {
               <input className={styles.search}
               placeholder="search..."
               value={search}
-              onChange={(e) => {
-              setDropDown(true);
-              setSearch(e.target.value)
-              }}
+              onChange={HandleChange}
               />
             </div>
             {/*render drop down menu */}
