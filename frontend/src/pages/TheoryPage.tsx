@@ -53,19 +53,21 @@ function TheoryPage() {
     const ActiveComponent = config?.component;
 
     return (
-        <div>
+        <>
             <Header />
-            <div className={styles.lessonSlot}>
-                {ActiveComponent ? (
-                    <ActiveComponent />
+            <div className={styles.pageFrame}>
+                <div className={styles.lessonSlot}>
+                    {ActiveComponent ? (
+                        <ActiveComponent />
                 ) : (
                     <div className="p-10 text-white">Lesson not found!</div>
                 )}
+                </div>
             </div>
             
             {/* footer navigation */}
             <Footer next={config?.next} back={config?.back} number={config?.number} />
-        </div>
+        </>
     )
 }
 

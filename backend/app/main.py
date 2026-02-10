@@ -72,5 +72,4 @@ def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
 
 @app.post('/songsearch')
 def search(content):
-    
-    
+    pass

@@ -3,11 +3,11 @@
     display:flex;
     flex-direction:column;
     width:100%;
-    height:100dvh;
+    height:82dvh;
+    overflow-y:hidden;
 }
 
 .lessonSlot {
-    flex: 1;
     overflow:hidden;
     position:relative; 
 }
