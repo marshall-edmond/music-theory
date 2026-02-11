@@ -4,10 +4,10 @@ import logo from "../assets/logo.png";
 import { useState, useEffect } from 'react';
 
 //every song must have an image, an artist name, and a song title for dropdown menu
-interface songProps {
-  img: string,
-  artist : string,
-  song_title : string
+type Song = {
+  songImage: string, 
+  songTitle: string;
+  songAuthor: string
 }
 
 function Header() {

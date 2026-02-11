@@ -5,7 +5,7 @@ from .database import engine, get_db
 from .auth import hash_password, verify_password
 
 models.base.metadata.create_all(bind=engine)
-
+#accepted symbol
  symbols = ['@',',','.','#','$','%']
 
 def validate(password: str) -> bool:
@@ -70,6 +70,6 @@ def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
     
     return {"message": "Login successful", "user": user_from_db}
 
-@app.post('/songsearch')
+@app.get('/songsearch')
 def search(content):
-    pass
+    
