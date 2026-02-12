@@ -10,6 +10,8 @@ type Song = {
   songAuthor: string
 }
 
+let timer: any;
+
 function Header() {
   const [search, setSearch] = useState('');
   //displays dropdown menu
@@ -25,17 +27,24 @@ function Header() {
     }
   }, [search])
 
+  //function to delay calling Results(api request), .300 ms, clear timeout on each keystroke before 
+
   //handle change of searchbar, if searchbar is empty setDropDown(false)
   const HandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //on every change clear timer
+    clearTimeout(timer);
+
     //render the dropdown
     setDropDown(true);
     setLoading(true);
-    //call Results function to check api 
-    Results();
-    const value = e.target.value;
-    setSearch(value);
+    setSearch(e.target.value);
+    // fetch api
+    timer = setTimeout(Results, 300);
     
   }
+
+
+
 // fetch top 5 songs from song api
   async function Results () {
     //take search value and look it up in the api

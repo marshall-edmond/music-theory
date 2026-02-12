@@ -1,8 +1,9 @@
-from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi import FastAPI, Depends, HTTPException, status, Request
 from . import models, schemas
 from sqlalchemy.orm import Session
 from .database import engine, get_db
 from .auth import hash_password, verify_password
+import os
 
 models.base.metadata.create_all(bind=engine)
 #accepted symbol
@@ -69,8 +70,28 @@ def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Incorrect credentials.")
     
     return {"message": "Login successful", "user": user_from_db}
-
-@app.get('/songsearch')
-def search(content):
+#send to last fm
+@app.post('/songsearch')
+def search(query: str):
+    #variable for api key
+    api_key = os.getenv('LAST_API')
+    
+    #call LASTFM
+    response = requests.get(
+        "https://ws.audioscrobbler.com/2.0/",
+        params={
+            'method': 'track.search',
+            'track': query,
+            'api_key': api_key,
+            'format': 'json',
+            'limit': 5
+            
+    data = response.json()
+    
+    #5 tracks from LASTFM api
+    
+    }
+)
+    
     
     

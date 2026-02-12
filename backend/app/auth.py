@@ -1,7 +1,7 @@
 from passlib.context import CryptContext
 
 pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
-
+#Hashes password with argon2 algorigthm
 def hash_password(password: str) -> str:
     return pwd_context.hash(password)
 
