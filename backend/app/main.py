@@ -4,10 +4,13 @@ from sqlalchemy.orm import Session
 from .database import engine, get_db
 from .auth import hash_password, verify_password
 import os
+from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+import requests
 
-models.base.metadata.create_all(bind=engine)
+models.Base.metadata.create_all(bind=engine)
 #accepted symbol
- symbols = ['@',',','.','#','$','%']
+symbols = ['@',',','.','#','$','%']
 
 def validate(password: str) -> bool:
     #Passwords must have 8 characters, 1 uppercase, and one symbol. 
@@ -20,6 +23,15 @@ def validate(password: str) -> bool:
     return has_upper and has_symbol
 
 app = FastAPI();
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Your React dev server
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.get("/")
 def read_root():
@@ -70,9 +82,13 @@ def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Incorrect credentials.")
     
     return {"message": "Login successful", "user": user_from_db}
+
+class SearchRequest(BaseModel):
+    search: str
+    
 #send to last fm
 @app.post('/songsearch')
-def search(query: str):
+def search(request: SearchRequest):
     #variable for api key
     api_key = os.getenv('LAST_API')
     
@@ -81,17 +97,21 @@ def search(query: str):
         "https://ws.audioscrobbler.com/2.0/",
         params={
             'method': 'track.search',
-            'track': query,
+            'track': request.search,
             'api_key': api_key,
             'format': 'json',
             'limit': 5
-            
+        }
+    )
+    #Get response from api endpoint 
     data = response.json()
     
-    #5 tracks from LASTFM api
+    tracks = data['results']['trackmatches']['track']
     
-    }
-)
+    #5 tracks from LASTFM api
+
+    return {"songs": tracks}
+
     
     
     

@@ -2,22 +2,35 @@ import { Link } from 'react-router-dom';
 import styles from '../styles/Header.module.css';
 import logo from "../assets/logo.png";
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
 //every song must have an image, an artist name, and a song title for dropdown menu
 type Song = {
-  songImage: string, 
-  songTitle: string;
-  songAuthor: string
+  name:string,
+  title:string,
+  artist: string,
+  url: string,
+  image: Array<{
+    "#text": string;
+    size: string;
+  }>,
 }
+
 
 let timer: any;
 
-function Header() {
+export default function Header() {
   const [search, setSearch] = useState('');
   //displays dropdown menu
   const [dropdown, setDropDown] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [results, setResults] = useState<Song[]>([])
+  const nav = useNavigate()
+
+  // Section for top result
+  const TopResult = results[0]
+  const otherResults  = results.slice(1);
   
   //effect hook to close dropdown if its empty...
   useEffect(() => {
@@ -28,7 +41,6 @@ function Header() {
   }, [search])
 
   //function to delay calling Results(api request), .300 ms, clear timeout on each keystroke before 
-
   //handle change of searchbar, if searchbar is empty setDropDown(false)
   const HandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     //on every change clear timer
@@ -39,11 +51,14 @@ function Header() {
     setLoading(true);
     setSearch(e.target.value);
     // fetch api
-    timer = setTimeout(Results, 300);
+    timer = setTimeout(Results, 500);
     
   }
 
-
+  //onClick go to search page and send song info as props
+  const Navigate = () => {
+    nav('/search')
+  }
 
 // fetch top 5 songs from song api
   async function Results () {
@@ -52,10 +67,16 @@ function Header() {
     try{
       //fetch request to api 
       const response = await fetch(`${import.meta.env.VITE_API_URL}/songsearch`,{method: 'POST', headers : {'Content-Type' : 'application/json'}, body : JSON.stringify({search})})
-      const result = await response.json()
+      const data = await response.json()
 
-      if (!response.ok){
-        setError(result.message);
+      if (response.ok){
+        console.log("Backend response:", data);
+        setResults(data.songs);
+      }
+
+      else {
+        setError(data.message);
+        
       }
 
     } catch(err) {
@@ -83,29 +104,32 @@ function Header() {
               />
             </div>
             {/*render drop down menu */}
-            {dropdown ? (
-            !isLoading ? (
-                <div className={styles.dropContainer}>
-                  <div className={styles.topResult}>Search Results</div>
-                  <hr className={styles.solid}></hr>
-                  <hr></hr>
-                  <div className={styles.song}></div>
-                  <hr></hr>
-                  <div className={styles.song}></div>
-                  <hr></hr>
-                  <div className={styles.song}></div>
-                  <hr></hr>
-                  <div className={styles.song}></div>
-                  <hr></hr>
-                </div>
-              ) : (
-                <div className={styles.dropContainer}>
-                </div>
-            )
-            )
-             : (
-            null
-            )}
+           {dropdown && (
+  <div className={styles.dropContainer}>
+    {isLoading ? (
+      <div>Loading...</div>  // ← Show loading message
+    ) : TopResult ? (
+      <>
+        <div className={styles.topResult}>Search Results</div>
+        <button className={styles.song} onClick={Navigate}>
+          <img src={TopResult.image[2]["#text"]} />
+          <div>{TopResult.name}</div>
+          <div>{TopResult.artist}</div>
+        </button>
+        
+        {otherResults.map((song, index) => (
+          <button key={index} className={styles.song} onClick={Navigate}>
+            <img src={song.image[2]["#text"]} />
+            <div>{song.name}</div>
+            <div>{song.artist}</div>
+          </button>
+        ))}
+      </>
+    ) : (
+      <div>No results found</div>  // ← Show when no results
+    )}
+  </div>
+)}
             <Link className={styles.btn} to="/theory/notes">Theory</Link>
             <Link className={styles.btn} to="/signup">Sign up/ Login</Link>
         </nav>
@@ -114,4 +138,3 @@ function Header() {
   )
 }
 
-export default Header;

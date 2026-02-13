@@ -2,12 +2,11 @@ import Header from '../components/Header.tsx'
 import styles from '../styles/Quiz.module.css';
 
 
-function About(){
+export default function Search(){
     return (
-        <div className={styles.mainContainer}>
+        <div>
             <Header />
         </div>
     )
 }
 
-export default About;
