@@ -10,10 +10,7 @@ type Song = {
   title:string,
   artist: string,
   url: string,
-  image: Array<{
-    "#text": string;
-    size: string;
-  }>,
+  image: string,
 }
 
 
@@ -72,6 +69,7 @@ export default function Header() {
       if (response.ok){
         console.log("Backend response:", data);
         setResults(data.songs);
+        console.log("Image array:", TopResult.image)
       }
 
       else {
@@ -112,14 +110,14 @@ export default function Header() {
       <>
         <div className={styles.topResult}>Search Results</div>
         <button className={styles.song} onClick={Navigate}>
-          <img src={TopResult.image[2]["#text"]} />
+          <img src={TopResult.image} alt={TopResult.name} />
           <div>{TopResult.name}</div>
           <div>{TopResult.artist}</div>
         </button>
         
         {otherResults.map((song, index) => (
           <button key={index} className={styles.song} onClick={Navigate}>
-            <img src={song.image[2]["#text"]} />
+            <img src={TopResult.image} alt={TopResult.name} />
             <div>{song.name}</div>
             <div>{song.artist}</div>
           </button>

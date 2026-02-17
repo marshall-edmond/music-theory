@@ -7,9 +7,16 @@ import os
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import requests
+import base64
+import json
+from requests import post
 
 models.Base.metadata.create_all(bind=engine)
 #accepted symbol
+client_id = os.getenv("SPOTIFY")
+client_secret = os.getenv("SPOTIFY_SECRET")
+    
+    
 symbols = ['@',',','.','#','$','%']
 
 def validate(password: str) -> bool:
@@ -83,35 +90,54 @@ def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
     
     return {"message": "Login successful", "user": user_from_db}
 
-class SearchRequest(BaseModel):
-    search: str
+#function to get access token
+def get_token():
+    auth_string = client_id + ":" + client_secret
+    auth_bytes = auth_string.encode("utf-8")
+    auth_base64 = str(base64.b64encode(auth_bytes), "utf-8")
     
+    url = "https://accounts.spotify.com/api/token"
+    headers = {
+        "Authorization": "Basic " + auth_base64,
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+    
+    data = {"grant_type": "client_credentials"}
+    result = post(url, headers=headers, data=data)
+    
+    json_result = json.loads(result.content)
+    token = json_result["access_token"]
+    return token
+
+def get_auth_header(token):
+    return {"Authorization": "Bearer " + token}
+
 #send to last fm
 @app.post('/songsearch')
-def search(request: SearchRequest):
+def search(token: str, query: str):
     #variable for api key
-    api_key = os.getenv('LAST_API')
     
-    #call LASTFM
+    #call Spotify api
     response = requests.get(
-        "https://ws.audioscrobbler.com/2.0/",
-        params={
-            'method': 'track.search',
-            'track': request.search,
-            'api_key': api_key,
-            'format': 'json',
-            'limit': 5
+        "https://api.spotify.com/v1/search",
+        params = {
+            #required arguments
+            "q": query,
+            "type": ["track", "artist"],
+            "limit": 5,
         }
     )
     #Get response from api endpoint 
     data = response.json()
     
-    tracks = data['results']['trackmatches']['track']
-    
-    #5 tracks from LASTFM api
+    return data
 
-    return {"songs": tracks}
+toke = get_token()
+print(toke)
+song_search = search(toke, "Japanese Denim")
+print(song_search)
 
-    
+
+
     
     
