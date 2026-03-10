@@ -1,6 +1,7 @@
 import styles from '../styles/Theory.module.css';
 import { Link } from 'react-router-dom';
 
+
 //button takes back and next
 interface btnProps { 
     back?: string,
@@ -13,7 +14,7 @@ export default function Footer({back, next, number}: btnProps) {
     return (
         <footer className={styles.footer}>
             <div className={styles.center}>
-                {number}/6
+                {number}/4
             </div>
             <div className={styles.btnContainer}>
                 {back ? (

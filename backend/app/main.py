@@ -33,12 +33,11 @@ app = FastAPI();
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Your React dev server
+    allow_origins=["http://localhost:5173"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 @app.get("/")
 def read_root():
@@ -75,9 +74,8 @@ def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
         return new_user
     else:
         raise HTTPException(status_code= 400, detail="Password must be atleast 8 characters long and include 1 upper case letter.")
-
-
-                            
+    
+    
 @app.post('/login') 
 def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
     user_from_db = db.query(models.User).filter(models.User.username == user.username).first()
@@ -99,7 +97,7 @@ def get_token():
     url = "https://accounts.spotify.com/api/token"
     headers = {
         "Authorization": "Basic " + auth_base64,
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/x-www-form-urlencoded",
     }
     
     data = {"grant_type": "client_credentials"}
@@ -116,28 +114,21 @@ def get_auth_header(token):
 @app.post('/songsearch')
 def search(token: str, query: str):
     #variable for api key
-    
+    headers = get_auth_header(token)
     #call Spotify api
     response = requests.get(
         "https://api.spotify.com/v1/search",
         params = {
             #required arguments
             "q": query,
-            "type": ["track", "artist"],
+            "type": "track", "artist",
             "limit": 5,
         }
     )
+    
     #Get response from api endpoint 
     data = response.json()
-    
     return data
-
-toke = get_token()
-print(toke)
-song_search = search(toke, "Japanese Denim")
-print(song_search)
-
-
 
     
     

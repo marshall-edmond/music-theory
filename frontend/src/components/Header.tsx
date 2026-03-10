@@ -22,14 +22,14 @@ export default function Header() {
   const [dropdown, setDropDown] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [results, setResults] = useState<Song[]>([])
+  const [results, setResults] = useState<Song[]>([]);
   const nav = useNavigate()
 
   // Section for top result
   const TopResult = results[0]
   const otherResults  = results.slice(1);
   
-  //effect hook to close dropdown if its empty...
+  //effect hook to close dropdown if its empty
   useEffect(() => {
     //if the searchbar is empty don't display dropdown
     if (search.trim() === ''){
@@ -85,6 +85,8 @@ export default function Header() {
       setLoading(false)
     }
   }
+
+
   return (
     <>
       <header className={styles.header}>
@@ -105,7 +107,7 @@ export default function Header() {
            {dropdown && (
   <div className={styles.dropContainer}>
     {isLoading ? (
-      <div>Loading...</div>  // ← Show loading message
+      <div>Loading...</div>  // loading
     ) : TopResult ? (
       <>
         <div className={styles.topResult}>Search Results</div>
@@ -124,7 +126,7 @@ export default function Header() {
         ))}
       </>
     ) : (
-      <div>No results found</div>  // ← Show when no results
+      <div>No results found</div>  //
     )}
   </div>
 )}

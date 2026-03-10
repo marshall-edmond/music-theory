@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import styles from '../styles/Theory.module.css';
 import Notes1 from '../components/lessons/Notes1.tsx';
 import Notes2 from '../components/lessons/Notes2.tsx';
+import NotesQuiz from '../components/Quizzes/NotesQuiz.tsx';
 
 
 
@@ -17,31 +18,38 @@ type LessonConfig = {
     number: string;
 }
 
-const LessonRegistry : Record<string, LessonConfig> = {
+  const LessonRegistry : Record<string, LessonConfig> = {
     "notes" : {      
         component: Notes,
-        next: "/theory/1",
+        next: "/theory/notes1",
         back: undefined,
         number: "1",
     },
 
-    "1" : {
+    "notes1" : {
         component: Notes1,
-        next: '/theory/2',
+        next: '/theory/notes2',
         back:"/theory/notes",
         number:"2",
     },
 
-    "2" : {
+    "notes2" : {
         component: Notes2,
-        next: undefined,
-        back: '/theory/1',
+        next: '/theory/notesquiz',
+        back: '/theory/notes1',
         number:'3',
     },
+
+    "notesquiz" : {
+        component: NotesQuiz,
+        next: undefined,
+        back: '/theory/notes2',
+        number:'4',
+    }
 };
 
 function TheoryPage() {
-    /* 1. Get the ID from the URL */
+    /* id from useParams */
     const { lessonId } = useParams<{ lessonId: string }>();
     /* useParams takes <key, value> in this case we specify to ensure inputs
 
