@@ -1,5 +1,5 @@
 import styles from '../../styles/Quiz.module.css';
-import Piano from '../Piano.tsx';
+import Piano1 from '../Piano1.tsx';
 import { randomNotes } from '../../music/Note.tsx';
 
 
@@ -13,7 +13,7 @@ export default function NotesQuiz(){
             <div className={styles.questionBox}>
                 <div className={styles.question1}>1. Identify the Note </div>
                 <div className={styles.Note}> { note } </div>
-                <Piano />
+                <Piano1 />
 
             </div>
         </div>

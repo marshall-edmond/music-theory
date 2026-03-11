@@ -121,7 +121,7 @@ def search(token: str, query: str):
         params = {
             #required arguments
             "q": query,
-            "type": "track", "artist",
+            "type": "track",
             "limit": 5,
         }
     )
