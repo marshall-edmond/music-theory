@@ -1,3 +1,4 @@
+
 import styles from '../../styles/Theory.module.css';
 import Piano from '../Piano';
 import LessonLayout from '../LessonLayout';
