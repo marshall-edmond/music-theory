@@ -1,13 +1,18 @@
 import styles from '../styles/Piano1.module.css';
-import { useState } from 'react';
 
-export default function Piano1(){
-    //state variable for activeNotes
-    const [activeNotes, setActiveNote] = useState<string[]>([]);
+interface PianoProps {
+    activeNote : string | null;
+    onNoteSelect : (note: string) => void;
+}
 
-    
-    //function to add note to ActiveNote
-    const addNote = (note: string) => setActiveNote([note]);
+
+export default function Piano1({activeNote, onNoteSelect}: PianoProps){
+    //set selected note every time a key is clicked
+
+    const isNoteBlack = (name: string) => name.includes('#');
+    const isNoteActive = (note: string) => activeNote === note;
+
+
 
     const OCTAVE = [
         //each individual note
@@ -24,9 +29,6 @@ export default function Piano1(){
         { name: 'A#', flat: 'Bb' },
         { name: 'B'  },
 ];
-    //function to check if note is a black key
-    const isNoteBlack = (name : string) => name.includes('#');
-    const isNoteActive = (note : string) => activeNotes.includes(note);
 
     return (
         <div className={styles.pianoContainer}>
@@ -38,12 +40,12 @@ export default function Piano1(){
                 <div key={whiteNote.name} className={styles.whiteKeyWrapper}>
                 <div
                     className={`${styles.whiteKey} ${isNoteActive(whiteNote.name) ? styles.active : ''}`}
-                    onClick={() => addNote(whiteNote.name)}
+                    onClick={() => onNoteSelect(whiteNote.name)}
                 />
                 {hasBlackKey && (
                     <div
                     className={`${styles.blackKey} ${isNoteActive(nextNote.name) ? styles.active : ''}`}
-                    onClick={() => addNote(nextNote.name)}
+                    onClick={() => onNoteSelect(nextNote.name)}
                     />
                 )}
                 </div>
