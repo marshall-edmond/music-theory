@@ -4,6 +4,8 @@ import { useState } from 'react';
 export default function Piano1(){
     //state variable for activeNotes
     const [activeNotes, setActiveNote] = useState<string[]>([]);
+
+    
     //function to add note to ActiveNote
     const addNote = (note: string) => setActiveNote([note]);
 
@@ -26,16 +28,27 @@ export default function Piano1(){
     const isNoteBlack = (name : string) => name.includes('#');
     const isNoteActive = (note : string) => activeNotes.includes(note);
 
-
-     return (
+    return (
         <div className={styles.pianoContainer}>
-            {OCTAVE.map((note) => (
+            {OCTAVE.filter(note => !isNoteBlack(note.name)).map((whiteNote) => {
+            const nextNote = OCTAVE[OCTAVE.indexOf(whiteNote) + 1];
+            const hasBlackKey = nextNote && isNoteBlack(nextNote.name);
+
+            return (
+                <div key={whiteNote.name} className={styles.whiteKeyWrapper}>
                 <div
-                key = {note.name}
-                className={`${isNoteBlack(note.name) ? styles.blackKey : styles.whiteKey} ${isNoteActive(note.name) ? styles.active : ''}`}
-                onClick={() => addNote(note.name)}
+                    className={`${styles.whiteKey} ${isNoteActive(whiteNote.name) ? styles.active : ''}`}
+                    onClick={() => addNote(whiteNote.name)}
                 />
-            ))}
+                {hasBlackKey && (
+                    <div
+                    className={`${styles.blackKey} ${isNoteActive(nextNote.name) ? styles.active : ''}`}
+                    onClick={() => addNote(nextNote.name)}
+                    />
+                )}
+                </div>
+            );
+            })}
         </div>
-    );
+        );
 }
