@@ -19,7 +19,7 @@ export default function NotesQuiz(){
     //check if selected piano note matches the generated note
     const Question1 = () => {
         //if generated note is equal to active Notes, else leave as false
-        if (note == activeNotes[0]){
+        if (note == activeNotes){
             setResponse(true);
         }
     }
