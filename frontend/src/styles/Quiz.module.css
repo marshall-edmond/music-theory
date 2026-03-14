@@ -1,6 +1,6 @@
 .mainContainer {
     background-color: var(--secondary);
-    height:200dvh;
+    height:auto;
     width:100%;
     display:flex;
     flex-direction: column;

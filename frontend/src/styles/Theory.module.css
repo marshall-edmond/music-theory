@@ -137,3 +137,8 @@ p {
     left:50%;
     
 }
+
+.scrollable {
+    overflow-y:auto;
+    height: auto;
+}

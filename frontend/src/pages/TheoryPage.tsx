@@ -35,12 +35,12 @@ type LessonConfig = {
 
     "notes2" : {
         component: Notes2,
-        next: '/theory/notesquiz',
+        next: '/theory/notes-quiz',
         back: '/theory/notes1',
         number:'3',
     },
 
-    "notesquiz" : {
+    "notes-quiz" : {
         component: NotesQuiz,
         next: undefined,
         back: '/theory/notes2',
@@ -56,6 +56,8 @@ function TheoryPage() {
     /* 2. Look up key is dynamic route from useParams*/
     const lookupKey = lessonId || 'notes';
 
+    const isQuiz = lessonId?.endsWith('-quiz');
+
     const config = LessonRegistry[lookupKey];
 
     const ActiveComponent = config?.component;
@@ -63,7 +65,7 @@ function TheoryPage() {
     return (
         <>
             <Header />
-            <div className={styles.pageFrame}>
+            <div className={`${styles.pageFrame} ${isQuiz ? styles.scrollable : ''}`}>
                 <div className={styles.lessonSlot}>
                     {ActiveComponent ? (
                         <ActiveComponent />
