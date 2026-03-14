@@ -12,7 +12,6 @@ export default function NotesQuiz(){
     const [activeNotes, setActiveNote] = useState('');
     //correct or incorrect
     const [response, setResponse] = useState(false)
-
     const [ note ] = useState(randomNotes);
 
 
