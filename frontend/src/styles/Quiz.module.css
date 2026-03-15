@@ -45,11 +45,27 @@
     color: white;
 }
 
+.btnContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+}
+
 .btn {
     background: #11112d;
     border-radius: 8px;
-    padding: 8px 8px;
+    padding: 16px 16px;
     color: white;
     text-decoration: none;
     cursor: pointer;
+}
+
+.btn2 {
+    background:rgb(227, 196, 22);
+    border-radius: 8px;
+    padding : 16px 46px;
+    color:white;
+    text-decoraTion: none;
+    cursor: pointer;
+    align-items:center;
 }
