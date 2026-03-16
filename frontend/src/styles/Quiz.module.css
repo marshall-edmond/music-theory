@@ -12,6 +12,7 @@
 }
 
 .intro {
+    margin-top: 30px;
     color: white;
     font-size: 30px;
     height: 50px;
@@ -68,4 +69,9 @@
     text-decoraTion: none;
     cursor: pointer;
     align-items:center;
+}
+
+
+.selectedAnswer{
+    background: #11112d;
 }
