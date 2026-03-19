@@ -1,5 +1,5 @@
 import LessonLayout from '.././LessonLayout.tsx';
-import Piano from '../Piano';
+import NoFunction from '../NoFunction.tsx';
 import styles from '../../styles/Theory.module.css';
 import { GiGrandPiano } from 'react-icons/gi';
 
@@ -32,7 +32,7 @@ export default function Notes1() {
 
     const RightContent = (
         <>
-            <Piano />
+            <NoFunction />
         </>
     )
 
