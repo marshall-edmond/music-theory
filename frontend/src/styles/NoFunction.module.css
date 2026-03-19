@@ -1,7 +1,7 @@
 .pianoContainer{
     display: flex;
-    height: 25vh;
-    width: 30dvw;
+    height: 27vh;
+    width: 35dvw;
     background:rgb(19, 16, 16);
     border-radius: 8px;
     justify-content:center;
@@ -25,7 +25,7 @@
 .blackKey{
     background-color: rgb(0, 0, 0);
     height: 70%;
-    width: 45%;
+    width: 53%;
     border-radius: 4px;
     z-index: 10;
     position: absolute;
@@ -54,7 +54,7 @@
     display:flex;
     position:absolute;
     bottom: 20px;
-    font-size : 6px;
+    font-size : 10px;
     font-family: 'Proxima Nova';
     width:50%;
     justify-content:center;

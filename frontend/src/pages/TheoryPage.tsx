@@ -65,7 +65,8 @@ function TheoryPage() {
     /* 2. Look up key is dynamic route from useParams*/
     const lookupKey = lessonId || 'notes';
 
-    const isQuiz = lessonId?.endsWith('-quiz');
+    const isQuiz = lessonId?.endsWith('-quiz') || lessonId?.endsWith('-debrief');
+
 
     const config = LessonRegistry[lookupKey];
 

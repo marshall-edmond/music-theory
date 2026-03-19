@@ -17,8 +17,7 @@ export default function NotesDebrief(){
     const question2 = 'Remember the prefix Oct- means 8. Including accidentals there are 12 different notes on the piano. However this question asks specifically for the number of white notes on a piano.'
 
     const question3 = 'Including accidentals there are 12 notes on a piano. Remember accidentals alter the pitch of a note, and on a piano they are represented by the black keys.';
-
-    const question4 = 'Enharmonic equivalance occurs when two notes with the same pitch and sound have different names';
+    const question4 = 'Enharmonic equivalance occurs when two notes with the same pitch and sound have different names and notation';
 
     const question5 = '';
 
@@ -60,7 +59,7 @@ export default function NotesDebrief(){
             </div> 
 
             <div className={styles.question}>
-                3.How many notes are on a piano including accidentals?
+                3. How many notes are on a piano including accidentals?
             </div>
 
             <div className={styles.text}>

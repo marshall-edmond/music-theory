@@ -27,6 +27,7 @@
 }
 
 .title {
+    padding-top: 20px;
     font-family: 'Proxima Nova';
     font-size: 36px;
     color:white;
@@ -38,12 +39,13 @@
     font-family: 'Proxima Nova';
     font-size : 20px;
     color: white;
+    width: 80%;
 }
 
 .question{
     font-family: 'Proxima Nova';
     font-size: 26px;
-    color:white;
+    color:rgb(253, 201, 30);
 }
 
 
