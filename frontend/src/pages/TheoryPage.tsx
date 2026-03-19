@@ -7,6 +7,7 @@ import styles from '../styles/Theory.module.css';
 import Notes1 from '../components/lessons/Notes1.tsx';
 import Notes2 from '../components/lessons/Notes2.tsx';
 import NotesQuiz from '../components/Quizzes/NotesQuiz.tsx';
+import NotesDebrief from '../components/debriefs/NotesDebrief.tsx';
 
 
 
@@ -42,10 +43,18 @@ type LessonConfig = {
 
     "notes-quiz" : {
         component: NotesQuiz,
-        next: undefined,
+        next: '/theory/notes-debrief',
         back: '/theory/notes2',
         number:'4',
+    },
+
+    "notes-debrief" : {
+        component: NotesDebrief,
+        next: undefined,
+        back:'/theory/notes-quiz',
+        number: '5',
     }
+
 };
 
 function TheoryPage() {

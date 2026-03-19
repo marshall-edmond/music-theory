@@ -6,6 +6,9 @@ import { useState, useEffect } from 'react';
 
 export default function NotesQuiz(){
 
+    //keep track of score, pass to notes debrief
+    const [score, changeScore] = useState<string | null>(null);
+
     //track active question
     const [display, setDisplay] = useState<{questionID:string, result: 'Correct' | 'Incorrect'} | null>(null);
 
@@ -27,11 +30,18 @@ export default function NotesQuiz(){
 
     //question2
     //array for available answers for question 2
-    const options = ['12','10', '6', '8'];
+    const options2 = ['12','10', '6', '8'];
     const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+
+    //list of answer choices for question 3 and selected
+    const options3 = ['4', '12', '6', '14'];
+    const [option3, setOption3] = useState<string | null>(null); 
     
-    //Question 3 options, and state variables 
-    const Question3 = ['Enharmonic equivalence is occurs when notes/intervals/keys have the same pitch, but different name and notation.', 'Enharmonic Equivalence happens when The harmony between two notes reach equillibrium','Enharmonic equivalence happens when ']
+    //Question 4 options, and state variables 
+    const options4 = ['Enharmonic equivalence is occurs when notes/intervals/keys have the same pitch, but different name and notation.',
+        'Enharmonic Equivalence happens when the harmony between two notes reach equillibrium.',
+        'Enharmonic equivalence happens when two different notes are played and a harmony is created',
+        'Enharmonic equivalance occurs when a two of the same notes are played on differnet octaves.']
     const [activeChoice, setActiveChoice] = useState<string | null>(null);
 
     //check if selected piano note matches the generated note
@@ -50,9 +60,16 @@ export default function NotesQuiz(){
         else setDisplay({questionID: '2', result: 'Incorrect'});
 
     }
-    //
-    const answer3 = () => {
-        if (activeChoice == Question3[0]){
+    //check answer and display result
+    const Question3 = () => {
+        if (options3[1] === option3 ){
+            setDisplay({ questionID: '3', result: 'Correct'})
+        }
+        else setDisplay( {questionID: '3', result: 'Incorrect'})
+    }
+    //check answer and siaply result
+    const Question4 = () => {
+        if (activeChoice == options4[0]){
             setDisplay({questionID: '3', result: 'Correct'})
         } else setDisplay({questionID: '3', result: 'Incorrect'});
     };
@@ -82,7 +99,7 @@ export default function NotesQuiz(){
             <div className={styles.questionBox}>
                 <div className={styles.question1}>2. How many white notes are in an Octave? </div>
                 <div className={styles.btnContainer}>
-                    {options.map(option => (
+                    {options2.map(option => (
                         <div
                             key={option}
                             className={`${styles.btn2} ${selectedAnswer === option ? styles.selectedAnswer : ''}`}
@@ -110,18 +127,43 @@ export default function NotesQuiz(){
 
             <div className={styles.questionBox}>
                 <div className={styles.question1}>How many differnet notes are on a piano (including accidentals)? </div>
-                <div className={styles.btnContainer}></div>
+                <div className={styles.btnContainer}>
+                    {options3.map(option => (
+                        <div
+                        key={option}
+                        onClick={() => setOption3(option)}
+                        className={`${styles.btn2} ${option3 === option ? styles.selectedAnswer : ''}`}
+                        >
+                        {option}
+                        </div>
+                    ))}
+                </div>
+
+                <div 
+                className={styles.btn}
+                onClick={() => Question3()}
+                >
+                Check Answer
+                </div>
+
+                {display?.questionID ==='3'&& (
+                    <div className={styles.submit}
+                    >
+                    {display.result}
+                    </div>
+                )
+                }
             </div>
 
             <div className={styles.questionBox}>
                 <div className={styles.question1}>
                     What is enharmonic equivalence?
                 </div>
-                <div className={styles.btnContainter}>
-                    {Question3.map(option => (
+                <div className={styles.btnContainer}>
+                    {options4.map(option => (
                         <div
                         key={option}
-                        className={`${styles.btn2} ${option == activeChoice ? styles.selectedAnswer : ''}`}
+                        className={`${styles.btn3} ${option === activeChoice ? styles.selectedAnswer : ''}`}
                         onClick={() => setActiveChoice(option)}
                         >   
                         {option}
@@ -129,11 +171,11 @@ export default function NotesQuiz(){
                     ))}
                 </div>
                 <div className={styles.btn}
-                onClick={() => answer3()}
+                onClick={() => Question4()}
                 >
-                Submit
+                Check Answer
                 </div>
-                {display?.questionID === '3' &&(
+                {display?.questionID === '4' &&(
                     <div className={styles.submit}>
                         {display.result}
                     </div>

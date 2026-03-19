@@ -1,0 +1,63 @@
+.pianoContainer{
+    display: flex;
+    height: 25vh;
+    width: 30dvw;
+    background:rgb(19, 16, 16);
+    border-radius: 8px;
+    justify-content:center;
+    align-items:center;
+}
+
+.whiteKeyWrapper{
+    position: relative;
+    height: 85%;
+    width: calc(80% / 7);
+}
+
+.whiteKey{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background-color: rgb(249, 244, 244);
+    border: 1px solid rgb(25, 24, 24);
+}
+
+.blackKey{
+    background-color: rgb(0, 0, 0);
+    height: 70%;
+    width: 45%;
+    border-radius: 4px;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 70%;
+    transform: translateX(10%);
+}
+
+.keyLabel{
+    display:flex;
+    position:absolute;
+    bottom: 10px;
+    font-size : 28px;
+    font-family: 'Proxima Nova';
+    color: black;
+    width:50%;
+    justify-content:center;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.blackLabel{
+    align-self:center;
+    color:white;
+    display:flex;
+    position:absolute;
+    bottom: 20px;
+    font-size : 6px;
+    font-family: 'Proxima Nova';
+    width:50%;
+    justify-content:center;
+    left: 50%;
+    transform: translateX(-50%);
+}
