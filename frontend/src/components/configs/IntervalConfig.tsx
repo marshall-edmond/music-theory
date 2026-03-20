@@ -12,7 +12,7 @@ type lessonConfig = {
 }
 
 //object for different lessons
-const Lessons : Record<string, lessonConfig> = {
+export const Lessons : Record<string, lessonConfig> = {
     "Intro" : {
         component: IntroInterval,
         back: undefined,
@@ -26,24 +26,4 @@ const Lessons : Record<string, lessonConfig> = {
         next: undefined,
         number: '2',
     }
-}
-
-export default function IntervalRouting (){
-    const { lessonId } = useParams<{ lessonId : string}>();
-
-    const lookupKey = lessonId || 'Intro';
-    
-    //find active component from dynamic routing
-    const config = Lessons[lookupKey];
-
-    const ActiveComponent = config?.component;
-
-
-
-
-    return (
-        <div>
-            <ActiveComponent />
-        </div>
-    )
 }
