@@ -17,7 +17,7 @@ export default function NotesDebrief(){
     const question2 = 'Remember the prefix Oct- means 8. Including accidentals there are 12 different notes on the piano. However this question asks specifically for the number of white notes on a piano.'
 
     const question3 = 'Including accidentals there are 12 notes on a piano. Remember accidentals alter the pitch of a note, and on a piano they are represented by the black keys.';
-    const question4 = 'Enharmonic equivalance occurs when two notes with the same pitch and sound have different names and notation';
+    const question4 = "Enharmonic equivalance occurs when two notes with the same pitch and sound have different names and notation. An example of this is that a black note between a C and a D, can take on the notation of either based on rulesets which we will go over later. If we choose to refer to the black name according to C, since it's to the right of C it would be C#, and if we choose D we will have D flat.               ";
 
     const question5 = '';
 
