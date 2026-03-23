@@ -47,7 +47,7 @@ type LessonConfig = {
     "notes-debrief" : {
         component: NotesDebrief,
         next: undefined,
-        back:'/theory/notes-quiz',
+        back:'/theory/notes/notes-quiz',
         number: '5',
     }
 
