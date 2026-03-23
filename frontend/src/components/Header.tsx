@@ -130,7 +130,7 @@ export default function Header() {
     )}
   </div>
 )}
-            <Link className={styles.btn} to="/theory/notes">Theory</Link>
+            <Link className={styles.btn} to="/theory/notes/notes">Theory</Link>
             <Link className={styles.btn} to="/signup">Sign up/ Login</Link>
         </nav>
       </header>
