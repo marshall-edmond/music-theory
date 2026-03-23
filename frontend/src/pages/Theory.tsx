@@ -2,6 +2,8 @@ import { notesConfig } from '../components/configs/NotesConfig';
 import { intervalConfig } from '../components/configs/IntervalConfig';
 import { useParams } from 'react-router';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import styles from '../styles/Theory.module.css';
 
 type LessonConfig = {
     component: React.FC,
@@ -26,7 +28,12 @@ export default function Routing() {
     return (
         <>
             <Header />
-            {ActiveComponent && <ActiveComponent />}
+            <div className={styles.pageFrame}>
+                <div className={styles.lessonSlot}>
+                        {ActiveComponent && <ActiveComponent />}
+                </div>
+            </div>
+             <Footer back={lesson.back} next={lesson.next} number={lesson.number}/>
         </>
     )
 }

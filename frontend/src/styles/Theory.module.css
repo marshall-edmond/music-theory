@@ -2,7 +2,7 @@
 .pageFrame{ 
     display:flex;
     flex-direction:column;
-    width:100%;
+    width:100dvw;
     height:82dvh;
     overflow-y:hidden;
 }
