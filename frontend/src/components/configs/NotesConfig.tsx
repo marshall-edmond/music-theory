@@ -1,9 +1,9 @@
 import React from 'react';
-import Notes from '../../components/lessons/Notes';
-import Notes1 from '../../components/lessons/Notes1.tsx';
-import Notes2 from '../../components/lessons/Notes2.tsx';
-import NotesQuiz from '../../components/Quizzes/NotesQuiz.tsx';
-import NotesDebrief from '../../components/debriefs/NotesDebrief.tsx';
+import Notes from '../lessons/Notes.tsx';
+import Notes1 from '../lessons/Notes1.tsx';
+import Notes2 from '../lessons/Notes2.tsx';
+import NotesQuiz from '../Quizzes/NotesQuiz.tsx';
+import NotesDebrief from '../debriefs/NotesDebrief.tsx';
 
 
 
@@ -15,32 +15,32 @@ type LessonConfig = {
     number: string;
 }
 
-  export const LessonRegistry : Record<string, LessonConfig> = {
+  export const notesConfig : Record<string, LessonConfig> = {
     "notes" : {      
         component: Notes,
-        next: "/theory/notes1",
+        next: "/theory/notes/notes1",
         back: undefined,
         number: "1",
     },
 
     "notes1" : {
         component: Notes1,
-        next: '/theory/notes2',
+        next: '/theory/notes/notes2',
         back:"/theory/notes",
         number:"2",
     },
 
     "notes2" : {
         component: Notes2,
-        next: '/theory/notes-quiz',
-        back: '/theory/notes1',
+        next: '/theory/notes/notes-quiz',
+        back: '/theory/notes/notes1',
         number:'3',
     },
 
     "notes-quiz" : {
         component: NotesQuiz,
-        next: '/theory/notes-debrief',
-        back: '/theory/notes2',
+        next: '/theory/notes/notes-debrief',
+        back: '/theory/notes/notes2',
         number:'4',
     },
 

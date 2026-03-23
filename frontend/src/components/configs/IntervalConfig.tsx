@@ -1,10 +1,10 @@
-import { useParams } from 'react-router';
+
 import IntroInterval from '../intro/IntroInterval';
 import Intervals from '../../components/lessons/Intervals';
-import react from 'react';
 
 
-type lessonConfig = {
+
+type lesson = {
     component : React.FC,
     back?: string,
     next?: string,
@@ -12,7 +12,7 @@ type lessonConfig = {
 }
 
 //object for different lessons
-export const Lessons : Record<string, lessonConfig> = {
+export const intervalConfig : Record<string, lesson> = {
     "Intro" : {
         component: IntroInterval,
         back: undefined,
