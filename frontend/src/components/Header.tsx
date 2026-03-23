@@ -92,7 +92,7 @@ export default function Header() {
       <header className={styles.header}>
         <div className={styles.headerLeft}>
           <img src={logo} alt="Logo" className={styles.headerLogo}/>
-          <Link className={styles.brandLink} to='/'>Music Map</Link>
+          <Link className={styles.brandLink} to='/'>Melodz</Link>
         </div>
 
         <nav className={styles.headerRight}>
