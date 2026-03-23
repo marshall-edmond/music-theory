@@ -7,6 +7,7 @@ export default function Intervals (){
 
     const leftContent =
     <>
+        
     </>
 
     const rightContent =

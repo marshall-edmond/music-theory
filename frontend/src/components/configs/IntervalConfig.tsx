@@ -15,7 +15,7 @@ type lesson = {
 export const intervalConfig : Record<string, lesson> = {
     "intro" : {
         component: IntroInterval,
-        back: undefined,
+        back: '/theory/notes/notes-debrief',
         next: undefined,
         number: '1',
     },
