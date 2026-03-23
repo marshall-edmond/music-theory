@@ -1,6 +1,6 @@
 import LessonLayout from "../LessonLayout";
 import Piano from '../../components/Piano';
-import styles from '../styles/Theory.module.css';
+import styles from '../../styles/Theory.module.css';
 
 
 export default function Intervals (){
