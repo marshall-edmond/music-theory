@@ -13,7 +13,7 @@ type lesson = {
 
 //object for different lessons
 export const intervalConfig : Record<string, lesson> = {
-    "Intro" : {
+    "intro" : {
         component: IntroInterval,
         back: undefined,
         next: undefined,

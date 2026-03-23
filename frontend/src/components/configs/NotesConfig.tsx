@@ -15,6 +15,9 @@ type LessonConfig = {
     number: string;
 }
 
+
+
+
   export const notesConfig : Record<string, LessonConfig> = {
     "notes" : {      
         component: Notes,
@@ -46,9 +49,11 @@ type LessonConfig = {
 
     "notes-debrief" : {
         component: NotesDebrief,
-        next: undefined,
+        next: '/theory/intervals/intro',
         back:'/theory/notes/notes-quiz',
         number: '5',
     }
 
 };
+
+export const notesLength = Object.keys(notesConfig).length

@@ -1,6 +1,10 @@
 import styles from '../styles/Theory.module.css';
+import { notesLength } from '../components/configs/NotesConfig.tsx';
+
 import { Link } from 'react-router-dom';
 
+
+const notes = notesLength
 
 //button takes back and next
 interface btnProps { 
@@ -8,13 +12,15 @@ interface btnProps {
     next?: string,
     number: string,
 }
+
+
 //function to return footer with back and next handling
 export default function Footer({back, next, number}: btnProps) {
 
     return (
         <footer className={styles.footer}>
             <div className={styles.center}>
-                {number}/4
+                {number}/{notes}
             </div>
             <div className={styles.btnContainer}>
                 {back ? (
