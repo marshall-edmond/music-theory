@@ -26,7 +26,7 @@ type LessonConfig = {
     "notes1" : {
         component: Notes1,
         next: '/theory/notes/notes2',
-        back:"/theory/notes",
+        back:"/theory/notes/notes",
         number:"2",
     },
 
