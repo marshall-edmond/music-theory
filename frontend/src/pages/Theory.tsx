@@ -1,5 +1,6 @@
 import { notesConfig } from '../components/configs/NotesConfig';
 import { intervalConfig } from '../components/configs/IntervalConfig';
+import { KeysandScalesConfig } from '../components/configs/KeysandScalesConfig';
 import { useParams } from 'react-router';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -18,6 +19,7 @@ type LessonRoute = Record<string, Record<string, LessonConfig>>;
 const lessonRoute: LessonRoute = {
     'notes': notesConfig,
     'intervals': intervalConfig,
+    'keysandscales' : KeysandScalesConfig,
 }
 
 export default function Routing() {

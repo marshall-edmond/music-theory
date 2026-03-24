@@ -16,8 +16,6 @@ type LessonConfig = {
 }
 
 
-
-
   export const notesConfig : Record<string, LessonConfig> = {
     "notes" : {      
         component: Notes,
