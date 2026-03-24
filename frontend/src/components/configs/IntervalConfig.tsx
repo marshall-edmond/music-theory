@@ -16,13 +16,13 @@ export const intervalConfig : Record<string, lesson> = {
     "intro" : {
         component: IntroInterval,
         back: '/theory/notes/notes-debrief',
-        next: undefined,
+        next: '/theory/intervals/intervals',
         number: '1',
     },
 
     "intervals" : {
         component: Intervals,
-        back: undefined,
+        back: '/theory/intervals/intro',
         next: undefined,
         number: '2',
     }

@@ -35,7 +35,7 @@ function SingleOctave({ octaveNum, activeNotes, onPlay}: SingleOctaveProps) {
                 return (
                     <div className={styles.keyGroup}>
                         <div key={NaturalNote}
-                            className={`${styles.whiteKey} ${isNoteActive(NaturalNote)} ? ${styles.active} : ''}`}  
+                            className={`${styles.whiteKey} ${isNoteActive(NaturalNote) ? styles.active : ''}`}  
                             onClick={() => onPlay && onPlay(NaturalNote
                             )}
                         >
@@ -48,7 +48,7 @@ function SingleOctave({ octaveNum, activeNotes, onPlay}: SingleOctaveProps) {
 
                         {key.hasSharp && (
                             <div
-                                className={`${styles.blackKey} ${isNoteActive(fullSharp)} ? ${styles.active} : ''}`}
+                                className={`${styles.blackKey} ${isNoteActive(fullSharp) ? styles.active : ''}`}
                                 onClick={() => onPlay && onPlay(fullSharp)}
                             >
                             </div>
