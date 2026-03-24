@@ -49,3 +49,11 @@
 }
 
 
+.bottom{
+    font-family: 'Proxima Nova';
+    font-size : 20px;
+    color: white;
+    width: 80%;
+    padding-bottom: 30px;
+
+}
