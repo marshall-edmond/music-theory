@@ -33,7 +33,7 @@ export default function Routing() {
     //access the active component
     const ActiveComponent = lesson.component;
     //change the pageframe if the lesson is a quiz or debrief
-    const isQuiz = lessonId!.endsWith('-quiz') || lessonId!.endsWith('-debrief');
+    const isQuiz = lessonId!.endsWith('-quiz') || lessonId!.endsWith('-debrief') || lessonId!.endsWith('intro');
 
     return (
         <>

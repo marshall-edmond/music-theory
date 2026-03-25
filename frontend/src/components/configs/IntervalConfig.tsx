@@ -23,7 +23,7 @@ export const intervalConfig : Record<string, lesson> = {
     "intervals" : {
         component: Intervals,
         back: '/theory/intervals/intro',
-        next: undefined,
+        next: '/theory/keysandscales/intro',
         number: '2',
     }
 }
