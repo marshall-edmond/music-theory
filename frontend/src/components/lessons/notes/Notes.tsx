@@ -1,6 +1,6 @@
-import LessonLayout from '.././LessonLayout.tsx';
-import NoFunction from '../NoFunction.tsx';
-import styles from '../../styles/Theory.module.css';
+import LessonLayout from '../../LessonLayout.tsx';
+import NoFunction from '../../NoFunction.tsx';
+import styles from '../../../styles/Theory.module.css';
 import { GiGrandPiano } from 'react-icons/gi';
 
 

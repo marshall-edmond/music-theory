@@ -1,6 +1,6 @@
-import LessonLayout from "../LessonLayout";
-import Piano from '../../components/Piano';
-import styles from '../../styles/Theory.module.css';
+import LessonLayout from "../../LessonLayout";
+import Piano from '../../Piano';
+import styles from '../../../styles/Theory.module.css';
 import { GiGrandPiano } from 'react-icons/gi';
 
 

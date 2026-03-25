@@ -1,4 +1,4 @@
-import KeysandScalesIntro  from '../intro/KeysandScalesIntro';
+import KeysandScalesIntro from '../intro/KeysandScalesIntro';
 
 type KeysandScales = {
     component: React.FC,

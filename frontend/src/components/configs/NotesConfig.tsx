@@ -1,7 +1,7 @@
 import React from 'react';
-import Notes from '../lessons/Notes.tsx';
-import Notes1 from '../lessons/Notes1.tsx';
-import Notes2 from '../lessons/Notes2.tsx';
+import Notes from '../lessons/notes/Notes.tsx';
+import Notes1 from '../lessons/notes/Notes1.tsx';
+import Notes2 from '../lessons/notes/Notes2.tsx';
 import NotesQuiz from '../Quizzes/NotesQuiz.tsx';
 import NotesDebrief from '../debriefs/NotesDebrief.tsx';
 

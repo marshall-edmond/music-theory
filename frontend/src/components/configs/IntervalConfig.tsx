@@ -1,6 +1,6 @@
 
 import IntroInterval from '../intro/IntroInterval';
-import Intervals from '../../components/lessons/Intervals';
+import Intervals from '../../components/lessons/intervals/Intervals';
 
 
 
