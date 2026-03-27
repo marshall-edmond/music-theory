@@ -61,3 +61,7 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+.active{
+    background: rgb(183, 183, 27);
+}

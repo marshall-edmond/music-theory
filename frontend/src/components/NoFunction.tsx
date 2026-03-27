@@ -1,7 +1,13 @@
 import styles from '../styles/NoFunction.module.css';
 
+interface NoFunctionProps {
+    activeNotes?: string[],
+    onNoteSelect: (root: string) => void;
+}
 
-export default function NoFunction () {
+//state variable to hold activeNotes
+export default function NoFunction({ activeNotes, onNoteSelect} : NoFunctionProps) {
+
     
     //list notes and their enharmonic equivalence
     const OCTAVE = [
@@ -20,31 +26,39 @@ export default function NoFunction () {
     ]
 
     //funciton to determine if the key is black
-    const isNoteBlack = (note:string) => note.includes('#')
+    const isNoteBlack = (note:string) => note.includes('#');
+    const isNoteActive = (note:string) => activeNotes?.includes(note);
+    
 
     return (
+
+
         <div className={styles.pianoContainer}>
             {OCTAVE.filter(note => !isNoteBlack(note.note)).map((whiteNote) => {
                 //get the index of the next note
                 const nextNote = OCTAVE[OCTAVE.indexOf(whiteNote) + 1];
                 const hasBlackNote = nextNote && isNoteBlack(nextNote.note);
-                
+
 
                 const blackNote = nextNote?.note; 
                 const enharmonicEquivalence = nextNote?.equivalence;
 
 
                 return (
-                    <div key={whiteNote.note} className={styles.whiteKeyWrapper}>
+                    <div 
+                    key={whiteNote.note} className={styles.whiteKeyWrapper}
+                    //click event handler to add to activeNotes
+                    onClick={() => onNoteSelect(whiteNote.note)}
+                    >
 
-                        <div className={styles.whiteKey}>
+                        <div className={`${styles.whiteKey} ${isNoteActive(whiteNote.note) ? styles.active : ''} `}>
                             <div className={styles.keyLabel}>
                                 {whiteNote.note}
                             </div>
                         </div>
 
                     {hasBlackNote && (
-                        <div className={styles.blackKey}>
+                        <div className={`${styles.blackKey} ${isNoteActive(blackNote) ? styles.active : ''} `}>
                             <div className={styles.blackLabel}>
                                 {blackNote}/{enharmonicEquivalence}
                             </div>

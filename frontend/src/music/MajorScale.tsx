@@ -22,7 +22,7 @@ const validateRoot = (root : string) => sharps.includes(root) || flats.includes(
 export const majorScale = (inputRoot: string) => {
     //validate root
     if (!validateRoot(inputRoot)) 
-        return null;
+        return [];
 
     //check if the inputRoot is in the enharmonic map, if true then convert to equivalent else keep.
     const root = enharmonicMap[inputRoot] ?? inputRoot
