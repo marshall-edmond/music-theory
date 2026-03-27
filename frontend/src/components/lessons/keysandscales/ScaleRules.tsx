@@ -10,7 +10,7 @@ export default function ScaleRules(){
                 <section className={styles.pianoIcon}>
                     <GiGrandPiano size={32}/>
                 </section>
-                <p className={styles.p}></p>
+                <p className={styles.p}>The first rule is that every scale must contain one and only one of each letter.</p>
                 <p className={styles.p}></p>
                 <p className={styles.p}></p>
             </>
