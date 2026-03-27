@@ -1,6 +1,6 @@
 import KeysandScalesIntro from '../intro/KeysandScalesIntro';
 import KeysandScales from '../lessons/keysandscales/KeysandScales';
-
+import ScaleRules from '../lessons/keysandscales/ScaleRules';
 
 type KeysandScales = {
     component: React.FC,
@@ -18,9 +18,15 @@ export const KeysandScalesConfig : Record<string, KeysandScales> = {
     },
     "keys" : {
         component: KeysandScales,
-        next : undefined,
+        next : "/theory/keysandscales/scalerules",
         back : '/theory/keysandscales/intro',
         number: '2',
+    },
+    "scalerules" : {
+        component : ScaleRules,
+        next: undefined,
+        back: "/theory/keysandscales/keys",
+        number: '3',
     }
 }
 
