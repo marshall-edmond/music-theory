@@ -31,21 +31,21 @@ export const majorScale = (inputRoot: string) => {
     const root = enharmonicMap[inputRoot] ?? inputRoot
 
     //return list of strings
-    const result = [root];
+    const result = [root + octave];
 
     const chromatic = sharps.includes(root) ? sharps : flats
     //function to append next note to result
     formula.reduce((acc, step) => {
         
         const nextNote = (acc + step) % chromatic.length;
-
+        
+        if  (nextNote < acc){
+            octave++;
+        }
         //append next note in scale to result
         result.push(chromatic[nextNote] + octave);
-
-        //increment octave variable if note is C again
-        if (inputRoot != 'C' && chromatic[nextNote] === 'C'){
-            octave++; 
-        };
+        console.log(result)
+    
         
         return nextNote;
 
@@ -53,6 +53,7 @@ export const majorScale = (inputRoot: string) => {
 
     
     return result; 
+
 }
 
-console.log(majorScale('C'))
+console.log(majorScale('E'))

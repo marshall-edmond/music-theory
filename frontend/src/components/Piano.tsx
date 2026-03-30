@@ -3,13 +3,13 @@ import styles from '../styles/Piano.module.css';
 
 interface PianoProps {
     activeNotes?: string[];
-    onNoteSelect: (root: string) => void;
+    onNoteSelect?: (root: string) => void;
 }
 
 interface SingleOctaveProps {
     octaveNum: number;
-    activeNotes: string[],
-    onNoteSelect:(root: string) => void;
+    activeNotes?: string[],
+    onNoteSelect?:(root: string) => void;
 
 }
 
@@ -31,8 +31,10 @@ const OCTAVE = [
 
 function SingleOctave({ octaveNum, activeNotes, onNoteSelect}: SingleOctaveProps) {
    const isNoteBlack = (note: string) => note.includes('#');
-   const isNoteActive = (note: string) => activeNotes.includes(note);
-    
+  const isNoteActive = (note: string) => {
+    console.log('checking:', note, activeNotes)
+    return activeNotes && activeNotes.includes(note)
+}
 
     return ( 
         <div className={styles.keys}>
@@ -47,9 +49,10 @@ function SingleOctave({ octaveNum, activeNotes, onNoteSelect}: SingleOctaveProps
                     <div
                     className={styles.keyGroup}
                     key={whiteNote.note}
-                    onClick={() => `${onNoteSelect(whiteNote.note)}${octaveNum}`}
+                    
+                    onClick={() => onNoteSelect?.(whiteNote.note)}
                     >
-                        <div className={`${styles.whiteKey} ${isNoteActive(whiteNote.note) ? styles.active : ''}`}>
+                        <div className={`${styles.whiteKey} ${isNoteActive(`${whiteNote.note}${octaveNum}`) ? styles.active : ''}`}>
                             <div className={styles.keyLabel}>
                                 {whiteNote.note}
                             </div>

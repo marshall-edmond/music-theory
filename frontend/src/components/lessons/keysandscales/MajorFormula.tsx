@@ -11,8 +11,11 @@ export default function MajorFormula(){
         
         //function to get root from piano and return the major scale for the root
         const getMajorScale = (root: string) => {
-            setMajorScale(majorScale(root))
+            setMajorScale(majorScale(root));
+            console.log(root);
         };
+
+        console.log(scale)
 
         const leftContent = (
             <>
