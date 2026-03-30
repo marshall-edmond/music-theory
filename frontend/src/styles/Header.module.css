@@ -26,8 +26,9 @@
 
 .headerLogo{
     width:auto;
-    height:12vh;
-    margin-right: 1rem;
+    height:6vh;
+    margin-left: 1rem;
+    align-self:center;
 
 }
 

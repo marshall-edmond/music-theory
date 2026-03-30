@@ -17,9 +17,12 @@ const enharmonicMap : Record <string,string> = {
 const formula = [2, 2, 1, 2, 2, 2, 1]
 //helper function to validate root is in the scale
 const validateRoot = (root : string) => sharps.includes(root) || flats.includes(root);
-
+ 
 //function to return major scale notes
 export const majorScale = (inputRoot: string) => {
+    //counter variable 
+    let octave = 4;
+
     //validate root
     if (!validateRoot(inputRoot)) 
         return [];
@@ -33,9 +36,17 @@ export const majorScale = (inputRoot: string) => {
     const chromatic = sharps.includes(root) ? sharps : flats
     //function to append next note to result
     formula.reduce((acc, step) => {
+        
         const nextNote = (acc + step) % chromatic.length;
+
         //append next note in scale to result
-        result.push(chromatic[nextNote]);
+        result.push(chromatic[nextNote] + octave);
+
+        //increment octave variable if note is C again
+        if (inputRoot != 'C' && chromatic[nextNote] === 'C'){
+            octave++; 
+        };
+        
         return nextNote;
 
     }, chromatic.indexOf(root));

@@ -3,6 +3,7 @@ import styles from '../../../styles/Theory.module.css';
 import Piano from '../../Piano';
 import LessonLayout from '../../LessonLayout';
 import { GiGrandPiano } from 'react-icons/gi';
+import Piano1 from '../../Piano1';
 
 
 export default function Notes2() {

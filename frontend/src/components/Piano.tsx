@@ -3,66 +3,77 @@ import styles from '../styles/Piano.module.css';
 
 interface PianoProps {
     activeNotes?: string[];
-    onPlay?: (note: string) => void;
+    onNoteSelect: (root: string) => void;
 }
 
 interface SingleOctaveProps {
     octaveNum: number;
     activeNotes: string[],
-    onPlay?: (note:string) => void;
+    onNoteSelect:(root: string) => void;
+
 }
 
 const OCTAVE = [
-    { note: 'C', hasSharp: true },
-    { note: 'D', hasSharp: true },
-    { note: 'E', hasSharp: false }, 
-    { note: 'F', hasSharp: true },
-    { note: 'G', hasSharp: true },
-    { note: 'A', hasSharp: true },
-    { note: 'B', hasSharp: false },
+    {note : 'C', equivalence : 'Db'},
+    {note : 'C#', equivalence : 'Db'},
+    {note : 'D'},
+    {note : 'D#', equivalence : 'Eb'},
+    {note : 'E'},
+    {note : 'F'},
+    {note : 'F#', equivalence: 'Gb'},
+    {note:  'G'},
+    {note:  'G#', equivalence: 'Ab'},
+    {note:  'A'},
+    {note: 'A#', equivalence: 'Bb'},
+    {note: 'B'}
 ];
 
 
-function SingleOctave({ octaveNum, activeNotes, onPlay}: SingleOctaveProps) {
-    const isNoteActive = (note: string) => activeNotes.includes(note);
+function SingleOctave({ octaveNum, activeNotes, onNoteSelect}: SingleOctaveProps) {
+   const isNoteBlack = (note: string) => note.includes('#');
+   const isNoteActive = (note: string) => activeNotes.includes(note);
+    
 
     return ( 
-        <>
-            {OCTAVE.map((key) => {
-                const NaturalNote = `${key.note}${octaveNum}`;
-                const fullSharp = `${key.note}#${octaveNum}`;
+        <div className={styles.keys}>
+            {OCTAVE.filter((key) => !isNoteBlack(key.note)).map((whiteNote) => {
+
+                const nextNote = OCTAVE[OCTAVE.indexOf(whiteNote) + 1];
+                const hasNoteBlack = nextNote && isNoteBlack(nextNote.note);
                 
                 return (
-                    <div className={styles.keyGroup}>
-                        <div key={NaturalNote}
-                            className={`${styles.whiteKey} ${isNoteActive(NaturalNote) ? styles.active : ''}`}  
-                            onClick={() => onPlay && onPlay(NaturalNote
-                            )}
-                        >
+                    <>
+                        
+                    <div
+                    className={styles.keyGroup}
+                    key={whiteNote.note}
+                    onClick={() => `${onNoteSelect(whiteNote.note)}${octaveNum}`}
+                    >
+                        <div className={`${styles.whiteKey} ${isNoteActive(whiteNote.note) ? styles.active : ''}`}>
                             <div className={styles.keyLabel}>
-                                {key.note}
+                                {whiteNote.note}
                             </div>
                         </div>
-
                     
 
-                        {key.hasSharp && (
-                            <div
-                                className={`${styles.blackKey} ${isNoteActive(fullSharp) ? styles.active : ''}`}
-                                onClick={() => onPlay && onPlay(fullSharp)}
+                    {hasNoteBlack &&
+                        (
+                            <div 
+                            className={`${styles.blackKey} ${isNoteActive(nextNote.note) ? styles.active : ''}`}
                             >
+
                             </div>
-                            )
-                        }
-
+                        )
+                    }
                     </div>
-                )
-            })}
-        </>
-    )
-}
+                    </>
 
-export default function Piano({ activeNotes = [], onPlay }: PianoProps) {
+                
+            )})}
+        </div>
+    )}
+
+export default function Piano({ activeNotes = [], onNoteSelect }: PianoProps) {
 
     const octavestoRender = [4,5];
 
@@ -74,7 +85,7 @@ export default function Piano({ activeNotes = [], onPlay }: PianoProps) {
                         key = {octave}
                         octaveNum={octave}
                         activeNotes = {activeNotes}
-                        onPlay={onPlay}
+                        onNoteSelect={onNoteSelect}
                     />
                 ))}
             </div>

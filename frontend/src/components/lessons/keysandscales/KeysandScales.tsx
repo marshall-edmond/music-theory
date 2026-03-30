@@ -20,7 +20,7 @@ export default function KeysandScales(){
 
     const rightContent = (
         <>
-            <Piano />
+            <Piano activeNotes={[]} onNoteSelect={() => {}}/>
         </>
     )
 

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from '../styles/Header.module.css';
-import download from "../assets/download.png";
+import dwn from "../assets/dwn.jpg";
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
@@ -91,7 +91,7 @@ export default function Header() {
     <>
       <header className={styles.header}>
         <div className={styles.headerLeft}>
-          <img src={download} alt="Logo" className={styles.headerLogo}/>
+          <img src={dwn} alt="Logo" className={styles.headerLogo}/>
           <Link className={styles.brandLink} to='/'>Melodz</Link>
         </div>
 

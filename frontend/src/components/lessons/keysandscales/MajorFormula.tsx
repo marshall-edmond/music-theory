@@ -1,5 +1,5 @@
 import styles from '../../../styles/Theory.module.css';
-import NoFunction from '../../NoFunction';
+import Piano from '../../Piano';
 import LessonLayout from '../../LessonLayout';
 import { GiGrandPiano } from 'react-icons/gi';
 import { useState } from 'react';
@@ -27,7 +27,7 @@ export default function MajorFormula(){
         )
 
         const rightContent = (
-            <NoFunction activeNotes={scale} onNoteSelect={ getMajorScale }/>
+            <Piano activeNotes={scale} onNoteSelect={getMajorScale}/>
         )
     return (
         <LessonLayout left={leftContent} right={rightContent}/>

@@ -21,7 +21,7 @@ export default function Intervals (){
 
     const rightContent =
     <>
-    <Piano activeNotes={['C4','D4']}/>
+    <Piano activeNotes={['C4','D4']} onNoteSelect={() => {}}/>
     </> 
     return (
         <LessonLayout left = {leftContent} right = {rightContent}/>
