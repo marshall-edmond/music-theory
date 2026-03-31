@@ -1,7 +1,8 @@
 import KeysandScalesIntro from '../intro/KeysandScalesIntro';
 import KeysandScales from '../lessons/keysandscales/KeysandScales';
 import ScaleRules from '../lessons/keysandscales/ScaleRules';
-import MajorFormula from '../lessons/keysandscales/MajorFormula';
+import MajorScale from '../lessons/keysandscales/MajorScale';
+import MinorScale from '../lessons/keysandscales/MinorScale';
 
 type KeysandScales = {
     component: React.FC,
@@ -25,15 +26,21 @@ export const KeysandScalesConfig : Record<string, KeysandScales> = {
     },
     "scalerules" : {
         component : ScaleRules,
-        next: "/theory/keysandscales/majorformula",
+        next: "/theory/keysandscales/majorscale",
         back: "/theory/keysandscales/keys",
         number: '3',
     },
-    "majorformula" : {
-        component: MajorFormula,
-        next: undefined,
+    "majorscale" : {
+        component: MajorScale,
+        next: "/theory/keysandscales/minorscale",
         back: "/theory/keysandscales/scalerules",
         number: '4',
+    },
+    "minorscale" : {
+        component: MinorScale,
+        next: undefined,
+        back: "/theory/keysandscales/majorscale",
+        number: '5',
     }
 }
 

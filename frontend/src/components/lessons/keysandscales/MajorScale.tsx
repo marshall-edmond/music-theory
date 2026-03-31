@@ -3,9 +3,9 @@ import Piano from '../../Piano';
 import LessonLayout from '../../LessonLayout';
 import { GiGrandPiano } from 'react-icons/gi';
 import { useState } from 'react';
-import { majorScale } from '../../../music/MajorScale';
+import { majorScale } from '../../../music/MajorFormula';
 
-export default function MajorFormula(){
+export default function MajorScale(){
         //function to pass
         const [scale, setMajorScale] = useState<string[]>([]);
         
