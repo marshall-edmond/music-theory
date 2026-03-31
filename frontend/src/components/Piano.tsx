@@ -31,9 +31,12 @@ const OCTAVE = [
 
 function SingleOctave({ octaveNum, activeNotes, onNoteSelect}: SingleOctaveProps) {
    const isNoteBlack = (note: string) => note.includes('#');
-  const isNoteActive = (note: string) => {
-    console.log('checking:', note, activeNotes)
-    return activeNotes && activeNotes.includes(note)
+
+ 
+  const isNoteActive = (note: string, equivalence?: string) => {
+    //if activeNotes has the note or the equivalence then return true
+    console.log(note, equivalence)
+    return activeNotes?.some(n => n === note || n === equivalence) ?? false;
 }
 
     return ( 
@@ -59,10 +62,10 @@ function SingleOctave({ octaveNum, activeNotes, onNoteSelect}: SingleOctaveProps
                         </div>
                     
 
-                    {hasNoteBlack &&
-                        (
+                    {hasNoteBlack && (
                             <div 
-                            className={`${styles.blackKey} ${isNoteActive(nextNote.note) ? styles.active : ''}`}
+                            className={`${styles.blackKey} ${isNoteActive(`${nextNote.note}${octaveNum}`, nextNote.equivalence ? `${nextNote.equivalence}${octaveNum}` : undefined) ? styles.active : ''}`}
+                            onClick={(e) => {e.stopPropagation(); onNoteSelect?.(nextNote.note);}}
                             >
 
                             </div>

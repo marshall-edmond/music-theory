@@ -12,7 +12,7 @@ export default function MajorFormula(){
         //function to get root from piano and return the major scale for the root
         const getMajorScale = (root: string) => {
             setMajorScale(majorScale(root));
-            console.log(root);
+            console.log('The root is', root);
         };
 
         console.log(scale)
@@ -25,7 +25,7 @@ export default function MajorFormula(){
                 </section>
                 <p className={styles.p}>The major scale is associated with a happy sound. In order to create a major scale, remember the intervals <b>half tones</b> and <b>whole tones</b>.</p>
                 <p className={styles.p}>The formula to calculate any major scale is <b>Whole - Whole - Half - Whole - Whole - Whole - Half.</b></p>
-                <p className={styles.p}></p>
+                <p className={styles.p}>Select any root note on the piano, and it will display the major scale for the note. Make sure to memorize this formula and practice building out scales with this formula as the next quiz will test your ability.</p>
             </>
         )
 
