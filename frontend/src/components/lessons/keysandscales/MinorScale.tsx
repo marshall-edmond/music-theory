@@ -8,6 +8,7 @@ import { minorScale } from '../../../music/MinorFormula';
 export default function MinorScale(){
     const [scale, setMinorScale] = useState<string[]>([]);
 
+    //function to get the minorscale
     const getMinorScale = (root: string) => {
         setMinorScale(minorScale(root));
     };
