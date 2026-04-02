@@ -43,7 +43,7 @@ export default function Routing() {
                         {ActiveComponent && <ActiveComponent />}
                 </div>
             </div>
-             <Footer back={lesson.back} next={lesson.next} number={lesson.number}/>
+             <Footer back={lesson.back} next={lesson.next} number={lesson.number} total={Object.keys(section).length}/>
         </>
     )
 }

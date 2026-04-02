@@ -44,7 +44,6 @@ export const majorScale = (inputRoot: string) => {
         }
         //append next note in scale to result
         result.push(chromatic[nextNote] + octave);
-        console.log(result)
     
         
         return nextNote;
