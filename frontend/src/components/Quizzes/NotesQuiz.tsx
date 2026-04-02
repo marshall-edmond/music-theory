@@ -17,9 +17,9 @@ export default function NotesQuiz(){
     useEffect(() => {
         //timer 
         let timer;
-        timer = setTimeout(() => setDisplay(null), 100);
+        timer = setTimeout(() => setDisplay(null), 1000);
 
-        clearTimeout(timer);
+        return () => clearTimeout(timer);
     }
     , [display]);
 
@@ -42,6 +42,7 @@ export default function NotesQuiz(){
         'Enharmonic Equivalence happens when the harmony between two notes reach equillibrium.',
         'Enharmonic equivalence happens when two different notes are played and a harmony is created',
         'Enharmonic equivalance occurs when a two of the same notes are played on differnet octaves.']
+
     const [activeChoice, setActiveChoice] = useState<string | null>(null);
 
     //check if selected piano note matches the generated note
@@ -70,8 +71,8 @@ export default function NotesQuiz(){
     //check answer and siaply result
     const Question4 = () => {
         if (activeChoice == options4[0]){
-            setDisplay({questionID: '3', result: 'Correct'})
-        } else setDisplay({questionID: '3', result: 'Incorrect'});
+            setDisplay({questionID: '4', result: 'Correct'})
+        } else setDisplay({questionID: '4', result: 'Incorrect'});
     };
 
     

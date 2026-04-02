@@ -82,7 +82,7 @@ function SingleOctave({ octaveNum, activeNotes, onNoteSelect}: SingleOctaveProps
 export default function Piano({ activeNotes = [], onNoteSelect }: PianoProps) {
 
     const octavestoRender = [4,5];
-
+2
     return (
         <div className={styles.pianoContainer}>
             <div className={styles.keys}>
