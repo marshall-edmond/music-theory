@@ -2,14 +2,17 @@ import styles from '../styles/Piano.module.css';
 
 
 interface PianoProps {
-    activeNotes?: string[];
+    activeNotes?: string[]
     onNoteSelect?: (root: string) => void;
+    includesOctave?: boolean
 }
 
 interface SingleOctaveProps {
     octaveNum: number;
     activeNotes?: string[],
     onNoteSelect?:(root: string) => void;
+    includesOctave?: boolean;
+
 
 }
 
@@ -29,13 +32,12 @@ const OCTAVE = [
 ];
 
 
-function SingleOctave({ octaveNum, activeNotes, onNoteSelect}: SingleOctaveProps) {
+function SingleOctave({ octaveNum, activeNotes, onNoteSelect, includesOctave}: SingleOctaveProps) {
    const isNoteBlack = (note: string) => note.includes('#');
 
  
   const isNoteActive = (note: string, equivalence?: string) => {
     //if activeNotes has the note or the equivalence then return true
-    console.log(note, equivalence)
     return activeNotes?.some(n => n === note || n === equivalence) ?? false;
 }
 
@@ -53,7 +55,7 @@ function SingleOctave({ octaveNum, activeNotes, onNoteSelect}: SingleOctaveProps
                     className={styles.keyGroup}
                     key={whiteNote.note}
                     
-                    onClick={() => onNoteSelect?.(whiteNote.note)}
+                    onClick={() => includesOctave ? onNoteSelect?.(`${whiteNote.note}${octaveNum}`) : onNoteSelect?.(whiteNote.note)}
                     >
                         <div className={`${styles.whiteKey} ${isNoteActive(`${whiteNote.note}${octaveNum}`) ? styles.active : ''}`}>
                             <div className={styles.keyLabel}>
@@ -65,7 +67,7 @@ function SingleOctave({ octaveNum, activeNotes, onNoteSelect}: SingleOctaveProps
                     {hasNoteBlack && (
                             <div 
                             className={`${styles.blackKey} ${isNoteActive(`${nextNote.note}${octaveNum}`, nextNote.equivalence ? `${nextNote.equivalence}${octaveNum}` : undefined) ? styles.active : ''}`}
-                            onClick={(e) => {e.stopPropagation(); onNoteSelect?.(nextNote.note);}}
+                            onClick={(e) => {e.stopPropagation(); includesOctave ? onNoteSelect?.(`${whiteNote.note}${octaveNum}`) : onNoteSelect?.(whiteNote.note)}}
                             >
 
                             </div>
@@ -79,7 +81,7 @@ function SingleOctave({ octaveNum, activeNotes, onNoteSelect}: SingleOctaveProps
         </div>
     )}
 
-export default function Piano({ activeNotes = [], onNoteSelect }: PianoProps) {
+export default function Piano({ activeNotes = [], onNoteSelect, includesOctave}: PianoProps) {
 
     const octavestoRender = [4,5];
 2
@@ -92,6 +94,7 @@ export default function Piano({ activeNotes = [], onNoteSelect }: PianoProps) {
                         octaveNum={octave}
                         activeNotes = {activeNotes}
                         onNoteSelect={onNoteSelect}
+                        includesOctave={includesOctave}
                     />
                 ))}
             </div>
