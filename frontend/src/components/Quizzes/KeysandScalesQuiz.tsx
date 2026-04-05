@@ -26,11 +26,12 @@ export default function KeysandScalesQuiz(){
         //if questions is one and array contains a value already add to that value, else if array is null return note
         if (question === '1'){
             setMajorScale(prev => {
-                if (Array.isArray(prev)){
-                    return [...prev, note]
+                if (Array.isArray(prev) && prev.includes(note)){
+                    return prev.filter(n => n != note)
+                   
                 }
-                else if (Array.isArray(prev) && prev.includes(note)){
-                    return prev
+                else if (Array.isArray(prev)){
+                     return [...prev, note]
                 }
                 else return [note]
             })
@@ -38,7 +39,10 @@ export default function KeysandScalesQuiz(){
         //if question is two and the minor scale is note empty add the note, else set it to the note
         else if (question === '2'){
             setMinorScale(prev => {
-                if (Array.isArray(prev)){
+                if (Array.isArray(prev) && prev.includes(note)){
+                    return prev.filter(n => n != note)
+                }
+                else if (Array.isArray(prev)){
                     return [...prev, note]
                 }
                 else return [note]

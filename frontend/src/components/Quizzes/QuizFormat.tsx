@@ -32,7 +32,9 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
             )}
             {/*If its a piano question, pass the root */}
             {type === 'piano' && (
-                <Piano onNoteSelect={(note) => onNoteSelect?.(note,number)} activeNotes={Array.isArray(scale) ? scale : []} includesOctave={true} />
+                <div className={styles.PianoStyles}>
+                    <Piano onNoteSelect={(note) => onNoteSelect?.(note,number)} activeNotes={Array.isArray(scale) ? scale : []} includesOctave={true} />
+                </div>
             )}
             <div className={styles.btnContainer}>
                 {answers?.map(answer => (

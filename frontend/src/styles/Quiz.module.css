@@ -24,17 +24,18 @@
 }
 
 .questionBox {
-    height: 450px;
+   min-height: auto;
     width: 80%;
     background: rgba(255, 255, 255, 0.128);
     border: 1px solid rgb(255, 255, 255);
     display:flex;
     flex-direction: column;
-    gap: 20px;
-    font-size: 30px;
+    gap: 15px;
+    font-size: 26px;
     justify-content:space-around;
     align-items:center;
     padding-bottom: 15px;
+    padding-top : 15px;
 }
 
 .Note{
@@ -90,4 +91,9 @@
     font-size:20px;
     cursor: pointer;
 
+}
+
+.PianoStyles{
+    transform: scale(.8);
+    transform-origin: center;
 }

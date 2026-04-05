@@ -67,7 +67,7 @@ function SingleOctave({ octaveNum, activeNotes, onNoteSelect, includesOctave}: S
                     {hasNoteBlack && (
                             <div 
                             className={`${styles.blackKey} ${isNoteActive(`${nextNote.note}${octaveNum}`, nextNote.equivalence ? `${nextNote.equivalence}${octaveNum}` : undefined) ? styles.active : ''}`}
-                            onClick={(e) => {e.stopPropagation(); includesOctave ? onNoteSelect?.(`${whiteNote.note}${octaveNum}`) : onNoteSelect?.(whiteNote.note)}}
+                            onClick={(e) => {e.stopPropagation(); includesOctave ? onNoteSelect?.(`${nextNote.note}${octaveNum}`) : onNoteSelect?.(nextNote.note)}}
                             >
 
                             </div>
