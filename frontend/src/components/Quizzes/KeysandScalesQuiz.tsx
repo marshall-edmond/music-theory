@@ -22,6 +22,12 @@ import { minorScale } from '../../music/MinorFormula'
         'G#' : 'Ab',
     }
 
+    const enharmonicMap : Record<string, string> ={
+        'D#': 'Eb',
+        'A#' : 'Bb',
+        'G#' : 'Ab'
+    }
+
 
 export default function KeysandScalesQuiz(){
 
@@ -34,6 +40,9 @@ export default function KeysandScalesQuiz(){
     //add to respective arrays,
     const array = (note:string, question: string, root: string) => {
 
+        root = enharmonicMap[root] ?? root;
+        
+
         const octaveNum = note.slice(-1)
         const strippedNote = note.slice(0, -1);
             
@@ -41,7 +50,7 @@ export default function KeysandScalesQuiz(){
         const final = key + octaveNum;
 
         //if root is a flat use converted value
-        if (question === '1' && root.includes('♭')){
+        if (question === '1' && root.includes('b')){
             setMajorScale(prev => {
                 //remove note
                 if (Array.isArray(prev) && prev.includes(final)){
@@ -57,7 +66,7 @@ export default function KeysandScalesQuiz(){
         }
         
         //if root is a sharp or natural use default note
-        else if (question === '1' && !root.includes('♭')){
+        else if (question === '1' && !root.includes('b')){
             setMajorScale(prev => {
                 if (Array.isArray(prev) && prev.includes(note)) {
                     return prev.filter(n => n != note);
@@ -71,7 +80,7 @@ export default function KeysandScalesQuiz(){
             )
         }
         //if question is two and the minor scale is note empty add the note, else set it to the note
-        else if (question === '2' && root.includes('♭')){
+        else if (question === '2' && root.includes('b')){
             setMinorScale(prev => {
                 if (Array.isArray(prev) && prev.includes(final)){
                     return prev.filter(n => n !== final)
@@ -82,7 +91,7 @@ export default function KeysandScalesQuiz(){
                 else return [final]
             })}
 
-        else if (question === '2' && !root.includes('♭')){
+        else if (question === '2' && !root.includes('b')){
             setMinorScale(prev => {
                 //remove note from minor scale
                 if (Array.isArray(prev) && prev.includes(note)){

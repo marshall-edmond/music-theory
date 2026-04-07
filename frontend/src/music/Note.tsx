@@ -4,4 +4,4 @@ export const ListNotes = ['C', 'C#', 'D♭', "D", "D#", 'E♭', 'E', 'F', 'F#', 
 export const randomNotes = () =>{
     return ListNotes[Math.floor(Math.random() * ListNotes.length)];
     
-} 
+}  

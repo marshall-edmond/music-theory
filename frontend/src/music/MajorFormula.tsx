@@ -57,12 +57,13 @@ export const majorScale = (inputRoot: string) => {
         //append next note in scale to result
         const key = chromatic[nextNote]
         //if the key includes a flat use the flat of the nest note
-        if (inputRoot.includes('b')){
+        if (root.includes('b')){
             result.push(sharpstoflats[key] ?? key + octave)
         }
         else {
             result.push(chromatic[nextNote] + octave);
         }
+
 
         
         return nextNote;

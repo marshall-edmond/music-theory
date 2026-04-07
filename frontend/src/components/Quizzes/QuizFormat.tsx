@@ -21,10 +21,6 @@ interface quizProps {
 
 
 
-
-
-
-
 export default function Quiz ({ title, number, answers, selectedAnswer, onSelect, correctAnswer, type, root, onNoteSelect, scale, includesOctave} : quizProps){
 
 
@@ -35,13 +31,12 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
     //handle submit, sort scale before checking response
     const checkScale = (scale: string[] | string | null, correctAnswer: string[] | string | null) => {
         //if the root includes a flat then filter through scale and if the note includes a sharp replace with a flat
-     
-        if (Array.isArray(scale)){
-            scale.sort();
+        if (Array.isArray(scale) && Array.isArray(correctAnswer)){
+            console.log('Scale:', scale);
+            console.log('CorrectAnswer:', correctAnswer)
+            setMessage(response(scale.sort(), correctAnswer.sort()));
         }
-        console.log('scale:', scale);
-        console.log('correctScale:', correctAnswer)
-        setMessage(response(scale, correctAnswer));
+       
         setDisplay(true);
 
     }
