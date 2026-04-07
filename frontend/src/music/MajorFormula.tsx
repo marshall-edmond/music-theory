@@ -65,10 +65,6 @@ export const majorScale = (inputRoot: string) => {
         }
 
         
-        
-     
-    
-        
         return nextNote;
 
     }, chromatic.indexOf(root));

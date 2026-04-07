@@ -85,14 +85,14 @@ export default function KeysandScalesQuiz(){
         else if (question === '2' && !root.includes('♭')){
             setMinorScale(prev => {
                 //remove note from minor scale
-                if (Array.isArray(prev) && prev.includes(final)){
-                    return prev.filter(n => n != final)
+                if (Array.isArray(prev) && prev.includes(note)){
+                    return prev.filter(n => n != note)
                 }
                 //add note to minor scale
                 else if (Array.isArray(prev)){
-                  return [...prev, final]  
+                  return [...prev, note]  
                 }
-                else return [final];
+                else return [note];
             })
         }  
     }
