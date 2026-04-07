@@ -97,3 +97,8 @@
     transform: scale(.8);
     transform-origin: center;
 }
+
+.message{
+    color: white;
+    font-size: 28;
+}

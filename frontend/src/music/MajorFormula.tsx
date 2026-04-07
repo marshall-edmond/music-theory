@@ -16,14 +16,26 @@ const enharmonicMap : Record <string,string> = {
 //whole, whole, half, whole, whole, whole, half
 const formula = [2, 2, 1, 2, 2, 2, 1]
 //helper function to validate root is in the scale
+const convertFlat = (flat : string) => flat.replace('♭', 'b')
 const validateRoot = (root : string) => sharps.includes(root) || flats.includes(root);
- 
+
+
+//K:V to convert a sharp to a flat if root is a flat
+const sharpstoflats: Record<string, string>= {
+    'A#' : 'Bb',
+    'C#' : 'Db',
+    'D#' : 'Eb',
+    'F#' : 'Gb',
+    'G#' : 'Ab',
+    }
+
 //function to return major scale notes
 export const majorScale = (inputRoot: string) => {
     //counter variable 
     let octave = 4;
 
     //validate root
+    if (inputRoot.includes('♭')) inputRoot = convertFlat(inputRoot);
     if (!validateRoot(inputRoot)) 
         return [];
 
@@ -43,7 +55,18 @@ export const majorScale = (inputRoot: string) => {
             octave++;
         }
         //append next note in scale to result
-        result.push(chromatic[nextNote] + octave);
+        const key = chromatic[nextNote]
+        //if the key includes a flat use the flat of the nest note
+        if (inputRoot.includes('b')){
+            result.push(sharpstoflats[key] ?? key + octave)
+        }
+        else {
+            result.push(chromatic[nextNote] + octave);
+        }
+
+        
+        
+     
     
         
         return nextNote;
@@ -54,5 +77,3 @@ export const majorScale = (inputRoot: string) => {
     return result; 
 
 }
-
-console.log(majorScale('E'))

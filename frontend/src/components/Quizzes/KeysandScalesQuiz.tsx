@@ -9,10 +9,19 @@ import { minorScale } from '../../music/MinorFormula'
     const note = randomNotes();
     const note2 = randomNotes();
 
-     
     //get correct answers for major and minor scale forumla
     const majorAnswer = majorScale(note);
     const minorAnswer = minorScale(note2);
+
+    //K:V to convert a sharp to a flat if root is a flat
+    const sharpstoflats: Record<string, string>= {
+        'A#' : 'Bb',
+        'C#' : 'Db',
+        'D#' : 'Eb',
+        'F#' : 'Gb',
+        'G#' : 'Ab',
+    }
+
 
 export default function KeysandScalesQuiz(){
 
@@ -20,48 +29,87 @@ export default function KeysandScalesQuiz(){
     const [selectedAnswer, setSelectedAnswer] = useState<string | string[] |  null>(null);
     const [majorScale, setMajorScale] = useState<null | string[] | string>(null);
     const [minorScale, setMinorScale] = useState<null | string[] | string>(null);
+
     
     //add to respective arrays,
-    const array = (note:string, question: string) => {
-        //if questions is one and array contains a value already add to that value, else if array is null return note
-        if (question === '1'){
+    const array = (note:string, question: string, root: string) => {
+
+        const octaveNum = note.slice(-1)
+        const strippedNote = note.slice(0, -1);
+            
+        const key = sharpstoflats[strippedNote] ?? strippedNote;
+        const final = key + octaveNum;
+
+        //if root is a flat use converted value
+        if (question === '1' && root.includes('♭')){
             setMajorScale(prev => {
-                if (Array.isArray(prev) && prev.includes(note)){
-                    return prev.filter(n => n != note)
+                //remove note
+                if (Array.isArray(prev) && prev.includes(final)){
+                   return prev.filter(n => n != final);
                    
                 }
-                else if (Array.isArray(prev)){
-                     return [...prev, note]
+                //add note
+                else if (Array.isArray(prev)) {
+                    return [...prev, final]
                 }
-                else return [note]
+                else return [final];
             })
         }
-        //if question is two and the minor scale is note empty add the note, else set it to the note
-        else if (question === '2'){
-            setMinorScale(prev => {
-                if (Array.isArray(prev) && prev.includes(note)){
-                    return prev.filter(n => n != note)
+        
+        //if root is a sharp or natural use default note
+        else if (question === '1' && !root.includes('♭')){
+            setMajorScale(prev => {
+                if (Array.isArray(prev) && prev.includes(note)) {
+                    return prev.filter(n => n != note);
                 }
                 else if (Array.isArray(prev)){
                     return [...prev, note]
                 }
-                else return [note]
+                else return [note];
+            }
+                
+            )
+        }
+        //if question is two and the minor scale is note empty add the note, else set it to the note
+        else if (question === '2' && root.includes('♭')){
+            setMinorScale(prev => {
+                if (Array.isArray(prev) && prev.includes(final)){
+                    return prev.filter(n => n !== final)
+                }
+                else if (Array.isArray(prev)){
+                    return [...prev, final]
+                }
+                else return [final]
             })}
+
+        else if (question === '2' && !root.includes('♭')){
+            setMinorScale(prev => {
+                //remove note from minor scale
+                if (Array.isArray(prev) && prev.includes(final)){
+                    return prev.filter(n => n != final)
+                }
+                //add note to minor scale
+                else if (Array.isArray(prev)){
+                  return [...prev, final]  
+                }
+                else return [final];
+            })
+        }  
     }
 
     type Question = {
         title: string,
         number: string,
         answers?: string[],
-        correctAnswer: string | string[],
+        correctAnswer: string | string[] | null,
         type: 'piano' | 'multiple-choice'
         root?: string,
-        onNoteSelect?: (note:string, question: string) => void;
+        onNoteSelect?: (note:string, question: string, root: string) => void;
 
     }
 
     //function to compare selected answer to correct answer
-    const checkAnswer = (selectedAnswer: string) => {
+    const checkAnswera = (selectedAnswer: string) => {
         if (selectedAnswer === ''){
             
         }
@@ -69,7 +117,7 @@ export default function KeysandScalesQuiz(){
     const questions : Question[] = [{
             title: 'Build the Major Scale',
             number: '1',
-            correctAnswer: majorAnswer,
+            correctAnswer: majorAnswer.sort(),
             type: 'piano',
             root: note,
             onNoteSelect: array,
@@ -78,7 +126,7 @@ export default function KeysandScalesQuiz(){
         {
             title:'Build the Minor Scale',
             number: '2',
-            correctAnswer: minorAnswer,
+            correctAnswer: minorAnswer.sort(),
             type: 'piano',
             root: note2,
             onNoteSelect: array,
@@ -99,7 +147,7 @@ export default function KeysandScalesQuiz(){
                 selectedAnswer={selectedAnswer}
                 onSelect={(answer: string) => setSelectedAnswer(answer)}
                 type={question.type}
-                onNoteSelect={(note, number) => question.onNoteSelect?.(note, number)}
+                onNoteSelect={(note, number,) => question.onNoteSelect?.(note, number, question.root!)}
                 root={question.root}
                 scale={question.number === '1' ? majorScale : minorScale}
             
