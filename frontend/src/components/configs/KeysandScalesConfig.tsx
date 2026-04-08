@@ -3,6 +3,7 @@ import KeysandScales from '../lessons/keysandscales/KeysandScales';
 import ScaleRules from '../lessons/keysandscales/ScaleRules';
 import MajorScale from '../lessons/keysandscales/MajorScale';
 import MinorScale from '../lessons/keysandscales/MinorScale';
+import ScaleComparison from '../lessons/keysandscales/ScaleComparison';
 import Keys from '../lessons/keysandscales/Keys';
 import KeysandScalesQuiz from '../Quizzes/KeysandScalesQuiz';
 
@@ -40,21 +41,27 @@ export const KeysandScalesConfig : Record<string, KeysandScales> = {
     },
     "minorscale" : {
         component: MinorScale,
-        next: "/theory/keysandscales/keyslesson",
+        next: "/theory/keysandscales/scalecomparison",
         back: "/theory/keysandscales/majorscale",
         number: '5',
+    },
+    "scalecomparison" : {
+        component: ScaleComparison,
+        next: "/theory/keysandscales/keyslesson",
+        back: "/theory/keysandscales/minorscale",
+        number: '6',
     },
     "keyslesson" : {
         component: Keys,
         next: "/theory/keysandscales/keysandscales-quiz",
-        back: "/theory/keysandscales/minorscale",
-        number: '6',
+        back: "/theory/keysandscales/scalecomparison",
+        number: '7',
     },
     "keysandscales-quiz" : {
         component: KeysandScalesQuiz,
         next: undefined,
         back: "/theory/keysandscales/keyslesson",
-        number: '7',
+        number: '8',
     }
 }
 

@@ -8,7 +8,7 @@ interface quizProps {
     title: string,
     number: string,
     answers?: string[],
-    selectedAnswer: string | string[] | null,
+    selectedAnswer: string,
     correctAnswer: string | string[] | null,
     onSelect: (selected : string) => void;
     type: 'piano' | 'multiple-choice';
@@ -29,12 +29,19 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
 
    
     //handle submit, sort scale before checking response
-    const checkScale = (scale: string[] | string | null, correctAnswer: string[] | string | null) => {
+    const checkScale = (type: string, scale: string[] | string | null, correctAnswer: string[] | string | null, selectedAnswer : string) => {
         //if the root includes a flat then filter through scale and if the note includes a sharp replace with a flat
-        if (Array.isArray(scale) && Array.isArray(correctAnswer)){
+        if (type === 'piano'){
+             if (Array.isArray(scale) && Array.isArray(correctAnswer)){
             console.log('Scale:', scale);
             console.log('CorrectAnswer:', correctAnswer)
             setMessage(response(scale.sort(), correctAnswer.sort()));
+        }
+
+        }
+       
+        else if (type === 'multiple-choice' ){
+            setMessage(response(selectedAnswer, correctAnswer))
         }
        
         setDisplay(true);
@@ -42,12 +49,13 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
     }
 
     //response checks if the selected notes are the correct scale
-    const response = (scale: string[] | string | null, correctAnswer: string[] | null | string) => {
+    const response = (scale: string[] | string | null, correctAnswer: string[] | null | string,) => {
         
     if (JSON.stringify(scale) === JSON.stringify(correctAnswer)){
         return 'Correct'
     } else return 'Incorrect'
     }
+
 
     return (
         
@@ -82,7 +90,7 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
             {/*Submit button calls function to check response and set display to true */}
             <div className={styles.apke}>
                 <div className={styles.btn}
-                onClick={() => checkScale(scale, correctAnswer,)}
+                onClick={() => checkScale(type, scale, correctAnswer, selectedAnswer)}
                 >
                 Submit
                 </div>

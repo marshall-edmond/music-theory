@@ -32,7 +32,7 @@ import { minorScale } from '../../music/MinorFormula'
 export default function KeysandScalesQuiz(){
 
     //store selectedAnswer
-    const [selectedAnswer, setSelectedAnswer] = useState<string | string[] |  null>(null);
+    const [selectedAnswer, setSelectedAnswer] = useState<string>('');
     const [majorScale, setMajorScale] = useState<null | string[] | string>(null);
     const [minorScale, setMinorScale] = useState<null | string[] | string>(null);
 
@@ -117,12 +117,6 @@ export default function KeysandScalesQuiz(){
 
     }
 
-    //function to compare selected answer to correct answer
-    const checkAnswera = (selectedAnswer: string) => {
-        if (selectedAnswer === ''){
-            
-        }
-    }
     const questions : Question[] = [{
             title: 'Build the Major Scale',
             number: '1',
@@ -157,6 +151,14 @@ export default function KeysandScalesQuiz(){
             correctAnswer: 'A key is a tonal center, or a home of a group of notes',
             type: 'multiple-choice',
             answers: ['A key is a tonal center, or a home of a group of notes', 'A key is a note which is in a major or minor scale', 'A key is a note which cannot be changed', 'A key is the note in the middle of a scale']
+        },
+
+        {
+            title: 'Which scale degrees are flattened in a natural minor scale compared to a major scale?',
+            number: '5',
+            correctAnswer: '3rd, 6th, and 7th',
+            type: 'multiple-choice',
+            answers: ['3rd, 6th, and 7th', '2nd, 5th, and 7th', '3rd and 7th only', '4th and 6th']
         }
     ]
 
