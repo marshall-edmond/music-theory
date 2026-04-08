@@ -6,6 +6,7 @@ import MinorScale from '../lessons/keysandscales/MinorScale';
 import ScaleComparison from '../lessons/keysandscales/ScaleComparison';
 import Keys from '../lessons/keysandscales/Keys';
 import KeysandScalesQuiz from '../Quizzes/KeysandScalesQuiz';
+import KeysandScalesDebrief from '../debriefs/KeysandScalesDebrief';
 
 type KeysandScales = {
     component: React.FC,
@@ -59,9 +60,15 @@ export const KeysandScalesConfig : Record<string, KeysandScales> = {
     },
     "keysandscales-quiz" : {
         component: KeysandScalesQuiz,
-        next: undefined,
+        next: "/theory/keysandscales/debrief",
         back: "/theory/keysandscales/keyslesson",
         number: '8',
+    },
+    "debrief" : {
+        component: KeysandScalesDebrief,
+        next: undefined,
+        back: "/theory/keysandscales/keysandscales-quiz",
+        number: '9',
     }
 }
 
