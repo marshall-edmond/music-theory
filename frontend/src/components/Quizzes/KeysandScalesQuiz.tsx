@@ -140,7 +140,25 @@ export default function KeysandScalesQuiz(){
             root: note2,
             onNoteSelect: array,
           
-        }]
+        },
+
+        {
+            title:'How many Notes are in a Major/Minor Scale(including octave)?',
+            number: '3',
+            correctAnswer: '8',
+            type: 'multiple-choice',
+            answers: ['7', '10', '6', '8']
+            
+        },
+
+        {
+            title: 'What is a key?',
+            number: '4',
+            correctAnswer: 'A key is a tonal center, or a home of a group of notes',
+            type: 'multiple-choice',
+            answers: ['A key is a tonal center, or a home of a group of notes', 'A key is a note which is in a major or minor scale', 'A key is a note which cannot be changed', 'A key is the note in the middle of a scale']
+        }
+    ]
 
     return (
         <div className={styles.mainContainer}>

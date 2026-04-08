@@ -69,8 +69,8 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
             <div className={styles.btnContainer}>
                 {answers?.map(answer => (
                     <div
-                    key= {answer}
-                    className={`${styles.btn2} ${answer === selectedAnswer ? styles.active : ''}`}
+                    key={answer}
+                    className={`${styles.btn2} ${answer === selectedAnswer ? styles.selectedAnswer : ''}`}
                     onClick={() => onSelect(answer)}
                     >
                         {answer}
