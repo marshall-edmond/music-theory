@@ -30,7 +30,7 @@
     padding-top: 20px;
     font-family: 'Proxima Nova';
     font-size: 36px;
-    color:white;
+    color:rgb(253,201,30);
 
 
 }
@@ -56,4 +56,10 @@
     width: 80%;
     padding-bottom: 30px;
 
+}
+
+.logo{
+    height: 130px;
+    width: 110px;
+    padding-top:60px;
 }
