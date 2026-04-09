@@ -66,7 +66,7 @@ export const KeysandScalesConfig : Record<string, KeysandScales> = {
     },
     "debrief" : {
         component: KeysandScalesDebrief,
-        next: undefined,
+        next: '/theory/chords/intro',
         back: "/theory/keysandscales/keysandscales-quiz",
         number: '9',
     }

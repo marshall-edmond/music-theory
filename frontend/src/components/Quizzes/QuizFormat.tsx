@@ -49,7 +49,7 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
     }
 
     //response checks if the selected notes are the correct scale
-    const response = (scale: string[] | string | null, correctAnswer: string[] | null | string,) => {
+    const response = (scale: string[] | string | null, correctAnswer: string[] | null | string) => {
         
     if (JSON.stringify(scale) === JSON.stringify(correctAnswer)){
         return 'Correct'

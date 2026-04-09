@@ -1,6 +1,7 @@
 import { notesConfig } from '../components/configs/NotesConfig';
 import { intervalConfig } from '../components/configs/IntervalConfig';
 import { KeysandScalesConfig } from '../components/configs/KeysandScalesConfig';
+import { chordsConfig } from '../components/configs/ChordsConfig';
 import { useParams } from 'react-router';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -20,6 +21,7 @@ const lessonRoute: LessonRoute = {
     'notes': notesConfig,
     'intervals': intervalConfig,
     'keysandscales' : KeysandScalesConfig,
+    'chords' : chordsConfig,
 }
 
 export default function Routing() {
