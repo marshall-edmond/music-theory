@@ -1,4 +1,5 @@
-import Chords from '../intro/ChordsIntro'
+import ChordsIntro from '../intro/ChordsIntro'
+import Chords from '../lessons/chords/Chords';
 
 type config = {
     component: React.FC,
@@ -11,9 +12,15 @@ type config = {
 //chords configuration
 export const chordsConfig : Record<string, config> = {
     "intro" : {
-        component : Chords,
+        component : ChordsIntro,
         number: '1',
         back: '/theory/keysandscales/debrief',
-        next: undefined
+        next: '/theory/chords/chords'
+    }, 
+    "chords" : {
+        component: Chords,
+        number: '2',
+        back: '/theory/chords/intro',
+        next: undefined,
     }
 }

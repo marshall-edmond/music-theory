@@ -1,7 +1,7 @@
 import styles from '../../styles/Debrief.module.css';
 import logo_circle from '../../assets/logo_circle.png';
 
-export default function Chords(){
+export default function ChordsIntro(){
     return (
         <div className={styles.mainContainer}>
             <div className={styles.pageFrame}>
