@@ -1,10 +1,12 @@
 import styles from '../../styles/Debrief.module.css';
+import logo_circle from '../../assets/logo_circle.png';
 
 export default function IntroInterval(){
 
     return (
         <div className={styles.mainContainer}>
             <div className={styles.pageFrame}>
+                <img src={logo_circle} className={styles.logo} alt='logo'/>
                 <div className={styles.title}>
                     Section 2: Intervals Part 1
                 </div>
