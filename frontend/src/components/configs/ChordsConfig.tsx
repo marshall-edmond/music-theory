@@ -1,5 +1,6 @@
 import ChordsIntro from '../intro/ChordsIntro'
 import Chords from '../lessons/chords/Chords';
+import MajorTriads from '../lessons/chords/MajorTriads';
 
 type config = {
     component: React.FC,
@@ -21,6 +22,12 @@ export const chordsConfig : Record<string, config> = {
         component: Chords,
         number: '2',
         back: '/theory/chords/intro',
+        next:'/theory/chords/majortriads',
+    },
+    "majortriads" : {
+        component: MajorTriads,
+        number: '2',
+        back: '/theory/chords/chords',
         next: undefined,
     }
 }
