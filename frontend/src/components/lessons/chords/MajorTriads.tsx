@@ -2,7 +2,15 @@ import LessonLayout from '../../LessonLayout';
 import Piano from '../../Piano';
 import { GiGrandPiano } from 'react-icons/gi';
 import styles from '../../../styles/Theory.module.css';
+import { useState } from 'react';
+import { majorTriads } from '../../../music/MajorTr';
 
+const [triad, setTriad] =  useState<string[]>([]);
+
+//set state of triad by generating major triad for the note.
+const getTriad = (root: string) => {
+    setTriad(majorTriads(root))
+}
 export default function MajorTriads(){
     const leftContent = (
         <>  
@@ -16,7 +24,7 @@ export default function MajorTriads(){
 
     const rightContent = (
         <>
-            <Piano />
+            <Piano activeNotes={triad} onNoteSelect={getTriad}/>
         </>
     )
     return (
