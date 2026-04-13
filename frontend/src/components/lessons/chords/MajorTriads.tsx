@@ -25,6 +25,8 @@ export default function MajorTriads(){
                 <GiGrandPiano size={32}/>
                 <p className={styles.piano}> 3 min. reading</p>
             </section>
+            <p className={styles.p}> Constructing triads directly uses the major scale. We've learned the formula for building major scales is <b>W-W-H-W-W-W-H</b>. The major triad is built by the root, third degree, and 5th degree of the major scale of any key.</p>
+            <p className={styles.p}>Select any note on the piano to generate the major chord of that root.</p>
         </>
     )
 
