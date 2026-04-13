@@ -13,8 +13,7 @@ export default function MajorTriads(){
 
     //set state of triad by generating major triad for the note.
     const getTriad = (root: string) => {
-        const scale = MajorTr(root)
-        console.log(scale)
+        const scale : string[] = MajorTr(root)
         setTriad(scale)
 
 }
