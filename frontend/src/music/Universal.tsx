@@ -10,5 +10,5 @@ export const sharpstoflats : Record<string, string>= {
     'D#' : 'Eb',
     'F#' : 'Gb',
     'G#' : 'Ab',
-    'A#' : 'B'
+    'A#' : 'Bb'
 }

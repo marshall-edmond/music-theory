@@ -25,7 +25,7 @@ export default function MinorTriads(){
                 <p className={styles.piano}>2 min. reading</p>
             </section>
             <p className={styles.p}>Diminished chords create a lot of tension, and make a dark and almost eerie sound.</p>            
-            <p className={styles.p}>The logic to create a diminshed chord differs from that of the major and minor triads. A diminshed chord is made up of the root, the flattened 3rd (also called a minor 3rd) and a flattened 5th (also called a diminished 5th) degree.</p>
+            <p className={styles.p}>The logic to create a diminished chord differs from that of the major and minor triads. A diminished chord is made up of the root, the flattened 3rd (also called a minor 3rd) and a flattened 5th (also called a diminished 5th) degree.</p>
             <p className={styles.p}>C Diminished : <b>C</b>, <b>Eb</b>, <b>Gb</b></p>
             <p className={styles.p}>Select any note on the piano to generate the diminished triad of the root.</p>
         </>
