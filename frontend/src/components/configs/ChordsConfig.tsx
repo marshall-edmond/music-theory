@@ -3,7 +3,7 @@ import Chords from '../lessons/chords/Chords';
 import MajorTriads from '../lessons/chords/MajorTriads';
 import MinorTriads from '../lessons/chords/MinorTriads';
 import DiminishedTriads from '../lessons/chords/DiminishedTriads';
-
+import ChordsQuiz from '../Quizzes/ChordsQuiz';
 
 type config = {
     component: React.FC,
@@ -44,6 +44,12 @@ export const chordsConfig : Record<string, config> = {
         component: DiminishedTriads,
         number: '4',
         back : '/theory/chords/minortriads',
-        next : undefined
+        next : '/theory/chords/chords-quiz'
+    },
+    "chords-quiz" : {
+        component: ChordsQuiz,
+        number: '5',
+        back: '/theory/chords/diminishedtriads',
+        next: undefined
     }
 }

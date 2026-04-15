@@ -18,7 +18,6 @@ export const Diminished = ( root : string) => {
     //return minor scale of root
     const scale: string[] = minorScale(root);
 
-    console.log(scale)
    
     //strip octave number 
     let octave : string | number = scale[4].slice(-1)
@@ -33,12 +32,9 @@ export const Diminished = ( root : string) => {
 
     //if fifth is a flat convert to flat
     note = sharpstoflats[note] ?? note;
-    console.log(note)
-    
+
     //get the lowered fifth from the function
     fifth = dimFifth(note)
-    console.log(fifth)
-
     const result = [scale[0], scale[2], fifth + octave]
     console.log(result)
 

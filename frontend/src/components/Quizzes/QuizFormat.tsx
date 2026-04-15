@@ -14,7 +14,7 @@ interface quizProps {
     type: 'piano' | 'multiple-choice';
     root?: string,
     onNoteSelect?: (note:string, number: string) => void;
-    scale: string[] | string | null;
+    scale?: string[] | string | null;
     includesOctave?: boolean
 
 }
@@ -90,7 +90,7 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
             {/*Submit button calls function to check response and set display to true */}
             <div className={styles.apke}>
                 <div className={styles.btn}
-                onClick={() => checkScale(type, scale, correctAnswer, selectedAnswer)}
+                onClick={() => checkScale(type, scale!, correctAnswer, selectedAnswer)}
                 >
                 Submit
                 </div>
