@@ -14,14 +14,12 @@ interface quizProps {
     type: 'piano' | 'multiple-choice';
     root?: string,
     onNoteSelect?: (note:string, number: string) => void;
-    scale?: string[] | string | null;
+    activeNotes?: string[] | string | null;
     includesOctave?: boolean
 
 }
 
-
-
-export default function Quiz ({ title, number, answers, selectedAnswer, onSelect, correctAnswer, type, root, onNoteSelect, scale, includesOctave} : quizProps){
+export default function Quiz ({ title, number, answers, selectedAnswer, onSelect, correctAnswer, type, root, onNoteSelect, activeNotes, includesOctave} : quizProps){
 
 
     const [display, setDisplay] = useState<boolean>(false);
@@ -29,13 +27,11 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
 
    
     //handle submit, sort scale before checking response
-    const checkScale = (type: string, scale: string[] | string | null, correctAnswer: string[] | string | null, selectedAnswer : string) => {
+    const checkScale = (type: string, activeNotes: string[] | string | null, correctAnswer: string[] | string | null, selectedAnswer : string) => {
         //if the root includes a flat then filter through scale and if the note includes a sharp replace with a flat
         if (type === 'piano'){
-             if (Array.isArray(scale) && Array.isArray(correctAnswer)){
-            console.log('Scale:', scale);
-            console.log('CorrectAnswer:', correctAnswer)
-            setMessage(response(scale.sort(), correctAnswer.sort()));
+             if (Array.isArray(activeNotes) && Array.isArray(correctAnswer)){
+            setMessage(response(activeNotes.sort(), correctAnswer.sort()));
         }
 
         }
@@ -49,9 +45,9 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
     }
 
     //response checks if the selected notes are the correct scale
-    const response = (scale: string[] | string | null, correctAnswer: string[] | null | string) => {
+    const response = (activeNotes: string[] | string | null, correctAnswer: string[] | null | string) => {
         
-    if (JSON.stringify(scale) === JSON.stringify(correctAnswer)){
+    if (JSON.stringify(activeNotes) === JSON.stringify(correctAnswer)){
         return 'Correct'
     } else return 'Incorrect'
     }
@@ -71,7 +67,7 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
             {/*If its a piano question, pass the root */}
             {type === 'piano' && (
                 <div className={styles.PianoStyles}>
-                    <Piano onNoteSelect={(note) => onNoteSelect?.(note,number)} activeNotes={Array.isArray(scale) ? scale : []} includesOctave={true} />
+                    <Piano onNoteSelect={(note) => onNoteSelect?.(note,number)} activeNotes={Array.isArray(activeNotes) ? activeNotes : []} includesOctave={true} />
                 </div>
             )}
             <div className={styles.btnContainer}>
@@ -90,7 +86,7 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
             {/*Submit button calls function to check response and set display to true */}
             <div className={styles.apke}>
                 <div className={styles.btn}
-                onClick={() => checkScale(type, scale!, correctAnswer, selectedAnswer)}
+                onClick={() => checkScale(type, activeNotes!, correctAnswer, selectedAnswer)}
                 >
                 Submit
                 </div>
