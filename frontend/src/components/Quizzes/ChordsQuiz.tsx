@@ -76,19 +76,13 @@ export default function ChordsQuiz(){
        }
     }
 
-    const setActiveNotes = (question : string) => {
-        if (question === '1'){
-            return majorChord
-        }
-        else if (question === '2') {
-            return minorChord
-        }
-        else if (question === '3') {
-            return dimChord
-        }
+    //hashmap to return result
+
+    const setActiveNotes : Record<string, string[] | string> = {
+        '1' : majorChord,
+        '2' : minorChord,
+        '3' : dimChord
     }
-
-
 
     const Questions : Question[] = [{
         title: 'Build the Major Chord',
@@ -132,7 +126,7 @@ export default function ChordsQuiz(){
             root={question.root}
             type={question.type}
             onNoteSelect = {(note, number) => question.onNoteSelect?.(note, number)}
-            activeNotes={setActiveNotes(question.number)}
+            activeNotes={setActiveNotes[question.number]}
             />
         ))}
 
