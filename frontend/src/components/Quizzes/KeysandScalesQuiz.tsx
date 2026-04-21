@@ -178,7 +178,7 @@ export default function KeysandScalesQuiz(){
                 type={question.type}
                 onNoteSelect={(note, number) => question.onNoteSelect?.(note, number, question.root!)}
                 root={question.root}
-                scale={question.number === '1' ? majorScale : minorScale}
+                activeNotes={question.number === '1' ? majorScale : minorScale}
             
                 />
             ))}

@@ -13,31 +13,33 @@ interface quizProps {
     onSelect: (selected : string) => void;
     type: 'piano' | 'multiple-choice';
     root?: string,
-    onNoteSelect?: (note:string, number: string) => void;
+    onNoteSelect?: (note:string, number: string, root?: string) => void;
     activeNotes?: string[] | string | null;
     includesOctave?: boolean
+    hasPiano?: boolean
 
 }
 
-export default function Quiz ({ title, number, answers, selectedAnswer, onSelect, correctAnswer, type, root, onNoteSelect, activeNotes, includesOctave} : quizProps){
+export default function Quiz ({ title, number, answers, selectedAnswer, onSelect, correctAnswer, type, root, onNoteSelect, activeNotes, includesOctave, hasPiano} : quizProps){
 
-
+ 
     const [display, setDisplay] = useState<boolean>(false);
     const [message, setMessage] = useState<string>('');
 
    
     //handle submit, sort scale before checking response
-    const checkScale = (type: string, activeNotes: string[] | string | null, correctAnswer: string[] | string | null, selectedAnswer : string) => {
+    const checkScale = (type: string, activeNotes: string[] | string | null, correctAnswer: string[] | string | null, selectedAnswer : string, hasPiano : boolean) => {
         //if the root includes a flat then filter through scale and if the note includes a sharp replace with a flat
-        if (type === 'piano'){
+        if (type === 'piano' && !hasPiano){
              if (Array.isArray(activeNotes) && Array.isArray(correctAnswer)){
             setMessage(response(activeNotes.sort(), correctAnswer.sort()));
         }
 
         }
-       
-        else if (type === 'multiple-choice' ){
-            setMessage(response(selectedAnswer, correctAnswer))
+       //if hasPiano flag is true
+        else if (type === 'multiple-choice' || hasPiano){
+            if (selectedAnswer === correctAnswer) setMessage('Correct');
+            else setMessage('Incorrect');
         }
        
         setDisplay(true);
@@ -51,7 +53,6 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
         return 'Correct'
     } else return 'Incorrect'
     }
-
 
     return (
         
@@ -86,7 +87,7 @@ export default function Quiz ({ title, number, answers, selectedAnswer, onSelect
             {/*Submit button calls function to check response and set display to true */}
             <div className={styles.apke}>
                 <div className={styles.btn}
-                onClick={() => checkScale(type, activeNotes!, correctAnswer, selectedAnswer)}
+                onClick={() => checkScale(type, activeNotes!, correctAnswer, selectedAnswer, hasPiano!)}
                 >
                 Submit
                 </div>
