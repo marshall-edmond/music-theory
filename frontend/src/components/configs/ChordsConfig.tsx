@@ -51,7 +51,7 @@ export const chordsConfig : Record<string, config> = {
         component: ChordsQuiz,
         number: '6',
         back: '/theory/chords/diminishedtriads',
-        next: undefined
+        next: '/theory/chords/chords-debrief',
     },
     "chords-debrief" : {
         component: ChordsDebrief,
