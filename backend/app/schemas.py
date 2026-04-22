@@ -21,6 +21,6 @@ class UserLogin(BaseModel):
 
 #For songs we need title artist and 
 class SongSearch(BaseModel):
-    token: str
     query: str
+
     

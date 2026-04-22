@@ -60,11 +60,11 @@ export const KeysandScalesConfig : Record<string, KeysandScales> = {
     },
     "keysandscales-quiz" : {
         component: KeysandScalesQuiz,
-        next: "/theory/keysandscales/debrief",
+        next: "/theory/keysandscales/-debrief",
         back: "/theory/keysandscales/keyslesson",
         number: '8',
     },
-    "debrief" : {
+    "-debrief" : {
         component: KeysandScalesDebrief,
         next: '/theory/chords/intro',
         back: "/theory/keysandscales/keysandscales-quiz",

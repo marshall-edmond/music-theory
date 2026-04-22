@@ -10,7 +10,9 @@ import requests
 import base64
 import json
 from requests import post
+from dotenv import load_dotenv
 
+load_dotenv()
 models.Base.metadata.create_all(bind=engine)
 #accepted symbol
 client_id = os.getenv("SPOTIFY")
@@ -48,7 +50,7 @@ def read_root():
 def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
     #checks if username exists in the database, returns TRUE/FALSE.. If True raise exception
     existing_user = db.query(models.User).filter(models.User.username == user.username).first()
-    
+    #if user exists username is taken
     if existing_user:
         raise HTTPException(status_code=400, detail="Username already taken")
     
@@ -110,17 +112,19 @@ def get_token():
 def get_auth_header(token):
     return {"Authorization": "Bearer " + token}
 
-#send to last fm
+#send to spotify
 @app.post('/songsearch')
-def search(token: str, query: str):
+def search(query: schemas.SongSearch):
+    #get token function
+    token = get_token()
     #variable for api key
     headers = get_auth_header(token)
     #call Spotify api
     response = requests.get(
-        "https://api.spotify.com/v1/search",
+        "https://api.spotify.com/v1/search", headers= headers,
         params = {
             #required arguments
-            "q": query,
+            "q": query.query,
             "type": "track",
             "limit": 5,
         }
@@ -128,7 +132,10 @@ def search(token: str, query: str):
     
     #Get response from api endpoint 
     data = response.json()
-    return data
+    #list comprehension of data object
+    final = [{"cover_art": item["album"]["images"][0]["url"], "track_title" : item["name"] , "artist" : item["artists"][0]["name"]} for item in data["tracks"]["items"]]
+    
+    return final
 
     
     

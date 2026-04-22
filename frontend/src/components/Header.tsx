@@ -6,18 +6,16 @@ import { useNavigate } from 'react-router';
 
 //every song must have an image, an artist name, and a song title for dropdown menu
 type Song = {
-  name:string,
-  title:string,
+  cover_art:string,
+  track_title:string,
   artist: string,
-  url: string,
-  image: string,
 }
 
 
 let timer: any;
 
 export default function Header() {
-  const [search, setSearch] = useState('');
+  const [query, setQuery] = useState('');
   //displays dropdown menu
   const [dropdown, setDropDown] = useState(false);
   const [isLoading, setLoading] = useState(false);
@@ -32,10 +30,10 @@ export default function Header() {
   //effect hook to close dropdown if its empty
   useEffect(() => {
     //if the searchbar is empty don't display dropdown
-    if (search.trim() === ''){
+    if (query.trim() === ''){
       setDropDown(false);
     }
-  }, [search])
+  }, [query])
 
   //function to delay calling Results(api request), .300 ms, clear timeout on each keystroke before 
   //handle change of searchbar, if searchbar is empty setDropDown(false)
@@ -46,7 +44,7 @@ export default function Header() {
     //render the dropdown
     setDropDown(true);
     setLoading(true);
-    setSearch(e.target.value);
+    setQuery(e.target.value);
     // fetch api
     timer = setTimeout(Results, 500);
     
@@ -63,13 +61,13 @@ export default function Header() {
     setLoading(true)
     try{
       //fetch request to api 
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/songsearch`,{method: 'POST', headers : {'Content-Type' : 'application/json'}, body : JSON.stringify({search})})
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/songsearch`,{method: 'POST', headers : {'Content-Type' : 'application/json'}, body : JSON.stringify({query})})
       const data = await response.json()
 
       if (response.ok){
         console.log("Backend response:", data);
-        setResults(data.songs);
-        console.log("Image array:", TopResult.image)
+        setResults(data);
+        console.log("Image array:", TopResult.cover_art)
       }
 
       else {
@@ -99,7 +97,7 @@ export default function Header() {
             <div className={styles.searchContainer}>
               <input className={styles.search}
               placeholder="search..."
-              value={search}
+              value={query}
               onChange={HandleChange}
               />
             </div>
@@ -112,15 +110,15 @@ export default function Header() {
       <>
         <div className={styles.topResult}>Search Results</div>
         <button className={styles.song} onClick={Navigate}>
-          <img src={TopResult.image} alt={TopResult.name} />
-          <div>{TopResult.name}</div>
+          <img src={TopResult.cover_art} alt='Top Result' />
+          <div>{TopResult.track_title}</div>
           <div>{TopResult.artist}</div>
         </button>
         
         {otherResults.map((song, index) => (
           <button key={index} className={styles.song} onClick={Navigate}>
-            <img src={TopResult.image} alt={TopResult.name} />
-            <div>{song.name}</div>
+            <img src={song.cover_art} alt='title' />
+            <div>{song.track_title}</div>
             <div>{song.artist}</div>
           </button>
         ))}

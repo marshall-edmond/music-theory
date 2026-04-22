@@ -19,7 +19,7 @@ export const chordsConfig : Record<string, config> = {
     "intro" : {
         component : ChordsIntro,
         number: '1',
-        back: '/theory/keysandscales/debrief',
+        back: '/theory/keysandscales/-debrief',
         next: '/theory/chords/chords'
     }, 
     "chords" : {
