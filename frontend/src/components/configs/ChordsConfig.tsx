@@ -5,7 +5,7 @@ import MinorTriads from '../lessons/chords/MinorTriads';
 import DiminishedTriads from '../lessons/chords/DiminishedTriads';
 import ChordsQuiz from '../Quizzes/ChordsQuiz';
 import ChordsDebrief from '../debriefs/ChordsDebrief';
-
+import TheoryDebrief from '../debriefs/TheoryDebrief';
 type config = {
     component: React.FC,
     back?: string,
@@ -57,6 +57,12 @@ export const chordsConfig : Record<string, config> = {
         component: ChordsDebrief,
         number: '7',
         back: '/theory/chords/chords-quiz',
-        next: undefined,
+        next: '/theory/chords/theory-debrief'
+    },
+    "theory-debrief" : {
+        component : TheoryDebrief,
+        number: '8',
+        back: '/theory/chords/chords-debrief',
+        next: undefined
     }
 }
