@@ -11,12 +11,14 @@ import base64
 import json
 from requests import post
 from dotenv import load_dotenv
+from bs4 import BeautifulSoup
 
 load_dotenv()
 models.Base.metadata.create_all(bind=engine)
 #accepted symbol
 client_id = os.getenv("SPOTIFY")
 client_secret = os.getenv("SPOTIFY_SECRET")
+genius_token = os.getenv("GENIUS_TOKEN")
     
     
 symbols = ['@',',','.','#','$','%']
@@ -137,5 +139,31 @@ def search(query: schemas.SongSearch):
     
     return final
 
+    
+#get page from genius and scrape lyrics using beautifulsoup
+@app.get('/lyrics/{artist}/{track_title}')
+def lyrics(artist, track_title):
+    header = {"Authorization" : "Bearer " + genius_token} 
+    response = requests.get("https://api.genius.com/search?", headers=header, 
+         params= {
+             "q": f"{artist} {track_title}"
+         })
+    
+    data = response.json()
+    lyrics_url = data["response"]["hits"][0]["result"]["url"]
+    page = requests.get(lyrics_url)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    containers = soup.find_all('div', attrs={'data-lyrics-container': 'true'})
+    
+    for container in containers:
+        header = container.find('div', attrs={'data-exclude-from-selection': 'true'})
+        if header:
+            header.decompose()
+    
+    text = [container.get_text(separator="\n") for container in containers]
+    final = "\n".join(text)
+    
+    return final
+     
     
     

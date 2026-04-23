@@ -20,7 +20,7 @@ export default function ChordsDebrief(){
                <div className={styles.text}> {question1} </div> 
                <div className={styles.question}> Question 2: Build the minor scale </div>
                <div className={styles.text}>{question2}</div>
-               <div className={styles.question}>Question 3: Build the diminsished scale  </div>
+               <div className={styles.question}> Question 3: Build the diminsished scale  </div>
                <div className={styles.text}>{question3}</div>
                <div className={styles.question}>Question 4: Indentify the chord</div>
                <div className={styles.text}>{question4}</div>

@@ -50,9 +50,11 @@ export default function Header() {
     
   }
 
-  //onClick go to search page and send song info as props
-  const Navigate = () => {
-    nav('/search')
+  //onClick go to search page and get routes from artist and track_ttitle
+  const Navigate = (artist: string, track_title: string ) => {
+    artist = artist.replace(/ /g, '-')
+    track_title = track_title.replace(/ /g, '-')
+    nav(`/search/${artist}/${track_title}`)
   }
 
 // fetch top 5 songs from song api
@@ -65,9 +67,9 @@ export default function Header() {
       const data = await response.json()
 
       if (response.ok){
-        console.log("Backend response:", data);
+
         setResults(data);
-        console.log("Image array:", TopResult.cover_art)
+     
       }
 
       else {
@@ -109,14 +111,14 @@ export default function Header() {
     ) : TopResult ? (
       <>
         <div className={styles.topResult}>Search Results</div>
-        <button className={styles.song} onClick={Navigate}>
+        <button className={styles.song} onClick={() => Navigate(TopResult.artist, TopResult.track_title)}>
           <img src={TopResult.cover_art} alt='Top Result' />
           <div>{TopResult.track_title}</div>
           <div>{TopResult.artist}</div>
         </button>
         
         {otherResults.map((song, index) => (
-          <button key={index} className={styles.song} onClick={Navigate}>
+          <button key={index} className={styles.song} onClick={() => Navigate(song.artist, song.track_title)}>
             <img src={song.cover_art} alt='title' />
             <div>{song.track_title}</div>
             <div>{song.artist}</div>

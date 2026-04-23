@@ -1,0 +1,71 @@
+.mainContainer {
+    width:100%;
+    min-height: 91dvh;
+    height: auto;
+    background-color: var(--secondary);
+    display:flex;
+    flex-direction: column;
+
+}
+
+.songImage {
+    height: 300px;
+    width: 100%;
+    background-color: var(--secondary);
+    display:flex;
+    padding-top:  20px;
+    padding-bottom: 20px;
+    border: 2px solid black;
+    padding-left: 10px;
+    
+}
+
+.songTitle {
+    font-family: 'Proxima Nova';
+    color: white;
+    padding-left: 20px;
+    font-size : 40px;
+    display:flex;
+    flex-direction: column;
+}
+
+.artistName {
+    font-family: 'Proxima Nova';
+    color: rgb(233, 207, 62);
+    padding-left: 20px;
+    font-size : 30px;
+}
+
+.details{
+    color: white;
+    font-size: 20px;
+    padding-left: 20px;
+    display: flex;
+    gap: 36px;
+}
+
+.progression{
+    color:rgb(233, 207, 62);
+    font-family: 'Proxima Nova';
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.lyricsContainer{
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    padding-left: 10px;
+}
+
+.LyricsTitle{
+    color: white;
+    font-size: 40px;
+    border-bottom: 2px solid black;
+}
+
+.lyrics{
+    color: white;
+    font-size: 20px;
+    gap: 10px;
+}
