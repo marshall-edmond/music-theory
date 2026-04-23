@@ -10,7 +10,11 @@ export default function Search(){
     const [art, setArt] = useState<string>('')
     const [lyrics, setLyrics] = useState<string>('');
 
+    //split lyrics by line
+    const take = lyrics.split('\n')
 
+    const startIndex =take.findIndex(line => line.startsWith('['))
+    const trimmed = startIndex !== -1 ? take.slice(startIndex) : take;
    
     //Get artist name and track title from url
     let { artist, track_title } = useParams<{ artist:string, track_title: string}>();
@@ -39,6 +43,8 @@ export default function Search(){
             setLyrics(data)
         }
     }
+
+    
 
      useEffect(() => {
         fetchCoverart()
@@ -69,7 +75,9 @@ export default function Search(){
 
                 <div className={styles.lyricsContainer}>
                     <span className={styles.LyricsTitle}>Lyrics</span>
-                    <span className={styles.lyrics}>{lyrics}</span>
+                    {trimmed.map((line, index) => (
+                        <div className={line.startsWith('[') ? styles.sectionHeader : styles.lyrics} key={index}>{line}</div>
+                    ))}
                 </div>
             </div>
         </div>

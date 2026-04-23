@@ -1,7 +1,7 @@
 .mainContainer {
     width:100%;
     min-height: 91dvh;
-    height: auto;
+    height: 1000px;
     background-color: var(--secondary);
     display:flex;
     flex-direction: column;
@@ -54,8 +54,9 @@
 .lyricsContainer{
     margin-top: 10px;
     width: 100%;
-    height: auto;
-    padding-left: 10px;
+    max-height: 300px;
+    padding-left: 40px;
+    overflow-y:auto;
 }
 
 .LyricsTitle{
@@ -66,6 +67,15 @@
 
 .lyrics{
     color: white;
+    width: 100%;
     font-size: 20px;
     gap: 10px;
+
+}
+
+.sectionHeader{
+    color: white;
+    font-size: 14px;
+    padding-top: 20px;
+    width:100%;
 }
