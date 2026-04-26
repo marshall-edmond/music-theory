@@ -97,7 +97,7 @@ export default function Search(){
                             <div className={line.startsWith('[') ? styles.sectionHeader : styles.lyrics} key={index}>{line}</div>
                         ))}
                     </div>
-                    <div className={styles.youtubePlayer}></div>
+                    <iframe className={styles.youtubePlayer} id="player" src="https://www.youtube.com/embed/KIVhF0caFZc"></iframe>
 
                 </div>
                 <div className={styles.TheoryContainer}>
