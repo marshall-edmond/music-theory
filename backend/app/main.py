@@ -111,6 +111,7 @@ def get_token():
     token = json_result["access_token"]
     return token
 
+#concatenate authorize token
 def get_auth_header(token):
     return {"Authorization": "Bearer " + token}
 
@@ -135,7 +136,7 @@ def search(query: schemas.SongSearch):
     #Get response from api endpoint 
     data = response.json()
     #list comprehension of data object
-    final = [{"cover_art": item["album"]["images"][0]["url"], "track_title" : item["name"] , "artist" : item["artists"][0]["name"]} for item in data["tracks"]["items"]]
+    final = [{"cover_art": item["album"]["images"][0]["url"], "track_title" : item["name"] , "artist" : item["artists"][0]["name"], "id" : item["id"]} for item in data["tracks"]["items"]]
     
     return final
 
@@ -164,6 +165,19 @@ def lyrics(artist, track_title):
     final = "\n".join(text)
     
     return final
-     
+     #function to get song metadata from spotify
+@app.get("/metaData/{id}")
+def metaData(id : str):
+    token = get_token()
+    headers = get_auth_header(token)
+    
+    response = requests.get(f"https://api.spotify.com/v1/audio-features/{id}", headers = headers)
+       
+    data = response.json()
+    print(data)
+    print(response.status_code)
+
+    final = {"key" : data["key"], "tempo": data["tempo"], "time_signature" : data["time_signature"]}
     
     
+    return final

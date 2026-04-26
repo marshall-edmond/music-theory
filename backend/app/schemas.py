@@ -23,4 +23,5 @@ class UserLogin(BaseModel):
 class SongSearch(BaseModel):
     query: str
 
-    
+class MetaData(BaseModel):
+    id : str   
