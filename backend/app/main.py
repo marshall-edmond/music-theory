@@ -19,6 +19,7 @@ models.Base.metadata.create_all(bind=engine)
 client_id = os.getenv("SPOTIFY")
 client_secret = os.getenv("SPOTIFY_SECRET")
 genius_token = os.getenv("GENIUS_TOKEN")
+youtubeKey = os.getenv("YOUTUBE_KEY")
     
     
 symbols = ['@',',','.','#','$','%']
@@ -180,4 +181,24 @@ def metaData(id : str):
     final = {"key" : data["key"], "tempo": data["tempo"], "time_signature" : data["time_signature"]}
     
     
+    return final
+
+@app.get('/youtubeSearch/{artist}/{song}')
+def youtubeSearch(artist: str, song : str):
+    #Generate youtube key and authorization header
+    key = youtubeKey
+    q = song + " " + artist
+    
+    response = requests.get("https://www.googleapis.com/youtube/v3/search/", params= {
+        "part": "snippet",
+        "key": key,
+        "q": q
+        })
+    
+    data = response.json()
+    
+    #return top result video id
+    data = data["items"][0]["id"]["videoId"]
+    #return id of the 
+    final = { "id" : data}
     return final
