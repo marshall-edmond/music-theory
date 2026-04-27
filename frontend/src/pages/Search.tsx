@@ -13,7 +13,10 @@ export default function Search(){
     const [key, setKey] = useState<string>('');
     const [tempo, setTempo] = useState<string>('');
     const [time_signature, setTime] = useState<string>('');
-    let id : string = '';
+    const [youtubeID, setId] = useState<string>('');
+
+    
+    
 
 
     //split lyrics by line
@@ -45,6 +48,7 @@ export default function Search(){
         
         //Parse first result of data
         const TopResult = data[0]
+        let id
 
         if (response.ok){
             setArt(TopResult.cover_art);
@@ -61,11 +65,22 @@ export default function Search(){
             setLyrics(data)
         }
     }
+
+    //function to get youtube id from backend call 
+    async function youtubeSearch(){
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/youtubeSearch/${artist}/${track_title}`, { method : 'GET', headers : {"Content-Type": "application/json"}})
+        const data = await response.json()
+
+        if (response.ok){
+            setId(data.id)
+        }
+    }
     
 
      useEffect(() => {
         fetchCoverart()
         fetchLyrics()
+        youtubeSearch()
     }, [])
 
 
@@ -97,7 +112,7 @@ export default function Search(){
                             <div className={line.startsWith('[') ? styles.sectionHeader : styles.lyrics} key={index}>{line}</div>
                         ))}
                     </div>
-                    <iframe className={styles.youtubePlayer} id="player" src="https://www.youtube.com/embed/KIVhF0caFZc"></iframe>
+                    <iframe className={styles.youtubePlayer} id="player" src={`https://www.youtube.com/embed/${youtubeID}`}></iframe>
 
                 </div>
                 <div className={styles.TheoryContainer}>
