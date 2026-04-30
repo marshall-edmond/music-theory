@@ -4,7 +4,6 @@ import dwn from "../assets/dwn.jpg";
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useAuth } from '../context/AuthContext';
-import Profile from '../pages/Profile';
 
 
 //every song must have an image, an artist name, and a song title for dropdown menu
