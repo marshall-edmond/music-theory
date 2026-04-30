@@ -5,10 +5,6 @@ import { useState, useEffect } from 'react';
 
 
 export default function NotesQuiz(){
-
-    //keep track of score, pass to notes debrief
-    const [score, changeScore] = useState<string | null>(null);
-
     //track active question
     const [display, setDisplay] = useState<{questionID:string, result: 'Correct' | 'Incorrect'} | null>(null);
 

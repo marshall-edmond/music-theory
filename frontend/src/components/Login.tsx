@@ -1,14 +1,16 @@
 import styles from '../styles/Signup.module.css';
 import { useState} from 'react';
 import { useNavigate } from 'react-router';
+import { useAuth } from '../context/AuthContext';
 
-function Login () {
+
+export default function Login (){
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-    const [loading, setLoading] = useState(false)
-
-    const nav = useNavigate()
+    const [loading, setLoading] = useState(false);
+    const { login } = useAuth();
+    const nav = useNavigate();
 
 
     //function to Hanld Submit and fetch request from server
@@ -20,14 +22,13 @@ function Login () {
             const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({username, password})})
             const data = await response.json()
             if (response.ok) {
-                localStorage.setItem("access_token", data.access_token)
+                login(data.access_token)
                 nav('/')
             } else {
-                //
-                setError('')
+                setError(data.detail || 'Login failed')
             }
-        } catch(err) {
-
+        } catch {
+            setError('Network Error')
         } finally {
             setLoading(false)
         }
@@ -53,10 +54,10 @@ function Login () {
             <button className={styles.button1} type="submit" disabled={loading}>
                 {loading ? 'Loading...' : 'Log in!'}
             </button>
+            {error && <div className={styles.error}>{error}</div>}
         </form>
     )
 
 }
 
-export default Login;
  

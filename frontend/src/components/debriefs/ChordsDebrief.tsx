@@ -1,15 +1,10 @@
 import styles from '../../styles/Debrief.module.css';
 import logo_png from '../../assets/logo_circle.png'
 export default function ChordsDebrief(){
-    let userScore = 4;
-    const congrats = 'Congratulations, of the 5 questions you scored ${userScore} out of 5.'
-
-    const encouragement = "You scored {userScore}"
     const question1 = "To build a major chord remember the formula W-W-H-W-W-W-H, once you're comfortable with that you've done most of the work. From here take the scale you've calculated and take the 1st, 3rd and 5th degrees.";
     const question2 = "To build the minor scale now we'll use the W-H-W-W-H-W-W formula from the root. An alternative is to build the major scale and flatten the 3rd degree.";
     const question3 = "To build the diminished scale we can simply just take the minor 3rd and diminished 5th degrees of the major scale of the root.";
     const question4 = "Since we've covered major triads, minor triads, and diminishedt triads, to get the correct answer pay attention to the scale degrees. The root will give you the first half of the answer, from there check that the 3rd and 5th are relative to the root."
-    const question5 = ""
     return (
         <div className={styles.mainContainer}>
             <div className={styles.pageFrame}>

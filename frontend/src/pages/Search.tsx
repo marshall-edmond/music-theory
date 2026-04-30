@@ -96,6 +96,7 @@ export default function Search(){
                         <div className={styles.details}>
                             <span>key: {key} </span>
                             <span>tempo: {tempo}</span>
+                            <span>time signature: {time_signature}</span>
                             <span>genre:</span>
                         </div>
                         <div className={styles.progression}> 
@@ -123,4 +124,3 @@ export default function Search(){
         </div>
     )
 }
-

@@ -2,7 +2,7 @@ import styles from '../styles/NoFunction.module.css';
 
 interface NoFunctionProps {
     activeNotes?: string[],
-    onNoteSelect: (root: string) => void;
+    onNoteSelect?: (root: string) => void;
 }
 
 //state variable to hold activeNotes
@@ -48,7 +48,7 @@ export default function NoFunction({ activeNotes, onNoteSelect} : NoFunctionProp
                     <div 
                     key={whiteNote.note} className={styles.whiteKeyWrapper}
                     //click event handler to add to activeNotes
-                    onClick={() => onNoteSelect(whiteNote.note)}
+                    onClick={() => onNoteSelect?.(whiteNote.note)}
                     >
 
                         <div className={`${styles.whiteKey} ${isNoteActive(whiteNote.note) ? styles.active : ''} `}>

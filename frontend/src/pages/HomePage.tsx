@@ -3,19 +3,9 @@ import Header from '../components/Header';
 import styles from '../styles/HomePage.module.css';
 import { Link } from 'react-router-dom';
 import musicsheet from '../assets/musicsheet.jpg';
-import { useState } from 'react';
-
-
 
 
 function HomePage() {
-    //store state for login UI
-    const [Login, setLogin] = useState<boolean>(false);
-    
-    const token = localStorage.getItem("access_token")
-    const isLoggedIn = Boolean(token)
-    
-
     
     
     return (

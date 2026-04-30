@@ -55,12 +55,6 @@ while (chords.size < 4) {
         'G#' : 'Ab',
     }
 
-    const enharmonicMap : Record<string, string> ={
-        'D#': 'Eb',
-        'A#' : 'Bb',
-        'G#' : 'Ab'
-    }
-
 export default function ChordsQuiz(){
 
     const [selectedAnswer, setSelectedAnswer] = useState<string>('');

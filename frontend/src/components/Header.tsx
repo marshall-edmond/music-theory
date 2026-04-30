@@ -19,7 +19,6 @@ export default function Header() {
   //displays dropdown menu
   const [dropdown, setDropDown] = useState(false);
   const [isLoading, setLoading] = useState(false);
-  const [error, setError] = useState('');
   const [results, setResults] = useState<Song[]>([]);
   const nav = useNavigate()
 
@@ -73,12 +72,12 @@ export default function Header() {
       }
 
       else {
-        setError(data.message);
+        setResults([]);
         
       }
 
-    } catch(err) {
-      setError('Network Error')
+    } catch {
+      setResults([])
     
     }
     finally {
@@ -137,4 +136,3 @@ export default function Header() {
     </>
   )
 }
-

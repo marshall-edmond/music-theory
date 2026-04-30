@@ -20,7 +20,7 @@ interface quizProps {
 
 }
 
-export default function Quiz ({ title, number, answers, selectedAnswer, onSelect, correctAnswer, type, root, onNoteSelect, activeNotes, includesOctave, hasPiano} : quizProps){
+export default function Quiz ({ title, number, answers, selectedAnswer, onSelect, correctAnswer, type, root, onNoteSelect, activeNotes, hasPiano} : quizProps){
 
  
     const [display, setDisplay] = useState<boolean>(false);

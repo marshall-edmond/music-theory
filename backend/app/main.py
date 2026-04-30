@@ -76,8 +76,10 @@ def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
         db.add(new_user)
         db.commit()
         db.refresh(new_user)
+        #Create JWT
+        token = create_access_token(new_user.username)
 
-        return new_user
+        return {"access_token": token}
     else:
         raise HTTPException(status_code= 400, detail="Password must be atleast 8 characters long and include 1 upper case letter.")
     

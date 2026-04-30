@@ -3,6 +3,7 @@ import type { FormEvent } from 'react';
 import { useNavigate } from 'react-router';
 import styles from '../styles/Signup.module.css';
 import { FaLock } from 'react-icons/fa';
+import { useAuth } from '../context/AuthContext';
 
 
 function Signup(){
@@ -13,6 +14,7 @@ function Signup(){
     const [confirm, setConfirm] = useState('')
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const { login } = useAuth();
 
     //navigation function
     const nav = useNavigate()
@@ -35,11 +37,12 @@ function Signup(){
 
             // if user signup is successful, navigate to the home screeen
             if (response.ok){
+                login(result.access_token);
                 nav('/');
             // if user sign up is unsuccessful, set and display error message
                 } else {
                     setLoading(false); 
-                    setError(result.message);
+                    setError(result.detail || 'Signup failed');
                 }
             } catch (err) {
                 setError('Network Error')
