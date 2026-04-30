@@ -3,6 +3,9 @@ import styles from '../styles/Header.module.css';
 import dwn from "../assets/dwn.jpg";
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import { useAuth } from '../context/AuthContext';
+import Profile from '../pages/Profile';
+
 
 //every song must have an image, an artist name, and a song title for dropdown menu
 type Song = {
@@ -21,6 +24,10 @@ export default function Header() {
   const [isLoading, setLoading] = useState(false);
   const [results, setResults] = useState<Song[]>([]);
   const nav = useNavigate()
+  //Get if user is logged in for UI
+  const { isLoggedIn } = useAuth();
+
+
 
   // Section for top result
   const TopResult = results[0]
@@ -130,7 +137,12 @@ export default function Header() {
   </div>
 )}
             <Link className={styles.btn} to="/theory/notes/notes">Theory</Link>
-            <Link className={styles.btn} to="/signup">Sign up/ Login</Link>
+            {isLoggedIn ? (
+              <Link className={styles.btn} to="/profile">Profile</Link>
+            ) : (
+              <Link className={styles.btn} to="/signup">Sign up/ Login</Link>
+            )}
+            
         </nav>
       </header>
     </>
