@@ -17,8 +17,10 @@ function Login () {
     //fetch request sending username and password to server for validation
         setLoading(true)
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({username: {username}, password: {password}})})
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({username, password})})
+            const data = await response.json()
             if (response.ok) {
+                localStorage.setItem("access_token", data.access_token)
                 nav('/')
             } else {
                 //

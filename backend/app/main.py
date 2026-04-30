@@ -12,6 +12,7 @@ import json
 from requests import post
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
+from .auth import create_access_token
 
 load_dotenv()
 models.Base.metadata.create_all(bind=engine)
@@ -91,7 +92,9 @@ def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
     if not verify_password(user.password, user_from_db.hashed_password):
         raise HTTPException(status_code=401, detail="Incorrect credentials.")
     
-    return {"message": "Login successful", "user": user_from_db}
+    access_token = create_access_token(user.username)
+    
+    return {"message": "Login successful", "access_token" : access_token, "token_type": "bearer"}
 
 #function to get access token
 def get_token():
@@ -166,6 +169,7 @@ def lyrics(artist, track_title):
     final = "\n".join(text)
     
     return final
+
      #function to get song metadata from spotify
 @app.get("/metaData/{id}")
 def metaData(id : str):
