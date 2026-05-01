@@ -35,6 +35,8 @@ def validate(password: str) -> bool:
     
     return has_upper and has_symbol
 
+    
+
 app = FastAPI();
 
 app.add_middleware(

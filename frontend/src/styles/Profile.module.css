@@ -1,3 +1,87 @@
 .mainContainer{
     background: var(--secondary);
+    height: 91vh;
+    max-height: 91vh;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    overflow-y: hidden;
+
+
+}
+
+.userContainer{
+    margin-top: 20px;
+    width: 90%;
+    height: 98%;
+    display:flex;
+    justify-content: space-between;
+
+
+}
+
+.userPage{
+    background: rgb(10, 10, 38);
+    width: 80%;
+    height:90%;
+    border-left: 16px;
+    border-bottom-right-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom: 1px solid white;
+    padding-left: 50px;
+    padding-top: 50px;
+}
+
+.pageTab{
+    background: rgb(224, 211, 33);
+    height: 90%;
+    width: 20%;
+    border: 2px solid white;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    display:flex; 
+    flex-direction: column;
+    border-bottom: 2px solid white;
+}
+
+.logout{
+    border-radius: 10px;
+    background: rgb(246, 246, 252);
+    padding: 16px 22px;
+    display: inline-block;
+    
+}
+
+.profileHeader{
+    display:flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items:center;
+    
+}
+
+
+.circle {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 50%;
+    
+}
+
+.username{
+    margin-top: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Proxima Nova';
+    
+}
+
+
+.displayContainer{
+    background: white;
+    height: 400px;
+    width: 80%;
+
+    border: 1px solid rgb(86, 86, 94);
 }

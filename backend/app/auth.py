@@ -24,3 +24,6 @@ def create_access_token(username):
     token = jwt.encode({"sub" : username, "exp" : expiration}, key, algorithm="HS256")
 
     return token
+
+def get_current_token(token: str):
+    decoded = jwt.decode(token)  
