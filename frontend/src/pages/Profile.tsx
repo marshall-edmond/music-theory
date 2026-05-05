@@ -2,7 +2,7 @@ import styles from '../styles/Profile.module.css';
 import Header from '../components/Header'
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect} from 'react';
 import { IoMdSearch } from "react-icons/io";
 
 
@@ -23,6 +23,26 @@ export default function Profile(){
     //State variable to store array of 
     const [images, setImages] = useState<ArtistImage[]>([]);
     const [search, setSearch] = useState<string>('');
+    //
+    const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        //If the ref is outside of the attached dropdown close the dropdown
+        function handleClickOutside(e : MouseEvent) {
+            if ( dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+                setOpen(false)
+            }
+        }
+        //Create addEventListener and map to clickOutside function
+        document.addEventListener("mousedown",
+            handleClickOutside); 
+
+            //side effect to remove the event listener
+            return () => {
+                document.removeEventListener("mousedown",
+                    handleClickOutside);
+                };
+            }, []);
 
 
     const nav = useNavigate()
@@ -56,7 +76,7 @@ export default function Profile(){
         //TS evaluates generateImages(value) to find the value if the function is called, passing a callback function delays
         timer.current = setTimeout(() => {
             generateImages(value);
-        }, 500);
+        }, 300);
     };
 
     //Function to call save user changes
@@ -72,7 +92,7 @@ export default function Profile(){
         else {
             setMessage(data.detail)
         }
-    }
+    } 
 
     //Function to generate 10 artist avatars
     async function generateImages(query : string) {
@@ -111,7 +131,7 @@ export default function Profile(){
 
                     {/*Display user profile picture and username*/}
                     <div className={styles.userPage}>
-                        <div className={styles.profileHeader}>
+                        <div className={styles.profileHeader} ref={dropdownRef}>
                             <div className={styles.circle} onClick={() => setOpen(true)}/>
                             <div className={styles.dropdown}>
                                 <div className={`${styles.dropdownContainer} ${isOpen ? styles.open : ""}`}>   
