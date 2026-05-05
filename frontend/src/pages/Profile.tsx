@@ -126,7 +126,9 @@ export default function Profile(){
                 <div className={styles.userContainer}>
                     
                     <div className={styles.pageTab}>
-                        Account
+                        <div className={styles.pageTabItem}>
+                            Account
+                        </div>
                     </div>
 
                     {/*Display user profile picture and username*/}
@@ -201,12 +203,12 @@ export default function Profile(){
 
                                     </input>
 
-                                    <div 
-                                    className={styles.saveChanges}
-                                
+                                    <button
+                                        className={styles.saveChanges}
+                                        type="submit"
                                     >
-                                    Save Changes
-                                    </div>
+                                        Save Changes
+                                    </button>
                                     
                                 </div>
                                 

@@ -41,7 +41,25 @@
     border-bottom-left-radius: 16px;
     display:flex; 
     flex-direction: column;
+    align-items: center;
+    padding-top: 28px;
     border-bottom: 2px solid white;
+}
+
+.pageTabItem {
+    width: 82%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgb(10, 10, 38);
+    color: white;
+    font-family: 'Proxima Nova';
+    font-size: 20px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
 }
 
 .logout{
@@ -119,14 +137,13 @@
 .displayContainer{
     margin-top:30px;
     background: white;
-    height: 50vh;
+    min-height: 50vh;
     width: 95%;
     border: 1px solid rgb(86, 86, 94);
-    border-radius: 16px;
-    display: grid;
-    gap: 20px;
-
-    
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .displayContainer form {
@@ -135,26 +152,25 @@
 
 .header {
     display: flex;
-    height: 10vh;
+    height: auto;
     width: 100%;
-    color: black;
-    font-size: 40px;
+    padding: 20px 24px;
+    color: rgb(10, 10, 38);
+    font-size: 28px;
+    font-weight: 700;
     align-self:center;
-    display:flex;
-    justify-content: center;
+    justify-content: flex-start;
     font-family: 'Proxima Nova';
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(220, 220, 225);
 }
 
 .btnContainer{
-    padding-left: 20px;
+    padding: 24px;
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    border-bottom: 1px solid black;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 18px;
     box-sizing: border-box;
-    padding-bottom: 20px;
 }
 
 
@@ -162,13 +178,24 @@
     width: fit-content;
     color: white;
     background: rgb(10, 10, 38);
-    padding: 16px 16px;
+    padding: 14px 22px;
     border-radius: 8px;
     align-self: center;
+    cursor: pointer;
+    font-family: 'Proxima Nova';
+    font-size: 15px;
+    border: 1px solid rgb(10, 10, 38);
+}
+
+.saveChanges:hover {
+    background: rgb(4, 4, 63);
 }
 
 .bubble{
-    padding: 16px;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 16px;
 }
 
 .searchIcon {
