@@ -3,7 +3,7 @@ import { useState} from 'react';
 import { useNavigate } from 'react-router';
 import { useAuth } from '../context/AuthContext';
 
-
+//Login function which takes username email and password and 
 export default function Login (){
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')

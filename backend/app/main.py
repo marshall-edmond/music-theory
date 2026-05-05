@@ -210,3 +210,34 @@ def youtubeSearch(artist: str, song : str):
     #return id of the 
     final = { "id" : data} 
     return final
+
+
+
+@app.put('/updateUser/{username}/{password}/{email}')
+def updateUser(user: str, db = Depends(get_db)):
+    db.query()
+    
+
+#Spotify post request to search
+@app.get('/artists/search')
+def getArtist(q : str):
+    #get spotify token
+    token = get_token()
+    headers = get_auth_header(token)
+    response = requests.get("https://api.spotify.com/v1/search", headers=headers, params={
+        "q": q,
+        "type": "artist",
+        "limit": 10
+    })
+    
+    data = response.json()
+    
+    #List comprehension for object with 10 artist images
+    final = [{
+        "name": item["name"],
+        "avatar_url": item["images"][0]["url"] if item["images"] else None 
+    } for item in data["artists"]["items"]]
+    
+    return final
+    
+    

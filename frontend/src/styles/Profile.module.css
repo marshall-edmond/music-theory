@@ -29,7 +29,7 @@
     border-top-right-radius: 16px;
     border-bottom: 1px solid white;
     padding-left: 50px;
-    padding-top: 50px;
+    padding-top: 30px;
 }
 
 .pageTab{
@@ -45,11 +45,15 @@
 }
 
 .logout{
-    border-radius: 10px;
-    background: rgb(246, 246, 252);
-    padding: 16px 22px;
-    display: inline-block;
-    
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: fit-content;
+    border-radius: 8px;
+    background: rgb(4, 4, 63);
+    padding: 16px 32px; 
+    justify-self: center;
+    color: white;
 }
 
 .profileHeader{
@@ -57,16 +61,50 @@
     flex-direction: column;
     width: fit-content;
     align-items:center;
+    position: relative;
     
 }
 
 
+.dropdownContainer{
+    position:absolute;
+    top:110px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 150ms ease, transform 150ms ease;
+    background: white;
+    min-height: 260px;
+    width: min(560px, 72vw);
+    z-index: 100;
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
+}
+
+.dropdownSearch{
+    width: 240px;
+    height: 36px;
+    border-radius: 32px;
+    margin: 0;
+    padding-left: 38px;
+    font-family: 'Proxima Nova';
+    font-size: 16px;
+}
+
+
+
+.open{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events:auto;
+}
+
 .circle {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     background-color: white;
     border-radius: 50%;
-    
 }
 
 .username{
@@ -79,9 +117,105 @@
 
 
 .displayContainer{
+    margin-top:30px;
     background: white;
-    height: 400px;
-    width: 80%;
-
+    height: 50vh;
+    width: 95%;
     border: 1px solid rgb(86, 86, 94);
+    border-radius: 16px;
+    display: grid;
+    gap: 20px;
+
+    
+}
+
+.displayContainer form {
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    color: black;
+    font-size: 40px;
+    align-self:center;
+    display:flex;
+    justify-content: center;
+    font-family: 'Proxima Nova';
+    border-bottom: 1px solid black;
+}
+
+.btnContainer{
+    padding-left: 20px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+}
+
+
+.saveChanges{
+    width: fit-content;
+    color: white;
+    background: rgb(10, 10, 38);
+    padding: 16px 16px;
+    border-radius: 8px;
+    align-self: center;
+}
+
+.bubble{
+    padding: 16px;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: gray;
+    pointer-events: none;
+}
+
+.dropDownWrapper {
+    position: relative;
+    width: fit-content;
+}
+
+.artistGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 72px);
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.artistOption {
+    width: 72px;
+    height: 72px;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.artistOption:hover {
+    border-color: rgb(224, 211, 33);
+}
+
+.artistImage {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+@media (max-width: 700px){
+    .artistGrid {
+        grid-template-columns: repeat(2, 72px)
+    }
 }
