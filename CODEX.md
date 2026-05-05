@@ -7,3 +7,4 @@
   SQLAlchemy, and Pydantic.
   - Before editing files, state exactly what files will
   change.
+  - Don't Give any code answers, unless explicitly asked for 
