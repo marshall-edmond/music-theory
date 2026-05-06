@@ -13,6 +13,8 @@ from requests import post
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 from .auth import create_access_token
+import jwt
+from fastapi import Header
 
 load_dotenv()
 models.Base.metadata.create_all(bind=engine)
@@ -21,6 +23,7 @@ client_id = os.getenv("SPOTIFY")
 client_secret = os.getenv("SPOTIFY_SECRET")
 genius_token = os.getenv("GENIUS_TOKEN")
 youtubeKey = os.getenv("YOUTUBE_KEY")
+sig_key = os.getenv("SIG_KEY")
     
     
 symbols = ['@',',','.','#','$','%']
@@ -213,10 +216,7 @@ def youtubeSearch(artist: str, song : str):
 
 
 
-@app.put('/updateUser/{username}/{password}/{email}')
-def updateUser(user: str, db = Depends(get_db)):
-    db.query()
-    
+
 
 #Spotify post request to search
 @app.get('/artists/search')
@@ -240,4 +240,57 @@ def getArtist(q : str):
     
     return final
     
+    
+#function to 
+@app.put('/profile/avatar')
+def updateAvatar(user : schemas.UpdateUser, authorization : str | None = Header(default=None), db : Session = Depends(get_db)):
+    #If authorization isn't given
+    if authorization is None:
+        raise HTTPException(status_code=401, detail="Missing authorization header")
+    #If authorization doesn't have bearer
+    if not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Invalid authorization header")
+    #remove Bearer
+    token = authorization.removeprefix("Bearer ")
+    
+    try:
+        decoded = jwt.decode(token, sig_key, algorithms=["HS256"])
+    except jwt.PyJWTError:
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
+    
+    
+
+    username = decoded.get("sub")
+    
+    if not username:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    
+    #Query db 
+    existing = db.query(models.User).filter(models.User.username == username).first()
+    
+    if not existing:
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid or expired token"
+        )
+    
+    existing.artist_avatar = user.artist_avatar
+    existing.artist_name = user.artist_name
+    
+    
+    db.commit()
+    db.refresh(existing)
+    return {"message": "success!"}
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
     

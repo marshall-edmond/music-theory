@@ -12,6 +12,9 @@ class User(Base):
     username = Column(String, unique=True, index=True)
     hashed_password = Column(String)
     email = Column(String, unique=True, index=True)
+    artist_avatar = Column(String)
+    artist_name = Column(String, nullable=True)
+    
 
 
 class Artist(Base):

@@ -24,5 +24,10 @@ class SongSearch(BaseModel):
     query: str
 
 class MetaData(BaseModel):
-    id : str   
+    id : str  
+    
+class UpdateUser(BaseModel):
+    artist_name : str
+    artist_avatar : str
+    
     
