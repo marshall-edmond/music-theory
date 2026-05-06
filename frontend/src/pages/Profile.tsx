@@ -25,6 +25,8 @@ export default function Profile(){
     const [search, setSearch] = useState<string>('');
     //
     const dropdownRef = useRef<HTMLDivElement | null>(null);
+    const [selectedAvatarUrl, setAvatarUrl] = useState<string>('');
+    const [selectedArtistName, setArtistName] = useState<string>(''); 
 
     useEffect(() => {
         //If the ref is outside of the attached dropdown close the dropdown
@@ -54,6 +56,8 @@ export default function Profile(){
         nav('/');
         
     }
+
+
 
     // Keep the active debounce timer across rerenders so it can be cancelled.
     const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -118,6 +122,15 @@ export default function Profile(){
             return decodedPayload.sub
         }
     }
+
+    async function updateAvatar (){
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/profile/avatar`, {method : "PUT", headers : {"Content-Type" : "application/json", Authorization: `Bearer ${token}`}, body: JSON.stringify({artist_avatar: selectedAvatarUrl, artist_name : selectedArtistName})});
+        const data = await response.json();
+
+
+    }
+
+    
 
     return (
         <>
