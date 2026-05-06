@@ -122,12 +122,18 @@ export default function Profile(){
             return decodedPayload.sub
         }
     }
-
+    //Function to call backend to store artist avatar in backend
     async function updateAvatar (){
         const response = await fetch(`${import.meta.env.VITE_API_URL}/profile/avatar`, {method : "PUT", headers : {"Content-Type" : "application/json", Authorization: `Bearer ${token}`}, body: JSON.stringify({artist_avatar: selectedAvatarUrl, artist_name : selectedArtistName})});
         const data = await response.json();
+    }
 
+    //Setter function for artistavatar
+    function setAvatar(artist : ArtistImage){
+        if (!artist.avatar_url) return;
 
+        setAvatarUrl(artist.avatar_url);
+        setArtistName(artist.name);
     }
 
     
@@ -167,6 +173,7 @@ export default function Profile(){
                                                 <button
                                                 className={styles.artistOption}
                                                 key={artist.avatar_url ?? artist.name}
+                                                onClick={() => { setAvatar(artist)}}
                                                 >
                                                     {artist.avatar_url && (
                                                         <img
@@ -179,6 +186,15 @@ export default function Profile(){
                                             ))}
                                         </div>
                                     )}
+
+                                    <button 
+                                    className={styles.submit}
+                                    onClick={updateAvatar}
+                                    disabled={!selectedAvatarUrl || !selectedArtistName}
+                                    type="button"
+                                    >
+                                    Update Image
+                                    </button>
                                 </div>
 
                             </div>
