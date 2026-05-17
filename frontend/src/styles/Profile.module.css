@@ -125,6 +125,7 @@
     border-radius: 50%;
 }
 
+
 .username{
     margin-top: 10px;
     color: white;
@@ -246,3 +247,4 @@
         grid-template-columns: repeat(2, 72px)
     }
 }
+

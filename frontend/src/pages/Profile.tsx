@@ -28,6 +28,9 @@ export default function Profile(){
     const [selectedAvatarUrl, setAvatarUrl] = useState<string>('');
     const [selectedArtistName, setArtistName] = useState<string>(''); 
 
+    //User profile state variables
+    const [profilePic, setProfilePic] = useState<string | null>(null);
+
     useEffect(() => {
         //If the ref is outside of the attached dropdown close the dropdown
         function handleClickOutside(e : MouseEvent) {
@@ -45,10 +48,38 @@ export default function Profile(){
                     handleClickOutside);
                 };
             }, []);
-
+    
 
     const nav = useNavigate()
     const { logout, token} = useAuth();
+
+     
+    //effect hook to get user data
+    useEffect(() => {
+        if (!token) return;
+
+        getMe();
+    }, [token]);
+
+    
+    //function to get and set user data
+    async function getMe(){
+        if (!token) return;
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/profile/me`, {headers : {Accept : "application/json", Authorization : `Bearer ${token}`}})
+
+        const data = await response.json();
+
+        if (!response.ok){
+            console.error(data.detail || "Failed to load profile")
+            return;
+        }
+
+        setUsername(data.username);
+        setEmail(data.email);
+        setProfilePic(data.artist_avatar);
+    }
+
+
 
 
     const callLogout = () => {
@@ -123,9 +154,19 @@ export default function Profile(){
         }
     }
     //Function to call backend to store artist avatar in backend
+
     async function updateAvatar (){
+        if (!token) return;
+
         const response = await fetch(`${import.meta.env.VITE_API_URL}/profile/avatar`, {method : "PUT", headers : {"Content-Type" : "application/json", Authorization: `Bearer ${token}`}, body: JSON.stringify({artist_avatar: selectedAvatarUrl, artist_name : selectedArtistName})});
         const data = await response.json();
+
+        if (!response.ok){
+            console.error(data.detail || "Update failed")
+            return;
+        }
+
+        await getMe();
     }
 
     //Setter function for artistavatar
@@ -153,7 +194,12 @@ export default function Profile(){
                     {/*Display user profile picture and username*/}
                     <div className={styles.userPage}>
                         <div className={styles.profileHeader} ref={dropdownRef}>
-                            <div className={styles.circle} onClick={() => setOpen(true)}/>
+                            <div className={styles.circle} onClick={() => setOpen(true)}>
+                                {profilePic && (
+                                    <img src={profilePic} alt='Artist Avatar' className={styles.circle}/>
+                                )}
+                            </div>
+
                             <div className={styles.dropdown}>
                                 <div className={`${styles.dropdownContainer} ${isOpen ? styles.open : ""}`}>   
                                     <div className={styles.dropDownWrapper}>

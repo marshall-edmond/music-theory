@@ -7,6 +7,8 @@ type AuthContextType = {
     isLoggedIn: boolean;
     login: (newToken: string) => void;
     logout: () => void;
+    artistAvatar : string | null;
+    setArtistAvatar : (url: string | null) => void;
 }
 //Create context set as null
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -28,12 +30,27 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         localStorage.removeItem("access_token")
         setToken(null)
     } 
+
+
+    const [artistAvatar, setArtistAvatarState] = useState<string | null>(localStorage.getItem("artistAvatar"));
+    
+    function setArtistAvatar(url: string | null){
+        if (url) {
+            localStorage.setItem("artistAvatar", url);
+
+        } else {
+            localStorage.removeItem("artistAvatar");
+        }
+        setArtistAvatarState(url)
+    }
     //pass data to provider function
     const value = {
         token, 
         isLoggedIn: Boolean(token),
         login,
         logout,
+        artistAvatar,
+        setArtistAvatar,
     }
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

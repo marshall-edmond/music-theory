@@ -2,6 +2,10 @@ from passlib.context import CryptContext
 import jwt
 import os
 import datetime
+from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
 
 pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")

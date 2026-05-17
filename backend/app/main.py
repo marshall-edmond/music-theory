@@ -283,11 +283,34 @@ def updateAvatar(user : schemas.UpdateUser, authorization : str | None = Header(
     db.refresh(existing)
     return {"message": "success!"}
     
+     
+    
+#Get user information to display on profile 
+@app.get('/profile/me')  
+def getProfile(authorization: str | None = Header(default=None), db : Session = Depends(get_db)):
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Bad or expired token")
+    #Get token from header
+    token = authorization.removeprefix("Bearer ")
+    
+    #decode payload
+    try:
+        decoded = jwt.decode(token, sig_key, algorithms="HS256")
+    except jwt.PyJWTError:
+        raise HTTPException(status_code=401, detail="Bad or expired token")
+        
+    username = decoded.get("sub")
+        
+    #Query user for information
+    user = db.query(models.User).filter(models.User.username == username).first()
+    if user:
+        return {"username": user.username, "email": user.email, "artist_avatar" : user.artist_avatar, "artist_name" : user.artist_name}
     
     
+
     
     
-    
+
     
     
 

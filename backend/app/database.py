@@ -1,18 +1,16 @@
 import os
+from pathlib import Path
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
 # 1: Connection URL
 # Format: postgresql://username:password@localhost/dbname
 SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
-
-# Debug: Print what we got
-print(f"DATABASE_URL loaded: {SQLALCHEMY_DATABASE_URL}")
 
 # Check if it's None
 if not SQLALCHEMY_DATABASE_URL:
